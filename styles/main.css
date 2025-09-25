@@ -2142,6 +2142,7 @@ main {
 .publication-list-links {
   display: flex;
   gap: var(--space-3);
+  justify-content: flex-end;
 }
 
 .publication-list-link {
