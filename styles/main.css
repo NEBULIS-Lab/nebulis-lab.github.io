@@ -871,7 +871,7 @@ main {
   padding: var(--space-6);
   box-shadow: var(--shadow-lg);
   transition: var(--transition);
-  border: none;
+  border: 1px solid var(--color-line);
   text-align: center;
   color: var(--color-fg);
   position: relative;
