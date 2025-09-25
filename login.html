@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="登录 - NEBULIS Lab" data-en="Login - NEBULIS Lab">登录 - NEBULIS Lab</title>
+    <meta name="description" content="NEBULIS Lab成员登录页面，访问内部资源和工具。">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                <a href="about.html" class="nav-link" data-zh="关于" data-en="About">关于</a>
+                <a href="people.html" class="nav-link" data-zh="人员" data-en="People">人员</a>
+                <a href="blog.html" class="nav-link" data-zh="博客" data-en="Blog">博客</a>
+                <a href="resources.html" class="nav-link" data-zh="资源" data-en="Resources">资源</a>
+                <a href="initiatives.html" class="nav-link" data-zh="项目" data-en="Initiatives">项目</a>
+                <a href="affiliates.html" class="nav-link" data-zh="合作" data-en="Partners">合作</a>
+                <a href="login.html" class="nav-link active" data-zh="登录" data-en="Login">登录</a>
+                <div class="language-switch">
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="切换菜单" data-zh="切换菜单" data-en="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="login-section">
+            <div class="container">
+                <div class="login-container">
+                    <div class="login-header">
+                        <h1 class="login-title" data-zh="成员登录" data-en="Member Login">成员登录</h1>
+                        <p class="login-subtitle" data-zh="访问NEBULIS Lab内部资源" data-en="Access NEBULIS Lab Internal Resources">访问NEBULIS Lab内部资源</p>
+                    </div>
+
+                    <div class="login-content">
+                        <div class="login-form-container">
+                            <form class="login-form" id="loginForm">
+                                <div class="form-group">
+                                    <label for="email" data-zh="邮箱地址" data-en="Email Address">邮箱地址</label>
+                                    <input type="email" id="email" name="email" required placeholder="your.email@nebulislab.org" data-zh-placeholder="your.email@nebulislab.org" data-en-placeholder="your.email@nebulislab.org">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="password" data-zh="密码" data-en="Password">密码</label>
+                                    <input type="password" id="password" name="password" required placeholder="请输入密码" data-zh-placeholder="请输入密码" data-en-placeholder="Enter password">
+                                </div>
+                                
+                                <div class="form-options">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="remember">
+                                        <span class="checkmark"></span>
+                                        <span data-zh="记住我" data-en="Remember Me">记住我</span>
+                                    </label>
+                                    <a href="#" class="forgot-password" data-zh="忘记密码？" data-en="Forgot Password?">忘记密码？</a>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-full" data-zh="登录" data-en="Login">登录</button>
+                            </form>
+                        </div>
+
+                        <div class="login-info">
+                            <h3 data-zh="登录说明" data-en="Login Instructions">登录说明</h3>
+                            <p data-zh="此登录系统目前处于开发阶段。如果您是NEBULIS Lab的成员，请联系管理员获取访问权限。" data-en="This login system is currently in development. If you are a member of NEBULIS Lab, please contact the administrator for access permissions.">此登录系统目前处于开发阶段。如果您是NEBULIS Lab的成员，请联系管理员获取访问权限。</p>
+                            
+                            <div class="contact-info">
+                                <h4 data-zh="联系方式" data-en="Contact Information">联系方式</h4>
+                                <p data-zh="邮箱: " data-en="Email: ">邮箱: <a href="mailto:admin@nebulislab.org">admin@nebulislab.org</a></p>
+                                <p data-zh="电话: +1 (555) 123-4567" data-en="Phone: +1 (555) 123-4567">电话: +1 (555) 123-4567</p>
+                            </div>
+
+                            <div class="features">
+                                <h4 data-zh="登录后可访问" data-en="Access After Login">登录后可访问</h4>
+                                <ul>
+                                    <li data-zh="内部研究资料" data-en="Internal Research Materials">内部研究资料</li>
+                                    <li data-zh="项目管理系统" data-en="Project Management System">项目管理系统</li>
+                                    <li data-zh="团队协作工具" data-en="Team Collaboration Tools">团队协作工具</li>
+                                    <li data-zh="实验数据平台" data-en="Experimental Data Platform">实验数据平台</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="login-footer">
+                        <p data-zh="还不是成员？" data-en="Not a member yet? ">还不是成员？<a href="mailto:contact@nebulislab.org" data-zh="联系我们" data-en="Contact Us">联系我们</a><span data-zh="了解加入方式" data-en=" to learn how to join">了解加入方式</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NEBULIS Lab</h4>
+                    <p data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
+                        <li><a href="people.html" data-zh="团队成员" data-en="Team Members">团队成员</a></li>
+                        <li><a href="blog.html" data-zh="博客" data-en="Blog">博客</a></li>
+                        <li><a href="resources.html" data-zh="资源" data-en="Resources">资源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
+                    <p data-zh="邮箱: contact@nebulislab.org" data-en="Email: contact@nebulislab.org">邮箱: contact@nebulislab.org</p>
+                    <p data-zh="地址: 实验室地址" data-en="Address: Lab Address">地址: 实验室地址</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="关注我们" data-en="Follow Us">关注我们</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub">GitHub</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-zh="&copy; 2024 NEBULIS Lab. 保留所有权利。" data-en="&copy; 2024 NEBULIS Lab. All rights reserved.">&copy; 2024 NEBULIS Lab. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>

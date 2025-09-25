@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="团队成员 - NEBULIS Lab" data-en="Team Members - NEBULIS Lab">团队成员 - NEBULIS Lab</title>
+    <meta name="description" content="Meet NEBULIS Lab team members including faculty, postdocs, PhD students, masters students and visiting scholars.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                <a href="about.html" class="nav-link" data-zh="关于" data-en="About">关于</a>
+                <a href="people.html" class="nav-link active" data-zh="人员" data-en="People">人员</a>
+                <a href="blog.html" class="nav-link" data-zh="博客" data-en="Blog">博客</a>
+                <a href="resources.html" class="nav-link" data-zh="资源" data-en="Resources">资源</a>
+                <a href="initiatives.html" class="nav-link" data-zh="项目" data-en="Initiatives">项目</a>
+                <a href="affiliates.html" class="nav-link" data-zh="合作" data-en="Partners">合作</a>
+                <a href="login.html" class="nav-link" data-zh="登录" data-en="Login">登录</a>
+                <div class="language-switch">
+                    <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="切换菜单" data-zh="切换菜单" data-en="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 页面标题 -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-zh="团队成员" data-en="Team Members">团队成员</h1>
+                <p class="page-subtitle" data-zh="认识我们的研究团队" data-en="Meet Our Research Team">认识我们的研究团队</p>
+            </div>
+        </section>
+
+        <!-- 筛选栏 -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="filter-group">
+                        <label for="role-filter" data-zh="角色筛选:" data-en="Role Filter:">角色筛选:</label>
+                        <select id="role-filter" class="filter-select">
+                            <option value="" data-zh="全部" data-en="All">全部</option>
+                            <option value="faculty" data-zh="教师" data-en="Faculty">教师</option>
+                            <option value="postdoc" data-zh="博士后" data-en="Postdoc">博士后</option>
+                            <option value="phd" data-zh="博士生" data-en="PhD">博士生</option>
+                            <option value="masters" data-zh="硕士生" data-en="Masters">硕士生</option>
+                            <option value="undergrad" data-zh="本科生" data-en="Undergrad">本科生</option>
+                            <option value="visiting" data-zh="访问学者" data-en="Visiting">访问学者</option>
+                            <option value="alumni" data-zh="校友" data-en="Alumni">校友</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="search-input" data-zh="搜索:" data-en="Search:">搜索:</label>
+                        <input type="text" id="search-input" placeholder="搜索姓名、研究方向或导师..." class="search-input" data-zh-placeholder="搜索姓名、研究方向或导师..." data-en-placeholder="Search name, research area or advisor...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="letter-filter" data-zh="字母索引:" data-en="Alphabet Index:">字母索引:</label>
+                        <select id="letter-filter" class="filter-select">
+                            <option value="" data-zh="全部" data-en="All">全部</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                            <option value="E">E</option>
+                            <option value="F">F</option>
+                            <option value="G">G</option>
+                            <option value="H">H</option>
+                            <option value="I">I</option>
+                            <option value="J">J</option>
+                            <option value="K">K</option>
+                            <option value="L">L</option>
+                            <option value="M">M</option>
+                            <option value="N">N</option>
+                            <option value="O">O</option>
+                            <option value="P">P</option>
+                            <option value="Q">Q</option>
+                            <option value="R">R</option>
+                            <option value="S">S</option>
+                            <option value="T">T</option>
+                            <option value="U">U</option>
+                            <option value="V">V</option>
+                            <option value="W">W</option>
+                            <option value="X">X</option>
+                            <option value="Y">Y</option>
+                            <option value="Z">Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 人员网格 -->
+        <section class="people-grid-section">
+            <div class="container">
+                <div class="people-grid" id="people-grid">
+                    <!-- 人员卡片将通过JavaScript动态加载 -->
+                </div>
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <h3 data-zh="未找到匹配的成员" data-en="No Matching Members Found">未找到匹配的成员</h3>
+                    <p data-zh="请尝试调整筛选条件或搜索关键词" data-en="Please try adjusting filter conditions or search keywords">请尝试调整筛选条件或搜索关键词</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NEBULIS Lab</h4>
+                    <p data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
+                        <li><a href="people.html" data-zh="团队成员" data-en="Team Members">团队成员</a></li>
+                        <li><a href="blog.html" data-zh="博客" data-en="Blog">博客</a></li>
+                        <li><a href="resources.html" data-zh="资源" data-en="Resources">资源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
+                    <p data-zh="邮箱: contact@nebulislab.org" data-en="Email: contact@nebulislab.org">邮箱: contact@nebulislab.org</p>
+                    <p data-zh="地址: 实验室地址" data-en="Address: Lab Address">地址: 实验室地址</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="关注我们" data-en="Follow Us">关注我们</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub" data-zh="GitHub" data-en="GitHub">GitHub</a>
+                        <a href="#" aria-label="Twitter" data-zh="Twitter" data-en="Twitter">Twitter</a>
+                        <a href="#" aria-label="LinkedIn" data-zh="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-zh="&copy; 2024 NEBULIS Lab. 保留所有权利。" data-en="&copy; 2024 NEBULIS Lab. All rights reserved.">&copy; 2024 NEBULIS Lab. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/people.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>

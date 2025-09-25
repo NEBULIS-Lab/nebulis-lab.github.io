@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="博客 - NEBULIS Lab" data-en="Blog - NEBULIS Lab">博客 - NEBULIS Lab</title>
+    <meta name="description" content="Read NEBULIS Lab's latest research updates, technical insights and academic perspectives.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                <a href="about.html" class="nav-link" data-zh="关于" data-en="About">关于</a>
+                <a href="people.html" class="nav-link" data-zh="人员" data-en="People">人员</a>
+                <a href="blog.html" class="nav-link active" data-zh="博客" data-en="Blog">博客</a>
+                <a href="resources.html" class="nav-link" data-zh="资源" data-en="Resources">资源</a>
+                <a href="initiatives.html" class="nav-link" data-zh="项目" data-en="Initiatives">项目</a>
+                <a href="affiliates.html" class="nav-link" data-zh="合作" data-en="Partners">合作</a>
+                <a href="login.html" class="nav-link" data-zh="登录" data-en="Login">登录</a>
+                <div class="language-switch">
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                </div>
+            </div>
+            <button class="nav-toggle" aria-label="切换菜单" data-zh="切换菜单" data-en="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 页面标题 -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-zh="博客" data-en="Blog">博客</h1>
+                <p class="page-subtitle" data-zh="分享我们的研究见解和技术思考" data-en="Sharing Our Research Insights and Technical Thoughts">分享我们的研究见解和技术思考</p>
+            </div>
+        </section>
+
+        <!-- 博客列表 -->
+        <section class="blog-list">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Dataset+Release" alt="Dataset Release" data-zh="数据集发布" data-en="Dataset Release">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-15" data-zh="2024年1月15日" data-en="January 15, 2024">2024年1月15日</time>
+                                <span class="blog-author">Keira Cai</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="数据集" data-en="Dataset">数据集</span>
+                                    <span class="tag" data-zh="海洋机器人" data-en="Marine Robotics">海洋机器人</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="我们的新数据集发布" data-en="Our New Dataset Release">我们的新数据集发布</h2>
+                            <p class="blog-excerpt" data-zh="介绍我们最新发布的海洋机器人仿真数据集，包含详细的使用指南和示例代码。这个数据集为强化学习研究提供了高质量的海洋环境仿真平台。" data-en="Introducing our latest marine robotics simulation dataset with detailed usage guides and sample code. This dataset provides a high-quality marine environment simulation platform for reinforcement learning research.">介绍我们最新发布的海洋机器人仿真数据集，包含详细的使用指南和示例代码。这个数据集为强化学习研究提供了高质量的海洋环境仿真平台。</p>
+                            <a href="blog/our-new-dataset.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Distributed+RL" alt="Distributed RL" data-zh="分布式强化学习" data-en="Distributed RL">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-10" data-zh="2024年1月10日" data-en="January 10, 2024">2024年1月10日</time>
+                                <span class="blog-author">Shuaijun Liu</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="强化学习" data-en="Reinforcement Learning">强化学习</span>
+                                    <span class="tag" data-zh="分布式计算" data-en="Distributed Computing">分布式计算</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="分布式强化学习实践" data-en="Distributed Reinforcement Learning Practice">分布式强化学习实践</h2>
+                            <p class="blog-excerpt" data-zh="分享我们在分布式强化学习方面的最新研究成果和实践经验。探讨如何在大规模并行环境中高效训练强化学习模型。" data-en="Sharing our latest research results and practical experience in distributed reinforcement learning. Explore how to efficiently train reinforcement learning models in large-scale parallel environments.">分享我们在分布式强化学习方面的最新研究成果和实践经验。探讨如何在大规模并行环境中高效训练强化学习模型。</p>
+                            <a href="blog/distributed-rl-practice.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Embodied+AI" alt="Embodied AI" data-zh="具身智能" data-en="Embodied AI">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-05" data-zh="2024年1月5日" data-en="January 5, 2024">2024年1月5日</time>
+                                <span class="blog-author">Alan Zhu</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="具身智能" data-en="Embodied Intelligence">具身智能</span>
+                                    <span class="tag" data-zh="机器人" data-en="Robotics">机器人</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="具身智能的未来发展" data-en="Future Development of Embodied Intelligence">具身智能的未来发展</h2>
+                            <p class="blog-excerpt" data-zh="探讨具身智能领域的发展趋势和我们的研究方向。分析当前技术挑战和未来发展方向。" data-en="Explore development trends in embodied intelligence and our research directions. Analyze current technical challenges and future development directions.">探讨具身智能领域的发展趋势和我们的研究方向。分析当前技术挑战和未来发展方向。</p>
+                            <a href="blog/embodied-ai-future.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Open+Source" alt="Open Source" data-zh="开源项目" data-en="Open Source">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2023-12-28" data-zh="2023年12月28日" data-en="December 28, 2023">2023年12月28日</time>
+                                <span class="blog-author">NEBULIS Lab</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="开源" data-en="Open Source">开源</span>
+                                    <span class="tag" data-zh="工具" data-en="Tools">工具</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="开源工具集发布" data-en="Open Source Toolkit Release">开源工具集发布</h2>
+                            <p class="blog-excerpt" data-zh="我们发布了一套完整的AI研究工具集，包括数据处理、模型训练和评估工具，帮助研究者提高工作效率。" data-en="We have released a complete AI research toolkit including data processing, model training and evaluation tools to help researchers improve their work efficiency.">我们发布了一套完整的AI研究工具集，包括数据处理、模型训练和评估工具，帮助研究者提高工作效率。</p>
+                            <a href="blog/open-source-toolkit.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Research+Update" alt="Research Update" data-zh="研究更新" data-en="Research Update">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2023-12-20" data-zh="2023年12月20日" data-en="December 20, 2023">2023年12月20日</time>
+                                <span class="blog-author">Research Team</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="研究进展" data-en="Research Progress">研究进展</span>
+                                    <span class="tag" data-zh="论文" data-en="Papers">论文</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="2023年研究总结" data-en="2023 Research Summary">2023年研究总结</h2>
+                            <p class="blog-excerpt" data-zh="回顾我们在2023年取得的重要研究成果，包括发表的论文、获得的奖项和重要的技术突破。" data-en="Reviewing the important research achievements we made in 2023, including published papers, awards received and important technological breakthroughs.">回顾我们在2023年取得的重要研究成果，包括发表的论文、获得的奖项和重要的技术突破。</p>
+                            <a href="blog/2023-research-summary.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://via.placeholder.com/400x250/0a58ca/ffffff?text=Conference" alt="Conference" data-zh="会议" data-en="Conference">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <time datetime="2023-12-15" data-zh="2023年12月15日" data-en="December 15, 2023">2023年12月15日</time>
+                                <span class="blog-author">Conference Team</span>
+                                <div class="blog-tags">
+                                    <span class="tag" data-zh="会议" data-en="Conference">会议</span>
+                                    <span class="tag" data-zh="合作" data-en="Collaboration">合作</span>
+                                </div>
+                            </div>
+                            <h2 class="blog-title" data-zh="参加NeurIPS 2023" data-en="Attending NeurIPS 2023">参加NeurIPS 2023</h2>
+                            <p class="blog-excerpt" data-zh="分享我们在NeurIPS 2023会议上的经历，包括论文展示、与同行的交流以及会议期间的收获。" data-en="Sharing our experience at NeurIPS 2023, including paper presentations, exchanges with peers and insights gained during the conference.">分享我们在NeurIPS 2023会议上的经历，包括论文展示、与同行的交流以及会议期间的收获。</p>
+                            <a href="blog/neurips-2023-experience.html" class="blog-link" data-zh="阅读全文 →" data-en="Read More →">阅读全文 →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 分页 -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled data-zh="上一页" data-en="Previous">上一页</button>
+                    <span class="pagination-info" data-zh="第 1 页，共 3 页" data-en="Page 1 of 3">第 1 页，共 3 页</span>
+                    <button class="pagination-btn" data-zh="下一页" data-en="Next">下一页</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NEBULIS Lab</h4>
+                    <p data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
+                        <li><a href="people.html" data-zh="团队成员" data-en="Team Members">团队成员</a></li>
+                        <li><a href="blog.html" data-zh="博客" data-en="Blog">博客</a></li>
+                        <li><a href="resources.html" data-zh="资源" data-en="Resources">资源</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
+                    <p data-zh="邮箱: contact@nebulislab.org" data-en="Email: contact@nebulislab.org">邮箱: contact@nebulislab.org</p>
+                    <p data-zh="地址: 实验室地址" data-en="Address: Lab Address">地址: 实验室地址</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="关注我们" data-en="Follow Us">关注我们</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub" data-zh="GitHub" data-en="GitHub">GitHub</a>
+                        <a href="#" aria-label="Twitter" data-zh="Twitter" data-en="Twitter">Twitter</a>
+                        <a href="#" aria-label="LinkedIn" data-zh="LinkedIn" data-en="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-zh="&copy; 2024 NEBULIS Lab. 保留所有权利。" data-en="&copy; 2024 NEBULIS Lab. All rights reserved.">&copy; 2024 NEBULIS Lab. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/language.js"></script>
+</body>
+</html>
