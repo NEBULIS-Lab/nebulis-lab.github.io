@@ -1286,7 +1286,7 @@ main {
 }
 
 .vision-text p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
