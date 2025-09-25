@@ -1,23 +1,23 @@
 // NEBULIS Lab People Page JavaScript
-// 人员页面的筛选和搜索功能
+// People page filtering and search functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化人员数据
+    // Initialize people data
     initPeopleData();
     
-    // 初始化筛选功能
+    // Initialize filtering functionality
     initPeopleFilter();
     
-    // 初始化搜索功能
+    // Initialize search functionality
     initPeopleSearch();
     
-    // 监听语言切换事件
+    // Listen for language change events
     document.addEventListener('languageChanged', function(event) {
         updatePeopleCardsLanguage(event.detail.lang);
     });
 });
 
-// 人员数据（示例数据，实际项目中应该从API获取）
+// People data (sample data, in real project should be fetched from API)
 const peopleData = [
     {
         name: "name",
@@ -111,7 +111,7 @@ const peopleData = [
     }
 ];
 
-// 角色映射
+// Role mapping
 const roleMapping = {
     'faculty': '教师',
     'postdoc': '博士后',
@@ -122,32 +122,32 @@ const roleMapping = {
     'alumni': '校友'
 };
 
-// 初始化人员数据
+// Initialize people data
 function initPeopleData() {
     const peopleGrid = document.getElementById('people-grid');
     if (!peopleGrid) return;
     
-    // 清空现有内容
+    // Clear existing content
     peopleGrid.innerHTML = '';
     
-    // 按状态和姓名排序
+    // Sort by status and name
     const sortedPeople = peopleData.sort((a, b) => {
-        // 当前成员优先
+        // Current members first
         if (a.status !== b.status) {
             return a.status === 'current' ? -1 : 1;
         }
-        // 然后按姓名排序
+        // Then sort by name
         return a.name.localeCompare(b.name);
     });
     
-    // 渲染人员卡片
+    // Render people cards
     sortedPeople.forEach(person => {
         const card = createPersonCard(person);
         peopleGrid.appendChild(card);
     });
 }
 
-// 获取角色英文翻译
+// Get role English translation
 function getRoleEnText(role) {
     const roleEnMapping = {
         'faculty': 'Faculty',
@@ -161,7 +161,7 @@ function getRoleEnText(role) {
     return roleEnMapping[role] || role;
 }
 
-// 创建人员卡片
+// Create person card
 function createPersonCard(person) {
     const card = document.createElement('div');
     card.className = 'person-card';
@@ -175,7 +175,7 @@ function createPersonCard(person) {
     
     card.innerHTML = `
         <img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">
-        <h3 class="person-name">${person.name}</h3>
+        <h3 class="person-name" data-zh="名字" data-en="name">name</h3>
         <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
         <div class="person-areas">${areasText}</div>
         <div class="person-links">
@@ -189,11 +189,11 @@ function createPersonCard(person) {
     return card;
 }
 
-// 更新人员卡片的语言
+// Update people cards language
 function updatePeopleCardsLanguage(lang) {
     const personCards = document.querySelectorAll('.person-card');
     personCards.forEach(card => {
-        // 更新角色文本
+        // Update role text
         const roleElement = card.querySelector('.person-role');
         if (roleElement) {
             const zhText = roleElement.getAttribute('data-zh');
@@ -205,7 +205,7 @@ function updatePeopleCardsLanguage(lang) {
             }
         }
         
-        // 更新链接文本
+        // Update link text
         const links = card.querySelectorAll('.person-link[data-zh][data-en]');
         links.forEach(link => {
             const zhText = link.getAttribute('data-zh');
@@ -219,21 +219,21 @@ function updatePeopleCardsLanguage(lang) {
     });
 }
 
-// 初始化人员筛选
+// Initialize people filtering
 function initPeopleFilter() {
     const roleFilter = document.getElementById('role-filter');
     const letterFilter = document.getElementById('letter-filter');
     
     if (!roleFilter || !letterFilter) return;
     
-    // 角色筛选
+    // Role filtering
     roleFilter.addEventListener('change', applyFilters);
     
-    // 字母筛选
+    // Letter filtering
     letterFilter.addEventListener('change', applyFilters);
 }
 
-// 初始化人员搜索
+// Initialize people search
 function initPeopleSearch() {
     const searchInput = document.getElementById('search-input');
     if (!searchInput) return;
@@ -249,7 +249,7 @@ function initPeopleSearch() {
     });
 }
 
-// 应用筛选
+// Apply filters
 function applyFilters() {
     const roleFilter = document.getElementById('role-filter');
     const letterFilter = document.getElementById('letter-filter');
@@ -274,17 +274,17 @@ function applyFilters() {
         
         let show = true;
         
-        // 角色筛选
+        // Role filtering
         if (selectedRole && cardRole !== selectedRole) {
             show = false;
         }
         
-        // 字母筛选
+        // Letter filtering
         if (selectedLetter && !cardName.startsWith(selectedLetter.toLowerCase())) {
             show = false;
         }
         
-        // 搜索筛选
+        // Search filtering
         if (searchQuery) {
             const searchText = `${cardName} ${cardAreas} ${cardAdvisors}`;
             if (!searchText.includes(searchQuery)) {
@@ -300,7 +300,7 @@ function applyFilters() {
         }
     });
     
-    // 显示/隐藏空状态
+    // Show/hide empty state
     if (emptyState) {
         if (visibleCount === 0) {
             emptyState.style.display = 'block';
@@ -310,7 +310,7 @@ function applyFilters() {
     }
 }
 
-// 重置筛选
+// Reset filters
 function resetFilters() {
     const roleFilter = document.getElementById('role-filter');
     const letterFilter = document.getElementById('letter-filter');
@@ -323,7 +323,7 @@ function resetFilters() {
     applyFilters();
 }
 
-// 导出函数
+// Export functions
 window.PeoplePage = {
     initPeopleData,
     applyFilters,

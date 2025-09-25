@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-zh="资源 - NEBULIS Lab" data-en="Resources - NEBULIS Lab">资源 - NEBULIS Lab</title>
+    <title data-en="Resources - NEBULIS Lab" data-zh="资源 - NEBULIS Lab">Resources - NEBULIS Lab</title>
     <meta name="description" content="Access NEBULIS Lab's public materials, code repositories, datasets, tutorials and course resources.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
@@ -12,29 +12,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" class="logo">
                     <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
+                    <span class="lab-name">NEBULIS Lab</span>
                 </a>
             </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
-                <a href="about.html" class="nav-link" data-zh="关于" data-en="About">关于</a>
-                <a href="people.html" class="nav-link" data-zh="人员" data-en="People">人员</a>
-                <a href="blog.html" class="nav-link" data-zh="博客" data-en="Blog">博客</a>
-                <a href="resources.html" class="nav-link active" data-zh="资源" data-en="Resources">资源</a>
-                <a href="initiatives.html" class="nav-link" data-zh="项目" data-en="Initiatives">项目</a>
-                <a href="affiliates.html" class="nav-link" data-zh="合作" data-en="Partners">合作</a>
-                <a href="login.html" class="nav-link" data-zh="登录" data-en="Login">登录</a>
-                <div class="language-switch">
-                    <button class="lang-btn" data-lang="zh">中文</button>
-                    <button class="lang-btn active" data-lang="en">EN</button>
+            <div class="nav-right">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link" data-en="Home" data-zh="首页">Home</a>
+                    <a href="about.html" class="nav-link" data-en="About" data-zh="关于">About</a>
+                    <a href="people.html" class="nav-link" data-en="People" data-zh="人员">People</a>
+                    <a href="blog.html" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                    <a href="resources.html" class="nav-link active" data-en="Resources" data-zh="资源">Resources</a>
+                    <a href="initiatives.html" class="nav-link" data-en="Initiatives" data-zh="项目">Initiatives</a>
+                    <a href="affiliates.html" class="nav-link" data-en="Partners" data-zh="合作">Partners</a>
+                    <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a>
+                </div>
+                <div class="nav-actions">
+                    <div class="language-switch">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="zh">中文</button>
+                    </div>
                 </div>
             </div>
-            <button class="nav-toggle" aria-label="切换菜单" data-zh="切换菜单" data-en="Toggle Menu">
+            <button class="nav-toggle" aria-label="Toggle Menu" data-en="Toggle Menu" data-zh="切换菜单">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -42,153 +47,145 @@
         </div>
     </nav>
 
-    <!-- 主要内容 -->
+    <!-- Main Content -->
     <main>
-        <!-- 页面标题 -->
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title" data-zh="资源" data-en="Resources">资源</h1>
-                <p class="page-subtitle" data-zh="公开资料、代码库、数据集和教程" data-en="Public Materials, Code Repositories, Datasets and Tutorials">公开资料、代码库、数据集和教程</p>
-            </div>
-        </section>
-
-        <!-- 资源分类 -->
+        <!-- Resource Categories -->
         <section class="resources-section">
             <div class="container">
-                <!-- 数据集 -->
+                <!-- Datasets -->
                 <div class="resource-category">
-                    <h2 class="category-title" data-zh="数据集" data-en="Datasets">数据集</h2>
+                    <h2 class="category-title" data-en="Datasets" data-zh="数据集">Datasets</h2>
                     <div class="resources-grid">
                         <div class="resource-card">
-                            <div class="resource-icon">📊</div>
+                            <div class="resource-icon">🗂️</div>
                             <h3>MORA-Env</h3>
-                            <p data-zh="海洋机器人强化学习仿真环境，包含多种海洋场景和任务" data-en="Marine robotics reinforcement learning simulation environment with various marine scenarios and tasks">海洋机器人强化学习仿真环境，包含多种海洋场景和任务</p>
+                            <p data-en="Marine robotics reinforcement learning simulation environment with various marine scenarios and tasks" data-zh="海洋机器人强化学习仿真环境，包含多种海洋场景和任务">Marine robotics reinforcement learning simulation environment with various marine scenarios and tasks</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="数据集" data-en="Dataset">数据集</span>
-                                <span class="resource-audience" data-zh="研究者" data-en="Researchers">研究者</span>
+                                <span class="resource-type" data-en="Dataset" data-zh="数据集">Dataset</span>
+                                <span class="resource-audience" data-en="Researchers" data-zh="研究者">Researchers</span>
                             </div>
-                            <a href="https://github.com/nebulislab/mora-env" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="访问数据集 →" data-en="Access Dataset →">访问数据集 →</a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon">🤖</div>
-                            <h3>Embodied-AI-Dataset</h3>
-                            <p data-zh="具身智能多模态数据集，包含视觉、触觉和动作数据" data-en="Embodied intelligence multimodal dataset containing visual, tactile and action data">具身智能多模态数据集，包含视觉、触觉和动作数据</p>
-                            <div class="resource-meta">
-                                <span class="resource-type" data-zh="数据集" data-en="Dataset">数据集</span>
-                                <span class="resource-audience" data-zh="研究者" data-en="Researchers">研究者</span>
-                            </div>
-                            <a href="https://github.com/nebulislab/embodied-ai-dataset" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="访问数据集 →" data-en="Access Dataset →">访问数据集 →</a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon">🌊</div>
-                            <h3>Ocean-Simulation-Data</h3>
-                            <p data-zh="海洋环境仿真数据，用于机器人导航和任务规划" data-en="Marine environment simulation data for robot navigation and task planning">海洋环境仿真数据，用于机器人导航和任务规划</p>
-                            <div class="resource-meta">
-                                <span class="resource-type" data-zh="数据集" data-en="Dataset">数据集</span>
-                                <span class="resource-audience" data-zh="研究者" data-en="Researchers">研究者</span>
-                            </div>
-                            <a href="https://github.com/nebulislab/ocean-simulation-data" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="访问数据集 →" data-en="Access Dataset →">访问数据集 →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 代码库 -->
-                <div class="resource-category">
-                    <h2 class="category-title" data-zh="代码库" data-en="Code Repositories">代码库</h2>
-                    <div class="resources-grid">
-                        <div class="resource-card">
-                            <div class="resource-icon">⚡</div>
-                            <h3>Distributed-RL-Framework</h3>
-                            <p data-zh="分布式强化学习训练框架，支持大规模并行计算" data-en="Distributed reinforcement learning training framework supporting large-scale parallel computing">分布式强化学习训练框架，支持大规模并行计算</p>
-                            <div class="resource-meta">
-                                <span class="resource-type" data-zh="代码库" data-en="Code Repository">代码库</span>
-                                <span class="resource-audience" data-zh="开发者" data-en="Developers">开发者</span>
-                            </div>
-                            <a href="https://github.com/nebulislab/distributed-rl" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="查看代码 →" data-en="View Code →">查看代码 →</a>
+                            <a href="https://github.com/nebulislab/mora-env" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="Access Dataset →" data-zh="访问数据集 →">Access Dataset →</a>
                         </div>
                         <div class="resource-card">
                             <div class="resource-icon">🧠</div>
+                            <h3>Embodied-AI-Dataset</h3>
+                            <p data-en="Embodied intelligence multimodal dataset containing visual, tactile and action data" data-zh="具身智能多模态数据集，包含视觉、触觉和动作数据">Embodied intelligence multimodal dataset containing visual, tactile and action data</p>
+                            <div class="resource-meta">
+                                <span class="resource-type" data-en="Dataset" data-zh="数据集">Dataset</span>
+                                <span class="resource-audience" data-en="Researchers" data-zh="研究者">Researchers</span>
+                            </div>
+                            <a href="https://github.com/nebulislab/embodied-ai-dataset" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="Access Dataset →" data-zh="访问数据集 →">Access Dataset →</a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">🌐</div>
+                            <h3>Ocean-Simulation-Data</h3>
+                            <p data-en="Marine environment simulation data for robot navigation and task planning" data-zh="海洋环境仿真数据，用于机器人导航和任务规划">Marine environment simulation data for robot navigation and task planning</p>
+                            <div class="resource-meta">
+                                <span class="resource-type" data-en="Dataset" data-zh="数据集">Dataset</span>
+                                <span class="resource-audience" data-en="Researchers" data-zh="研究者">Researchers</span>
+                            </div>
+                            <a href="https://github.com/nebulislab/ocean-simulation-data" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="Access Dataset →" data-zh="访问数据集 →">Access Dataset →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Repositories -->
+                <div class="resource-category">
+                    <h2 class="category-title" data-en="Code Repositories" data-zh="代码库">Code Repositories</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">⚙️</div>
+                            <h3>Distributed-RL-Framework</h3>
+                            <p data-en="Distributed reinforcement learning training framework supporting large-scale parallel computing" data-zh="分布式强化学习训练框架，支持大规模并行计算">Distributed reinforcement learning training framework supporting large-scale parallel computing</p>
+                            <div class="resource-meta">
+                                <span class="resource-type" data-en="Code Repository" data-zh="代码库">Code Repository</span>
+                                <span class="resource-audience" data-en="Developers" data-zh="开发者">Developers</span>
+                            </div>
+                            <a href="https://github.com/nebulislab/distributed-rl" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="View Code →" data-zh="查看代码 →">View Code →</a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">👥</div>
                             <h3>Multi-Agent-Toolkit</h3>
-                            <p data-zh="多智能体系统开发工具包，包含常用算法和评估工具" data-en="Multi-agent system development toolkit with common algorithms and evaluation tools">多智能体系统开发工具包，包含常用算法和评估工具</p>
+                            <p data-en="Multi-agent system development toolkit with common algorithms and evaluation tools" data-zh="多智能体系统开发工具包，包含常用算法和评估工具">Multi-agent system development toolkit with common algorithms and evaluation tools</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="代码库" data-en="Code Repository">代码库</span>
-                                <span class="resource-audience" data-zh="开发者" data-en="Developers">开发者</span>
+                                <span class="resource-type" data-en="Code Repository" data-zh="代码库">Code Repository</span>
+                                <span class="resource-audience" data-en="Developers" data-zh="开发者">Developers</span>
                             </div>
-                            <a href="https://github.com/nebulislab/multi-agent-toolkit" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="查看代码 →" data-en="View Code →">查看代码 →</a>
+                            <a href="https://github.com/nebulislab/multi-agent-toolkit" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="View Code →" data-zh="查看代码 →">View Code →</a>
                         </div>
                         <div class="resource-card">
-                            <div class="resource-icon">🔬</div>
+                            <div class="resource-icon">🔍</div>
                             <h3>Explainable-AI-Tools</h3>
-                            <p data-zh="可解释AI工具集，提供模型解释和可视化功能" data-en="Explainable AI toolkit providing model interpretation and visualization features">可解释AI工具集，提供模型解释和可视化功能</p>
+                            <p data-en="Explainable AI toolkit providing model interpretation and visualization features" data-zh="可解释AI工具集，提供模型解释和可视化功能">Explainable AI toolkit providing model interpretation and visualization features</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="代码库" data-en="Code Repository">代码库</span>
-                                <span class="resource-audience" data-zh="研究者" data-en="Researchers">研究者</span>
+                                <span class="resource-type" data-en="Code Repository" data-zh="代码库">Code Repository</span>
+                                <span class="resource-audience" data-en="Researchers" data-zh="研究者">Researchers</span>
                             </div>
-                            <a href="https://github.com/nebulislab/explainable-ai-tools" class="resource-link" target="_blank" rel="noopener noreferrer" data-zh="查看代码 →" data-en="View Code →">查看代码 →</a>
+                            <a href="https://github.com/nebulislab/explainable-ai-tools" class="resource-link" target="_blank" rel="noopener noreferrer" data-en="View Code →" data-zh="查看代码 →">View Code →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 教程 -->
+                <!-- Tutorials -->
                 <div class="resource-category">
-                    <h2 class="category-title" data-zh="教程" data-en="Tutorials">教程</h2>
+                    <h2 class="category-title" data-en="Tutorials" data-zh="教程">Tutorials</h2>
                     <div class="resources-grid">
                         <div class="resource-card">
-                            <div class="resource-icon">📚</div>
-                            <h3 data-zh="强化学习入门教程" data-en="Reinforcement Learning Tutorial">强化学习入门教程</h3>
-                            <p data-zh="从基础概念到高级算法的完整学习路径" data-en="Complete learning path from basic concepts to advanced algorithms">从基础概念到高级算法的完整学习路径</p>
+                            <div class="resource-icon">📖</div>
+                            <h3 data-en="Reinforcement Learning Tutorial" data-zh="强化学习入门教程">Reinforcement Learning Tutorial</h3>
+                            <p data-en="Complete learning path from basic concepts to advanced algorithms" data-zh="从基础概念到高级算法的完整学习路径">Complete learning path from basic concepts to advanced algorithms</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="教程" data-en="Tutorial">教程</span>
-                                <span class="resource-audience" data-zh="初学者" data-en="Beginners">初学者</span>
+                                <span class="resource-type" data-en="Tutorial" data-zh="教程">Tutorial</span>
+                                <span class="resource-audience" data-en="Beginners" data-zh="初学者">Beginners</span>
                             </div>
-                            <a href="tutorials/rl-basics.html" class="resource-link" data-zh="开始学习 →" data-en="Start Learning →">开始学习 →</a>
+                            <a href="tutorials/rl-basics.html" class="resource-link" data-en="Start Learning →" data-zh="开始学习 →">Start Learning →</a>
                         </div>
-                        <div class="resource-card">
-                            <div class="resource-icon">🎓</div>
-                            <h3 data-zh="具身智能实践指南" data-en="Embodied Intelligence Practice Guide">具身智能实践指南</h3>
-                            <p data-zh="机器人感知、决策和控制的实践教程" data-en="Practical tutorial on robot perception, decision-making and control">机器人感知、决策和控制的实践教程</p>
-                            <div class="resource-meta">
-                                <span class="resource-type" data-zh="教程" data-en="Tutorial">教程</span>
-                                <span class="resource-audience" data-zh="中级" data-en="Intermediate">中级</span>
-                            </div>
-                            <a href="tutorials/embodied-ai.html" class="resource-link" data-zh="开始学习 →" data-en="Start Learning →">开始学习 →</a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon">🛠️</div>
-                            <h3 data-zh="分布式训练最佳实践" data-en="Distributed Training Best Practices">分布式训练最佳实践</h3>
-                            <p data-zh="大规模机器学习模型训练的技术指南" data-en="Technical guide for large-scale machine learning model training">大规模机器学习模型训练的技术指南</p>
-                            <div class="resource-meta">
-                                <span class="resource-type" data-zh="教程" data-en="Tutorial">教程</span>
-                                <span class="resource-audience" data-zh="高级" data-en="Advanced">高级</span>
-                            </div>
-                            <a href="tutorials/distributed-training.html" class="resource-link" data-zh="开始学习 →" data-en="Start Learning →">开始学习 →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 课程 -->
-                <div class="resource-category">
-                    <h2 class="category-title" data-zh="课程" data-en="Courses">课程</h2>
-                    <div class="resources-grid">
                         <div class="resource-card">
                             <div class="resource-icon">🎯</div>
-                            <h3 data-zh="AI系统设计课程" data-en="AI System Design Course">AI系统设计课程</h3>
-                            <p data-zh="从理论到实践的AI系统开发完整课程" data-en="Complete course on AI system development from theory to practice">从理论到实践的AI系统开发完整课程</p>
+                            <h3 data-en="Embodied Intelligence Practice Guide" data-zh="具身智能实践指南">Embodied Intelligence Practice Guide</h3>
+                            <p data-en="Practical tutorial on robot perception, decision-making and control" data-zh="机器人感知、决策和控制的实践教程">Practical tutorial on robot perception, decision-making and control</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="课程" data-en="Course">课程</span>
-                                <span class="resource-audience" data-zh="学生" data-en="Students">学生</span>
+                                <span class="resource-type" data-en="Tutorial" data-zh="教程">Tutorial</span>
+                                <span class="resource-audience" data-en="Intermediate" data-zh="中级">Intermediate</span>
                             </div>
-                            <a href="courses/ai-system-design.html" class="resource-link" data-zh="查看课程 →" data-en="View Course →">查看课程 →</a>
+                            <a href="tutorials/embodied-ai.html" class="resource-link" data-en="Start Learning →" data-zh="开始学习 →">Start Learning →</a>
                         </div>
                         <div class="resource-card">
-                            <div class="resource-icon">🔬</div>
-                            <h3 data-zh="研究方法和论文写作" data-en="Research Methods and Paper Writing">研究方法和论文写作</h3>
-                            <p data-zh="学术研究方法和高质量论文写作技巧" data-en="Academic research methods and high-quality paper writing skills">学术研究方法和高质量论文写作技巧</p>
+                            <div class="resource-icon">⚡</div>
+                            <h3 data-en="Distributed Training Best Practices" data-zh="分布式训练最佳实践">Distributed Training Best Practices</h3>
+                            <p data-en="Technical guide for large-scale machine learning model training" data-zh="大规模机器学习模型训练的技术指南">Technical guide for large-scale machine learning model training</p>
                             <div class="resource-meta">
-                                <span class="resource-type" data-zh="课程" data-en="Course">课程</span>
-                                <span class="resource-audience" data-zh="研究生" data-en="Graduate Students">研究生</span>
+                                <span class="resource-type" data-en="Tutorial" data-zh="教程">Tutorial</span>
+                                <span class="resource-audience" data-en="Advanced" data-zh="高级">Advanced</span>
                             </div>
-                            <a href="courses/research-methods.html" class="resource-link" data-zh="查看课程 →" data-en="View Course →">查看课程 →</a>
+                            <a href="tutorials/distributed-training.html" class="resource-link" data-en="Start Learning →" data-zh="开始学习 →">Start Learning →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses -->
+                <div class="resource-category">
+                    <h2 class="category-title" data-en="Courses" data-zh="课程">Courses</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">💻</div>
+                            <h3 data-en="AI System Design Course" data-zh="AI系统设计课程">AI System Design Course</h3>
+                            <p data-en="Complete course on AI system development from theory to practice" data-zh="从理论到实践的AI系统开发完整课程">Complete course on AI system development from theory to practice</p>
+                            <div class="resource-meta">
+                                <span class="resource-type" data-en="Course" data-zh="课程">Course</span>
+                                <span class="resource-audience" data-en="Students" data-zh="学生">Students</span>
+                            </div>
+                            <a href="courses/ai-system-design.html" class="resource-link" data-en="View Course →" data-zh="查看课程 →">View Course →</a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon">📝</div>
+                            <h3 data-en="Research Methods and Paper Writing" data-zh="研究方法和论文写作">Research Methods and Paper Writing</h3>
+                            <p data-en="Academic research methods and high-quality paper writing skills" data-zh="学术研究方法和高质量论文写作技巧">Academic research methods and high-quality paper writing skills</p>
+                            <div class="resource-meta">
+                                <span class="resource-type" data-en="Course" data-zh="课程">Course</span>
+                                <span class="resource-audience" data-en="Graduate Students" data-zh="研究生">Graduate Students</span>
+                            </div>
+                            <a href="courses/research-methods.html" class="resource-link" data-en="View Course →" data-zh="查看课程 →">View Course →</a>
                         </div>
                     </div>
                 </div>
@@ -196,39 +193,28 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>NEBULIS Lab</h4>
-                    <p data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
-                    <ul>
-                        <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
-                        <li><a href="people.html" data-zh="团队成员" data-en="Team Members">团队成员</a></li>
-                        <li><a href="blog.html" data-zh="博客" data-en="Blog">博客</a></li>
-                        <li><a href="resources.html" data-zh="资源" data-en="Resources">资源</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
-                    <p data-zh="邮箱: contact@nebulislab.org" data-en="Email: contact@nebulislab.org">邮箱: contact@nebulislab.org</p>
-                    <p data-zh="地址: 实验室地址" data-en="Address: Lab Address">地址: 实验室地址</p>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="关注我们" data-en="Follow Us">关注我们</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="GitHub">GitHub</a>
-                        <a href="#" aria-label="Twitter">Twitter</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <div class="footer-left">
+                    <div class="footer-contact">
+                        <p data-en="Address: No. 1 Duxue Road, Nansha District, Guangzhou, Guangdong, China" data-zh="地址: 中国广东省广州市南沙区笃学路1号">Address: No. 1 Duxue Road, Nansha District, Guangzhou, Guangdong, China</p>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-zh="&copy; NEBULIS Lab. 保留所有权利。" data-en="&copy; NEBULIS Lab. All rights reserved.">&copy; <span id='current-year'></span> NEBULIS Lab. 保留所有权利。</p>
+                <div class="footer-center">
+                    <div class="footer-copyright">
+                        <span data-en="&copy; NEBULIS Lab. All rights reserved." data-zh="&copy; NEBULIS Lab. 保留所有权利。">&copy; <span id='current-year'></span> NEBULIS Lab. All rights reserved.</span>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/NEBULIS-Lab" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span style="font-size: 1.1em;">GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

@@ -1,19 +1,19 @@
 // NEBULIS Lab Language Switch JavaScript
-// 中英文双语切换功能
+// Bilingual Chinese-English language switching functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化语言切换
+    // Initialize language switching
     initLanguageSwitch();
     
-    // 从localStorage读取保存的语言设置，默认为英文
+    // Read saved language setting from localStorage, default to English
     const savedLang = localStorage.getItem('nebulis-lang') || 'en';
     setLanguage(savedLang);
     
-    // 确保年份在语言设置后更新
+    // Ensure year is updated after language setting
     setTimeout(updateCurrentYear, 100);
 });
 
-// 初始化语言切换功能
+// Initialize language switching functionality
 function initLanguageSwitch() {
     const langButtons = document.querySelectorAll('.lang-btn');
     
@@ -22,15 +22,15 @@ function initLanguageSwitch() {
             const lang = this.getAttribute('data-lang');
             setLanguage(lang);
             
-            // 保存语言设置到localStorage
+            // Save language setting to localStorage
             localStorage.setItem('nebulis-lang', lang);
         });
     });
 }
 
-// 设置语言
+// Set language
 function setLanguage(lang) {
-    // 更新语言按钮状态
+    // Update language button states
     const langButtons = document.querySelectorAll('.lang-btn');
     langButtons.forEach(btn => {
         btn.classList.remove('active');
@@ -39,20 +39,20 @@ function setLanguage(lang) {
         }
     });
     
-    // 更新页面内容
+    // Update page content
     updatePageContent(lang);
     
-    // 更新HTML lang属性
+    // Update HTML lang attribute
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     
-    // 更新页面标题
+    // Update page title
     updatePageTitle(lang);
     
-    // 重新设置年份（因为语言切换会覆盖年份）
+    // Reset year (because language switching overwrites the year)
     updateCurrentYear();
 }
 
-// 更新年份函数
+// Update year function
 function updateCurrentYear() {
     const yearElements = document.querySelectorAll('#current-year');
     const currentYear = new Date().getFullYear();
@@ -62,27 +62,27 @@ function updateCurrentYear() {
     });
 }
 
-// 更新页面内容
+// Update page content
 function updatePageContent(lang) {
-    // 更新所有带有data-zh和data-en属性的元素
+    // Update all elements with data-zh and data-en attributes
     const elements = document.querySelectorAll('[data-zh][data-en]');
     
     elements.forEach(element => {
         const zhText = element.getAttribute('data-zh');
         const enText = element.getAttribute('data-en');
         
-        // 检查是否包含年份元素
+        // Check if element contains year element
         const hasYearElement = element.querySelector('#current-year');
         
         if (hasYearElement) {
-            // 如果包含年份元素，需要特殊处理
+            // If contains year element, special handling required
             if (lang === 'zh') {
                 element.innerHTML = zhText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
             } else {
                 element.innerHTML = enText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
             }
         } else {
-            // 普通元素使用textContent
+            // Regular elements use textContent
             if (lang === 'zh') {
                 element.textContent = zhText;
             } else {
@@ -91,7 +91,7 @@ function updatePageContent(lang) {
         }
     });
     
-    // 更新placeholder属性
+    // Update placeholder attributes
     const inputs = document.querySelectorAll('input[data-zh-placeholder][data-en-placeholder]');
     inputs.forEach(input => {
         const zhPlaceholder = input.getAttribute('data-zh-placeholder');
@@ -104,7 +104,7 @@ function updatePageContent(lang) {
         }
     });
     
-    // 更新aria-label属性
+    // Update aria-label attributes
     const ariaElements = document.querySelectorAll('[data-zh][data-en][aria-label]');
     ariaElements.forEach(element => {
         const zhText = element.getAttribute('data-zh');
@@ -130,17 +130,17 @@ function updatePageContent(lang) {
         }
     });
     
-    // 更新导航链接的active状态
+    // Update navigation link active states
     updateNavigationActiveState();
     
-    // 触发语言切换事件
+    // Trigger language change event
     const event = new CustomEvent('languageChanged', {
         detail: { lang: lang }
     });
     document.dispatchEvent(event);
 }
 
-// 更新页面标题
+// Update page title
 function updatePageTitle(lang) {
     const titles = {
         'zh': {
@@ -167,7 +167,7 @@ function updatePageTitle(lang) {
         }
     };
     
-    // 获取当前页面类型
+    // Get current page type
     const currentPage = getCurrentPageType();
     const title = titles[lang][currentPage];
     
@@ -176,7 +176,7 @@ function updatePageTitle(lang) {
     }
 }
 
-// 获取当前页面类型
+// Get current page type
 function getCurrentPageType() {
     const path = window.location.pathname;
     const filename = path.split('/').pop().split('.')[0];
@@ -196,7 +196,7 @@ function getCurrentPageType() {
     return pageMap[filename] || 'index';
 }
 
-// 更新导航链接的active状态
+// Update navigation link active state
 function updateNavigationActiveState() {
     const currentPage = getCurrentPageType();
     const navLinks = document.querySelectorAll('.nav-link');
@@ -211,12 +211,12 @@ function updateNavigationActiveState() {
     });
 }
 
-// 获取当前语言
+// Get current language
 function getCurrentLanguage() {
     return localStorage.getItem('nebulis-lang') || 'en';
 }
 
-// 导出函数供其他脚本使用
+// Export functions for use by other scripts
 window.LanguageSwitch = {
     setLanguage,
     getCurrentLanguage,

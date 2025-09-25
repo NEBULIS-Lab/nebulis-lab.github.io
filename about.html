@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-zh="关于我们 - NEBULIS Lab" data-en="About Us - NEBULIS Lab">关于我们 - NEBULIS Lab</title>
+    <title data-en="About Us - NEBULIS Lab" data-zh="关于我们 - NEBULIS Lab">About Us - NEBULIS Lab</title>
     <meta name="description" content="Learn about NEBULIS Lab's mission, vision and research directions, exploring our cutting-edge work in AI.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
@@ -12,29 +12,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" class="logo">
                     <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
+                    <span class="lab-name">NEBULIS Lab</span>
                 </a>
             </div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
-                <a href="about.html" class="nav-link active" data-zh="关于" data-en="About">关于</a>
-                <a href="people.html" class="nav-link" data-zh="人员" data-en="People">人员</a>
-                <a href="blog.html" class="nav-link" data-zh="博客" data-en="Blog">博客</a>
-                <a href="resources.html" class="nav-link" data-zh="资源" data-en="Resources">资源</a>
-                <a href="initiatives.html" class="nav-link" data-zh="项目" data-en="Initiatives">项目</a>
-                <a href="affiliates.html" class="nav-link" data-zh="合作" data-en="Partners">合作</a>
-                <a href="login.html" class="nav-link" data-zh="登录" data-en="Login">登录</a>
-                <div class="language-switch">
-                    <button class="lang-btn active" data-lang="zh">中文</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
+            <div class="nav-right">
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link" data-en="Home" data-zh="首页">Home</a>
+                    <a href="about.html" class="nav-link active" data-en="About" data-zh="关于">About</a>
+                    <a href="people.html" class="nav-link" data-en="People" data-zh="人员">People</a>
+                    <a href="blog.html" class="nav-link" data-en="Blog" data-zh="博客">Blog</a>
+                    <a href="resources.html" class="nav-link" data-en="Resources" data-zh="资源">Resources</a>
+                    <a href="initiatives.html" class="nav-link" data-en="Initiatives" data-zh="项目">Initiatives</a>
+                    <a href="affiliates.html" class="nav-link" data-en="Partners" data-zh="合作">Partners</a>
+                    <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a>
+                </div>
+                <div class="nav-actions">
+                    <div class="language-switch">
+                        <button class="lang-btn active" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="zh">中文</button>
+                    </div>
                 </div>
             </div>
-            <button class="nav-toggle" aria-label="切换菜单" data-zh="切换菜单" data-en="Toggle Menu">
+            <button class="nav-toggle" aria-label="Toggle Menu" data-en="Toggle Menu" data-zh="切换菜单">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -42,148 +47,112 @@
         </div>
     </nav>
 
-    <!-- 主要内容 -->
+    <!-- Main Content -->
     <main>
-        <!-- 页面标题 -->
-        <section class="page-header">
-            <div class="container">
-                <h1 class="page-title" data-zh="关于NEBULIS Lab" data-en="About NEBULIS Lab">关于NEBULIS Lab</h1>
-                <p class="page-subtitle" data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
-            </div>
-        </section>
 
-        <!-- 使命与愿景 -->
-        <section class="mission">
+        <!-- About Content -->
+        <section class="about-content">
             <div class="container">
-                <div class="mission-content">
-                    <h2 data-zh="我们的使命" data-en="Our Mission">我们的使命</h2>
-                    <p data-zh="NEBULIS Lab致力于构建可靠、可解释、可部署的人工智能系统。我们相信AI技术应该服务于真实世界的需求，通过前沿研究和开放合作，推动AI技术的实际应用。" data-en="NEBULIS Lab is committed to building reliable, explainable, and deployable artificial intelligence systems. We believe AI technology should serve real-world needs, driving practical applications through cutting-edge research and open collaboration.">NEBULIS Lab致力于构建可靠、可解释、可部署的人工智能系统。我们相信AI技术应该服务于真实世界的需求，通过前沿研究和开放合作，推动AI技术的实际应用。</p>
-                    
-                    <h2 data-zh="我们的愿景" data-en="Our Vision">我们的愿景</h2>
-                    <p data-zh="成为全球领先的AI研究实验室，在具身智能、分布式强化学习和机器人技术等领域做出突破性贡献，培养下一代AI研究人才，推动AI技术的民主化和普及化。" data-en="To become a globally leading AI research laboratory, making breakthrough contributions in embodied intelligence, distributed reinforcement learning, and robotics, nurturing the next generation of AI researchers, and promoting the democratization and popularization of AI technology.">成为全球领先的AI研究实验室，在具身智能、分布式强化学习和机器人技术等领域做出突破性贡献，培养下一代AI研究人才，推动AI技术的民主化和普及化。</p>
-                </div>
-            </div>
-        </section>
+                <div class="about-layout">
+                    <!-- Left Side - Introduction -->
+                    <div class="about-intro">
+                        <div class="intro-header">
+                            <div class="intro-icon">
+                                <img src="image/icon/universe.png" alt="NEBULIS Lab" style="width: 60px; height: 60px;">
+                            </div>
+                            <h2 data-en="About NEBULIS Lab" data-zh="关于NEBULIS Lab">About NEBULIS Lab</h2>
+                        </div>
+                        <div class="intro-text">
+                            <p data-en="NEBULIS Lab is a cutting-edge AI research laboratory dedicated to building reliable, explainable, and deployable artificial intelligence systems for real-world applications." data-zh="NEBULIS Lab是一个前沿的AI研究实验室，致力于构建可靠、可解释、可部署的人工智能系统，服务于真实世界的应用需求。">NEBULIS Lab is a cutting-edge AI research laboratory dedicated to building reliable, explainable, and deployable artificial intelligence systems for real-world applications.</p>
+                            
+                            <p data-en="Our mission is to advance the frontiers of AI through innovative research in embodied intelligence, distributed systems, and marine robotics, while fostering collaboration with academic and industry partners worldwide." data-zh="我们的使命是通过在具身智能、分布式系统和海洋机器人等领域的创新研究，推进AI前沿发展，同时促进与全球学术和产业合作伙伴的协作。">Our mission is to advance the frontiers of AI through innovative research in embodied intelligence, distributed systems, and marine robotics, while fostering collaboration with academic and industry partners worldwide.</p>
+                        </div>
+                        <div class="intro-vision">
+                            <div class="vision-icon">
+                                <img src="image/icon/galaxy.png" alt="Vision" style="width: 40px; height: 40px;">
+                            </div>
+                            <div class="vision-text">
+                                <h3 data-en="Our Vision" data-zh="我们的愿景">Our Vision</h3>
+                                <p data-en="To become a globally leading AI research laboratory, making breakthrough contributions that shape the future of artificial intelligence." data-zh="成为全球领先的AI研究实验室，做出塑造人工智能未来的突破性贡献。">To become a globally leading AI research laboratory, making breakthrough contributions that shape the future of artificial intelligence.</p>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- 研究方向 -->
-        <section class="research-areas">
-            <div class="container">
-                <h2 class="section-title" data-zh="研究方向" data-en="Research Areas">研究方向</h2>
-                <div class="areas-grid">
-                    <div class="area-card">
-                        <div class="area-icon">🤖</div>
-                        <h3 data-zh="具身智能" data-en="Embodied Intelligence">具身智能</h3>
-                        <p data-zh="研究智能体在物理世界中的感知、决策和执行能力" data-en="Research on perception, decision-making and execution capabilities of agents in the physical world">研究智能体在物理世界中的感知、决策和执行能力</p>
+                    <!-- Right Side - Research Areas -->
+                    <div class="about-research">
+                        <h2 class="research-title" data-en="Research Areas" data-zh="研究方向">Research Areas</h2>
+                        <div class="research-grid">
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/ai.png" alt="AI Research" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="AI Research" data-zh="人工智能研究">AI Research</h3>
+                                <p data-en="Advanced artificial intelligence algorithms and systems" data-zh="先进的人工智能算法和系统">Advanced artificial intelligence algorithms and systems</p>
+                            </div>
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/distributed_sys.png" alt="Distributed Systems" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="Distributed Systems" data-zh="分布式系统">Distributed Systems</h3>
+                                <p data-en="Large-scale parallel computing and distributed AI" data-zh="大规模并行计算和分布式AI">Large-scale parallel computing and distributed AI</p>
+                            </div>
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/manufacturing.png" alt="Industrial AI" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="Industrial AI" data-zh="工业AI">Industrial AI</h3>
+                                <p data-en="AI applications in manufacturing and automation" data-zh="AI在制造业和自动化中的应用">AI applications in manufacturing and automation</p>
+                            </div>
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/network-storage.png" alt="Network AI" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="Network AI" data-zh="网络AI">Network AI</h3>
+                                <p data-en="AI systems for network optimization and management" data-zh="用于网络优化和管理的AI系统">AI systems for network optimization and management</p>
+                            </div>
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/industrial-robot.png" alt="Robotics" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="Robotics" data-zh="机器人学">Robotics</h3>
+                                <p data-en="Autonomous robots and robotic systems" data-zh="自主机器人和机器人系统">Autonomous robots and robotic systems</p>
+                            </div>
+                            <div class="research-card">
+                                <div class="research-icon">
+                                    <img src="image/icon/robot.png" alt="Embodied AI" style="width: 48px; height: 48px;">
+                                </div>
+                                <h3 data-en="Embodied AI" data-zh="具身AI">Embodied AI</h3>
+                                <p data-en="AI agents that interact with the physical world" data-zh="与物理世界交互的AI智能体">AI agents that interact with the physical world</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="area-card">
-                        <div class="area-icon">🧠</div>
-                        <h3 data-zh="分布式强化学习" data-en="Distributed Reinforcement Learning">分布式强化学习</h3>
-                        <p data-zh="开发大规模并行训练的强化学习算法和框架" data-en="Develop reinforcement learning algorithms and frameworks for large-scale parallel training">开发大规模并行训练的强化学习算法和框架</p>
-                    </div>
-                    <div class="area-card">
-                        <div class="area-icon">🌊</div>
-                        <h3 data-zh="海洋机器人" data-en="Marine Robotics">海洋机器人</h3>
-                        <p data-zh="探索海洋环境下的自主导航和任务执行" data-en="Explore autonomous navigation and task execution in marine environments">探索海洋环境下的自主导航和任务执行</p>
-                    </div>
-                    <div class="area-card">
-                        <div class="area-icon">🔬</div>
-                        <h3 data-zh="可解释AI" data-en="Explainable AI">可解释AI</h3>
-                        <p data-zh="构建透明、可理解的AI决策系统" data-en="Build transparent and understandable AI decision systems">构建透明、可理解的AI决策系统</p>
-                    </div>
-                    <div class="area-card">
-                        <div class="area-icon">🌐</div>
-                        <h3 data-zh="多智能体系统" data-en="Multi-Agent Systems">多智能体系统</h3>
-                        <p data-zh="研究多个智能体之间的协作与竞争机制" data-en="Research cooperation and competition mechanisms between multiple agents">研究多个智能体之间的协作与竞争机制</p>
-                    </div>
-                    <div class="area-card">
-                        <div class="area-icon">📊</div>
-                        <h3 data-zh="数据科学" data-en="Data Science">数据科学</h3>
-                        <p data-zh="开发高效的数据处理和机器学习工具" data-en="Develop efficient data processing and machine learning tools">开发高效的数据处理和机器学习工具</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 合作方式 -->
-        <section class="collaboration">
-            <div class="container">
-                <h2 class="section-title" data-zh="合作方式" data-en="Collaboration">合作方式</h2>
-                <div class="collab-grid">
-                    <div class="collab-card">
-                        <h3 data-zh="学术合作" data-en="Academic Collaboration">学术合作</h3>
-                        <p data-zh="与全球顶尖大学和研究机构建立合作关系，共同推进AI前沿研究" data-en="Establish collaborative relationships with top universities and research institutions worldwide to advance AI frontier research">与全球顶尖大学和研究机构建立合作关系，共同推进AI前沿研究</p>
-                        <ul>
-                            <li data-zh="联合发表论文" data-en="Joint Publications">联合发表论文</li>
-                            <li data-zh="共同申请项目" data-en="Joint Project Applications">共同申请项目</li>
-                            <li data-zh="学生交流访问" data-en="Student Exchange Visits">学生交流访问</li>
-                        </ul>
-                    </div>
-                    <div class="collab-card">
-                        <h3 data-zh="产业合作" data-en="Industry Collaboration">产业合作</h3>
-                        <p data-zh="与科技公司合作，将研究成果转化为实际应用" data-en="Collaborate with technology companies to transform research results into practical applications">与科技公司合作，将研究成果转化为实际应用</p>
-                        <ul>
-                            <li data-zh="技术转移" data-en="Technology Transfer">技术转移</li>
-                            <li data-zh="联合研发" data-en="Joint R&D">联合研发</li>
-                            <li data-zh="人才培养" data-en="Talent Development">人才培养</li>
-                        </ul>
-                    </div>
-                    <div class="collab-card">
-                        <h3 data-zh="开放项目" data-en="Open Projects">开放项目</h3>
-                        <p data-zh="通过开源项目促进AI技术的民主化和普及" data-en="Promote the democratization and popularization of AI technology through open source projects">通过开源项目促进AI技术的民主化和普及</p>
-                        <ul>
-                            <li data-zh="开源代码库" data-en="Open Source Code Repositories">开源代码库</li>
-                            <li data-zh="公开数据集" data-en="Public Datasets">公开数据集</li>
-                            <li data-zh="在线教程" data-en="Online Tutorials">在线教程</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 团队照片 -->
-        <section class="team-photo">
-            <div class="container">
-                <h2 class="section-title" data-zh="团队风采" data-en="Team Gallery">团队风采</h2>
-                <div class="photo-placeholder">
-                    <img src="image/project/example1.png" alt="NEBULIS Lab团队" class="team-image">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h4>NEBULIS Lab</h4>
-                    <p data-zh="构建真实世界的可靠AI系统" data-en="Building Reliable AI Systems for the Real World">构建真实世界的可靠AI系统</p>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
-                    <ul>
-                        <li><a href="about.html" data-zh="关于我们" data-en="About Us">关于我们</a></li>
-                        <li><a href="people.html" data-zh="团队成员" data-en="Team Members">团队成员</a></li>
-                        <li><a href="blog.html" data-zh="博客" data-en="Blog">博客</a></li>
-                        <li><a href="resources.html" data-zh="资源" data-en="Resources">资源</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="联系方式" data-en="Contact">联系方式</h4>
-                    <p data-zh="邮箱: contact@nebulislab.org" data-en="Email: contact@nebulislab.org">邮箱: contact@nebulislab.org</p>
-                    <p data-zh="地址: 实验室地址" data-en="Address: Lab Address">地址: 实验室地址</p>
-                </div>
-                <div class="footer-section">
-                    <h4 data-zh="关注我们" data-en="Follow Us">关注我们</h4>
-                    <div class="social-links">
-                        <a href="#" aria-label="GitHub">GitHub</a>
-                        <a href="#" aria-label="Twitter">Twitter</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <div class="footer-left">
+                    <div class="footer-contact">
+                        <p data-en="Address: No. 1 Duxue Road, Nansha District, Guangzhou, Guangdong, China" data-zh="地址: 中国广东省广州市南沙区笃学路1号">Address: No. 1 Duxue Road, Nansha District, Guangzhou, Guangdong, China</p>
                     </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-zh="&copy; NEBULIS Lab. 保留所有权利。" data-en="&copy; NEBULIS Lab. All rights reserved.">&copy; <span id='current-year'></span> NEBULIS Lab. 保留所有权利。</p>
+                <div class="footer-center">
+                    <div class="footer-copyright">
+                        <span data-en="&copy; NEBULIS Lab. All rights reserved." data-zh="&copy; NEBULIS Lab. 保留所有权利。">&copy; <span id='current-year'></span> NEBULIS Lab. All rights reserved.</span>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/NEBULIS-Lab" class="github-link" target="_blank" rel="noopener noreferrer">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        <span style="font-size: 1.1em;">GitHub</span>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>

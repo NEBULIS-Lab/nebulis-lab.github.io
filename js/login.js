@@ -1,18 +1,18 @@
 // NEBULIS Lab Login Page JavaScript
-// 登录页面的表单处理和验证
+// Login page form handling and validation
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化登录表单
+    // Initialize login form
     initLoginForm();
     
-    // 初始化表单验证
+    // Initialize form validation
     initFormValidation();
     
-    // 初始化记住我功能
+    // Initialize remember me functionality
     initRememberMe();
 });
 
-// 初始化登录表单
+// Initialize login form
 function initLoginForm() {
     const loginForm = document.getElementById('loginForm');
     if (!loginForm) return;
@@ -20,7 +20,7 @@ function initLoginForm() {
     loginForm.addEventListener('submit', handleLoginSubmit);
 }
 
-// 处理登录提交
+// Handle login submission
 function handleLoginSubmit(e) {
     e.preventDefault();
     
@@ -29,62 +29,62 @@ function handleLoginSubmit(e) {
     const password = formData.get('password');
     const remember = formData.get('remember');
     
-    // 基本验证
+    // Basic validation
     if (!validateEmail(email)) {
-        showError('请输入有效的邮箱地址');
+        showError('Please enter a valid email address');
         return;
     }
     
     if (!password || password.length < 6) {
-        showError('密码至少需要6个字符');
+        showError('Password must be at least 6 characters');
         return;
     }
     
-    // 显示加载状态
+    // Show loading state
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = '登录中...';
+    submitBtn.textContent = 'Logging in...';
     submitBtn.disabled = true;
     
-    // 模拟登录请求
+    // Simulate login request
     simulateLogin(email, password, remember)
         .then(result => {
             if (result.success) {
-                showSuccess('登录成功！');
+                showSuccess('Login successful!');
                 
-                // 如果选择了记住我，保存到本地存储
+                // If remember me is selected, save to local storage
                 if (remember) {
                     localStorage.setItem('rememberedEmail', email);
                 }
                 
-                // 重定向到内部页面（实际项目中应该重定向到真实的内部页面）
+                // Redirect to internal page (in real project should redirect to actual internal page)
                 setTimeout(() => {
                     window.location.href = '/dashboard.html';
                 }, 1000);
             } else {
-                showError(result.message || '登录失败，请检查邮箱和密码');
+                showError(result.message || 'Login failed, please check email and password');
             }
         })
         .catch(error => {
-            showError('登录过程中发生错误，请稍后重试');
+            showError('An error occurred during login, please try again later');
             console.error('Login error:', error);
         })
         .finally(() => {
-            // 恢复按钮状态
+            // Restore button state
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         });
 }
 
-// 模拟登录请求
+// Simulate login request
 function simulateLogin(email, password, remember) {
     return new Promise((resolve) => {
-        // 模拟网络延迟
+        // Simulate network delay
         setTimeout(() => {
-            // 这里应该是真实的API调用
-            // 现在只是模拟一些基本的验证
+            // This should be a real API call
+            // Now just simulate some basic validation
             
-            // 模拟的验证逻辑
+            // Simulated validation logic
             const validEmails = [
                 'admin@nebulislab.org',
                 'member@nebulislab.org',
@@ -109,14 +109,14 @@ function simulateLogin(email, password, remember) {
             } else {
                 resolve({
                     success: false,
-                    message: '邮箱或密码错误'
+                    message: 'Email or password is incorrect'
                 });
             }
         }, 1500);
     });
 }
 
-// 初始化表单验证
+// Initialize form validation
 function initFormValidation() {
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -142,17 +142,17 @@ function initFormValidation() {
     }
 }
 
-// 验证邮箱字段
+// Validate email field
 function validateEmailField(input) {
     const email = input.value.trim();
     
     if (!email) {
-        showFieldError(input, '请输入邮箱地址');
+        showFieldError(input, 'Please enter email address');
         return false;
     }
     
     if (!validateEmail(email)) {
-        showFieldError(input, '请输入有效的邮箱地址');
+        showFieldError(input, 'Please enter a valid email address');
         return false;
     }
     
@@ -160,17 +160,17 @@ function validateEmailField(input) {
     return true;
 }
 
-// 验证密码字段
+// Validate password field
 function validatePasswordField(input) {
     const password = input.value;
     
     if (!password) {
-        showFieldError(input, '请输入密码');
+        showFieldError(input, 'Please enter password');
         return false;
     }
     
     if (password.length < 6) {
-        showFieldError(input, '密码至少需要6个字符');
+        showFieldError(input, 'Password must be at least 6 characters');
         return false;
     }
     
@@ -178,13 +178,13 @@ function validatePasswordField(input) {
     return true;
 }
 
-// 验证邮箱格式
+// Validate email format
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// 显示字段错误
+// Show field error
 function showFieldError(input, message) {
     clearFieldError(input);
     
@@ -199,7 +199,7 @@ function showFieldError(input, message) {
     input.style.borderColor = '#dc2626';
 }
 
-// 清除字段错误
+// Clear field error
 function clearFieldError(input) {
     const existingError = input.parentNode.querySelector('.field-error');
     if (existingError) {
@@ -208,30 +208,30 @@ function clearFieldError(input) {
     input.style.borderColor = '';
 }
 
-// 显示错误消息
+// Show error message
 function showError(message) {
     showMessage(message, 'error');
 }
 
-// 显示成功消息
+// Show success message
 function showSuccess(message) {
     showMessage(message, 'success');
 }
 
-// 显示消息
+// Show message
 function showMessage(message, type) {
-    // 移除现有的消息
+    // Remove existing messages
     const existingMessage = document.querySelector('.login-message');
     if (existingMessage) {
         existingMessage.remove();
     }
     
-    // 创建新消息
+    // Create new message
     const messageDiv = document.createElement('div');
     messageDiv.className = `login-message login-message-${type}`;
     messageDiv.textContent = message;
     
-    // 样式设置
+    // Style settings
     messageDiv.style.padding = '0.75rem 1rem';
     messageDiv.style.borderRadius = '0.5rem';
     messageDiv.style.marginBottom = '1rem';
@@ -248,12 +248,12 @@ function showMessage(message, type) {
         messageDiv.style.border = '1px solid #bbf7d0';
     }
     
-    // 插入到表单前面
+    // Insert before form
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.parentNode.insertBefore(messageDiv, loginForm);
         
-        // 自动移除消息
+        // Auto remove message
         setTimeout(() => {
             if (messageDiv.parentNode) {
                 messageDiv.remove();
@@ -262,13 +262,13 @@ function showMessage(message, type) {
     }
 }
 
-// 初始化记住我功能
+// Initialize remember me functionality
 function initRememberMe() {
     const rememberCheckbox = document.querySelector('input[name="remember"]');
     const emailInput = document.getElementById('email');
     
     if (rememberCheckbox && emailInput) {
-        // 检查是否有保存的邮箱
+        // Check if there's a saved email
         const rememberedEmail = localStorage.getItem('rememberedEmail');
         if (rememberedEmail) {
             emailInput.value = rememberedEmail;
@@ -277,7 +277,7 @@ function initRememberMe() {
     }
 }
 
-// 忘记密码处理
+// Forgot password handling
 function initForgotPassword() {
     const forgotPasswordLink = document.querySelector('.forgot-password');
     if (!forgotPasswordLink) return;
@@ -288,27 +288,27 @@ function initForgotPassword() {
         const email = document.getElementById('email').value;
         
         if (!email) {
-            showError('请先输入邮箱地址');
+            showError('Please enter email address first');
             return;
         }
         
         if (!validateEmail(email)) {
-            showError('请输入有效的邮箱地址');
+            showError('Please enter a valid email address');
             return;
         }
         
-        // 模拟发送重置密码邮件
-        showSuccess('重置密码邮件已发送到您的邮箱');
+        // Simulate sending password reset email
+        showSuccess('Password reset email has been sent to your email');
         
-        // 实际项目中应该调用API发送重置邮件
+        // In real project should call API to send reset email
         console.log('Password reset requested for:', email);
     });
 }
 
-// 键盘快捷键
+// Keyboard shortcuts
 function initKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
-        // Enter键提交表单
+        // Enter key to submit form
         if (e.key === 'Enter' && e.target.tagName !== 'BUTTON') {
             const loginForm = document.getElementById('loginForm');
             if (loginForm) {
@@ -316,7 +316,7 @@ function initKeyboardShortcuts() {
             }
         }
         
-        // Escape键清除错误消息
+        // Escape key to clear error messages
         if (e.key === 'Escape') {
             const message = document.querySelector('.login-message');
             if (message) {
@@ -326,13 +326,13 @@ function initKeyboardShortcuts() {
     });
 }
 
-// 初始化所有功能
+// Initialize all functionality
 document.addEventListener('DOMContentLoaded', function() {
     initForgotPassword();
     initKeyboardShortcuts();
 });
 
-// 导出函数
+// Export functions
 window.LoginPage = {
     validateEmail,
     showError,

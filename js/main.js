@@ -1,28 +1,31 @@
 // NEBULIS Lab Website Main JavaScript
-// 基于guide.txt中的交互需求
+// Based on interaction requirements from guide.txt
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 导航栏功能
+    // Navigation functionality
     initNavigation();
     
-    // 移动端菜单切换
+    // Mobile menu toggle
     initMobileMenu();
     
-    // 平滑滚动
+    // Smooth scrolling
     initSmoothScroll();
     
-    // 表单处理
+    // Form handling
     initForms();
     
-    // 搜索功能
+    // Search functionality
     initSearch();
     
-    // 动画效果
+    // Animation effects
     initAnimations();
+    
+    // Pagination functionality
+    initPagination();
     
 });
 
-// 导航栏功能
+// Navigation functionality
 function initNavigation() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
@@ -32,7 +35,7 @@ function initNavigation() {
     window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         
-        // 滚动时添加/移除背景
+        // Add/remove background when scrolling
         if (currentScrollY > 50) {
             navbar.style.background = 'rgba(255, 255, 255, 0.98)';
             navbar.style.backdropFilter = 'blur(20px)';
@@ -41,12 +44,12 @@ function initNavigation() {
             navbar.style.backdropFilter = 'blur(10px)';
         }
         
-        // 滚动方向检测（可选：隐藏/显示导航栏）
+        // Scroll direction detection (optional: hide/show navbar)
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // 向下滚动，隐藏导航栏
+            // Scrolling down, hide navbar
             navbar.style.transform = 'translateY(-100%)';
         } else {
-            // 向上滚动，显示导航栏
+            // Scrolling up, show navbar
             navbar.style.transform = 'translateY(0)';
         }
         
@@ -54,7 +57,7 @@ function initNavigation() {
     });
 }
 
-// 移动端菜单切换
+// Mobile menu toggle
 function initMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -73,7 +76,7 @@ function initMobileMenu() {
         }
     });
     
-    // 点击外部关闭菜单
+    // Click outside to close menu
     document.addEventListener('click', (e) => {
         if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('mobile-open');
@@ -82,7 +85,7 @@ function initMobileMenu() {
     });
 }
 
-// 平滑滚动
+// Smooth scrolling
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -96,7 +99,7 @@ function initSmoothScroll() {
             
             e.preventDefault();
             
-            const offsetTop = target.offsetTop - 80; // 考虑固定导航栏高度
+            const offsetTop = target.offsetTop - 80; // Account for fixed navbar height
             
             window.scrollTo({
                 top: offsetTop,
@@ -106,7 +109,7 @@ function initSmoothScroll() {
     });
 }
 
-// 表单处理
+// Form handling
 function initForms() {
     const forms = document.querySelectorAll('form');
     
@@ -114,20 +117,20 @@ function initForms() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // 获取表单数据
+            // Get form data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
             
-            // 显示加载状态
+            // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             if (submitBtn) {
                 const originalText = submitBtn.textContent;
-                submitBtn.textContent = '处理中...';
+                submitBtn.textContent = 'Processing...';
                 submitBtn.disabled = true;
                 
-                // 模拟提交（实际项目中应该发送到服务器）
+                // Simulate submission (in real project should send to server)
                 setTimeout(() => {
-                    alert('表单提交成功！');
+                    alert('Form submitted successfully!');
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                     form.reset();
@@ -137,7 +140,7 @@ function initForms() {
     });
 }
 
-// 搜索功能
+// Search functionality
 function initSearch() {
     const searchInput = document.getElementById('search-input');
     if (!searchInput) return;
@@ -151,18 +154,18 @@ function initSearch() {
             const query = e.target.value.toLowerCase().trim();
             
             if (query.length < 2) {
-                // 显示所有结果
+                // Show all results
                 showAllResults();
                 return;
             }
             
-            // 执行搜索
+            // Execute search
             performSearch(query);
         }, 300);
     });
 }
 
-// 显示所有结果
+// Show all results
 function showAllResults() {
     const peopleGrid = document.getElementById('people-grid');
     const emptyState = document.getElementById('empty-state');
@@ -179,7 +182,7 @@ function showAllResults() {
     }
 }
 
-// 执行搜索
+// Execute search
 function performSearch(query) {
     const peopleGrid = document.getElementById('people-grid');
     const emptyState = document.getElementById('empty-state');
@@ -204,7 +207,7 @@ function performSearch(query) {
         }
     });
     
-    // 显示/隐藏空状态
+    // Show/hide empty state
     if (emptyState) {
         if (visibleCount === 0) {
             emptyState.style.display = 'block';
@@ -214,9 +217,9 @@ function performSearch(query) {
     }
 }
 
-// 动画效果
+// Animation effects
 function initAnimations() {
-    // 滚动动画
+    // Scroll animation
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -230,14 +233,14 @@ function initAnimations() {
         });
     }, observerOptions);
     
-    // 观察需要动画的元素
+    // Observe elements that need animation
     const animatedElements = document.querySelectorAll('.showcase-card, .post-card, .person-card, .resource-card, .initiative-card, .partner-card');
     animatedElements.forEach(el => {
         observer.observe(el);
     });
 }
 
-// 人员筛选功能
+// People filtering functionality
 function initPeopleFilter() {
     const roleFilter = document.getElementById('role-filter');
     const letterFilter = document.getElementById('letter-filter');
@@ -245,7 +248,7 @@ function initPeopleFilter() {
     
     if (!roleFilter || !letterFilter || !searchInput) return;
     
-    // 组合筛选
+    // Combined filtering
     function applyFilters() {
         const role = roleFilter.value;
         const letter = letterFilter.value;
@@ -266,17 +269,17 @@ function initPeopleFilter() {
             
             let show = true;
             
-            // 角色筛选
+            // Role filtering
             if (role && roleText !== role) {
                 show = false;
             }
             
-            // 字母筛选
+            // Letter filtering
             if (letter && !name.startsWith(letter.toLowerCase())) {
                 show = false;
             }
             
-            // 搜索筛选
+            // Search filtering
             if (search && !`${name} ${roleText} ${areas}`.includes(search)) {
                 show = false;
             }
@@ -289,7 +292,7 @@ function initPeopleFilter() {
             }
         });
         
-        // 显示/隐藏空状态
+        // Show/hide empty state
         if (emptyState) {
             if (visibleCount === 0) {
                 emptyState.style.display = 'block';
@@ -299,13 +302,13 @@ function initPeopleFilter() {
         }
     }
     
-    // 绑定事件
+    // Bind events
     roleFilter.addEventListener('change', applyFilters);
     letterFilter.addEventListener('change', applyFilters);
     searchInput.addEventListener('input', applyFilters);
 }
 
-// 工具函数
+// Utility functions
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -319,9 +322,89 @@ function debounce(func, wait) {
 }
 
 
-// 导出函数供其他脚本使用
+// Pagination functionality
+function initPagination() {
+    const paginationContainer = document.querySelector('.pagination');
+    if (!paginationContainer) return;
+    
+    const prevBtn = paginationContainer.querySelector('.pagination-btn:first-child');
+    const nextBtn = paginationContainer.querySelector('.pagination-btn:last-child');
+    const infoSpan = paginationContainer.querySelector('.pagination-info');
+    const blogGrid = document.querySelector('.blog-grid');
+    
+    if (!prevBtn || !nextBtn || !infoSpan || !blogGrid) return;
+    
+    // Pagination state
+    let currentPage = 1;
+    const itemsPerPage = 6; // Show 6 articles per page
+    const blogCards = blogGrid.querySelectorAll('.blog-card');
+    const totalPages = Math.ceil(blogCards.length / itemsPerPage);
+    
+    // Initialize pagination
+    function updatePagination() {
+        // Update button state
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+        
+        // Update information display
+        const currentLang = document.documentElement.lang || 'zh-CN';
+        if (currentLang === 'zh-CN' || currentLang === 'zh') {
+            infoSpan.textContent = `第 ${currentPage} 页，共 ${totalPages} 页`;
+        } else {
+            infoSpan.textContent = `Page ${currentPage} of ${totalPages}`;
+        }
+        
+        // Show/hide articles
+        blogCards.forEach((card, index) => {
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.5s ease-in-out';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    // Previous page
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            updatePagination();
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+    // Next page
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            updatePagination();
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+    
+    // Initialize display
+    updatePagination();
+    
+    // Listen for language change events
+    document.addEventListener('languageChanged', updatePagination);
+}
+
+// Export functions for use by other scripts
 window.NEBULIS = {
     initPeopleFilter,
     performSearch,
-    showAllResults
+    showAllResults,
+    initPagination
 };
