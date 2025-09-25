@@ -214,35 +214,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-zh="&copy; <span id='current-year'></span> NEBULIS Lab. 保留所有权利。" data-en="&copy; <span id='current-year'></span> NEBULIS Lab. All rights reserved.">&copy; <span id='current-year'></span> NEBULIS Lab. 保留所有权利。</p>
+                <p data-zh="&copy; NEBULIS Lab. 保留所有权利。" data-en="&copy; NEBULIS Lab. All rights reserved.">&copy; <span id='current-year'></span> NEBULIS Lab. 保留所有权利。</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/language.js"></script>
-    <script>
-        // 直接执行年份更新
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearElements = document.querySelectorAll('#current-year');
-            const currentYear = new Date().getFullYear();
-            console.log('Direct script - updating year to:', currentYear);
-            console.log('Found elements:', yearElements.length);
-            
-            yearElements.forEach(element => {
-                element.textContent = currentYear;
-                console.log('Updated element:', element);
-            });
-        });
-        
-        // 备用方案：立即执行
-        setTimeout(function() {
-            const yearElements = document.querySelectorAll('#current-year');
-            const currentYear = new Date().getFullYear();
-            yearElements.forEach(element => {
-                element.textContent = currentYear;
-            });
-        }, 100);
-    </script>
 </body>
 </html>

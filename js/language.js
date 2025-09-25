@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setLanguage(savedLang);
     
     // 确保年份在语言设置后更新
-    setTimeout(updateCurrentYear, 200);
+    setTimeout(updateCurrentYear, 100);
 });
 
 // 初始化语言切换功能
@@ -71,10 +71,23 @@ function updatePageContent(lang) {
         const zhText = element.getAttribute('data-zh');
         const enText = element.getAttribute('data-en');
         
-        if (lang === 'zh') {
-            element.textContent = zhText;
+        // 检查是否包含年份元素
+        const hasYearElement = element.querySelector('#current-year');
+        
+        if (hasYearElement) {
+            // 如果包含年份元素，需要特殊处理
+            if (lang === 'zh') {
+                element.innerHTML = zhText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
+            } else {
+                element.innerHTML = enText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
+            }
         } else {
-            element.textContent = enText;
+            // 普通元素使用textContent
+            if (lang === 'zh') {
+                element.textContent = zhText;
+            } else {
+                element.textContent = enText;
+            }
         }
     });
     

@@ -20,11 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 动画效果
     initAnimations();
     
-    // 自动更新年份
-    updateCurrentYear();
-    
-    // 确保年份更新在页面完全加载后执行
-    setTimeout(updateCurrentYear, 100);
 });
 
 // 导航栏功能
@@ -323,24 +318,10 @@ function debounce(func, wait) {
     };
 }
 
-// 自动更新年份
-function updateCurrentYear() {
-    const yearElements = document.querySelectorAll('#current-year');
-    const currentYear = new Date().getFullYear();
-    
-    console.log('Updating year to:', currentYear);
-    console.log('Found elements:', yearElements.length);
-    
-    yearElements.forEach(element => {
-        element.textContent = currentYear;
-        console.log('Updated element:', element);
-    });
-}
 
 // 导出函数供其他脚本使用
 window.NEBULIS = {
     initPeopleFilter,
     performSearch,
-    showAllResults,
-    updateCurrentYear
+    showAllResults
 };
