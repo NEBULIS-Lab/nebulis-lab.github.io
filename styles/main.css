@@ -2051,11 +2051,25 @@ main {
   background: var(--color-bg);
 }
 
-.publications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--space-6);
-  margin-bottom: var(--space-8);
+.publications-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.publication-item {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.publication-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
 }
 
 .publication-card {
