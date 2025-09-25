@@ -2043,6 +2043,95 @@ main {
   }
 }
 
+/* Publications Section */
+.publications-section {
+  padding: var(--space-16) 0;
+  background: var(--color-bg);
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.publication-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.publication-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.publication-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.publication-year {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.publication-venue {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.publication-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.4;
+}
+
+.publication-authors {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.publication-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.publication-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.publication-link:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.publications-footer {
+  text-align: center;
+}
+
 /* 响应式设计 */
 @media (max-width: 767px) {
   .hero-title {
