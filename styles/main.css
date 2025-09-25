@@ -2098,6 +2098,9 @@ main {
   list-style: none;
   padding: 0;
   margin: 0;
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
 }
 
 .publication-list-item {

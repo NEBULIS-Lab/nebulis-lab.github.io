@@ -20,93 +20,99 @@ document.addEventListener('DOMContentLoaded', function() {
 // People data (sample data, in real project should be fetched from API)
 const peopleData = [
     {
-        name: "name",
-        role: "phd",
-        program: "PhD",
-        advisors: ["Pieter Abbeel"],
-        areas: ["LLM Agents", "RL"],
+        name: "苏宁馨",
+        nameEn: "Ningxin Su",
+        role: "faculty",
+        program: "Faculty",
+        advisors: [],
+        areas: ["Distributed Systems", "GPU Scheduling", "Embodied Intelligence"],
         avatar: "image/icon/user.png",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/...",
-        email: "alan@lab.org",
+        email: "ningxin@lab.org",
         status: "current",
-        cohort: 2023,
+        cohort: 2020,
         affiliation: "NEBULIS Lab"
     },
     {
-        name: "name",
-        role: "postdoc",
-        program: "Postdoc",
-        advisors: ["John Doe"],
-        areas: ["Computer Vision", "Robotics"],
-        avatar: "image/icon/user.png",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "keira@lab.org",
-        status: "current",
-        cohort: 2022,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "name",
+        name: "刘帅军",
+        nameEn: "Shuaijun Liu",
         role: "phd",
         program: "PhD",
-        advisors: ["Jane Smith"],
-        areas: ["Distributed RL", "Multi-Agent"],
+        advisors: ["苏宁馨"],
+        areas: ["GPU Resource Management", "Distributed AI"],
         avatar: "image/icon/user.png",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/...",
         email: "shuaijun@lab.org",
         status: "current",
-        cohort: 2021,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "name",
-        role: "faculty",
-        program: "Professor",
-        advisors: [],
-        areas: ["AI Ethics", "Explainable AI"],
-        avatar: "image/icon/user.png",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "sarah@lab.org",
-        status: "current",
-        cohort: 2018,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "name",
-        role: "masters",
-        program: "Masters",
-        advisors: ["Dr. Sarah Johnson"],
-        areas: ["Data Science", "ML"],
-        avatar: "image/icon/user.png",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "mike@lab.org",
-        status: "current",
         cohort: 2023,
         affiliation: "NEBULIS Lab"
     },
     {
-        name: "name",
-        role: "alumni",
-        program: "PhD",
-        advisors: ["Dr. Sarah Johnson"],
-        areas: ["NLP", "Deep Learning"],
+        name: "陈星维",
+        nameEn: "Xingwei Chen",
+        role: "ra",
+        program: "Research Assistant",
+        advisors: ["苏宁馨"],
+        areas: ["Heterogeneous Systems", "Multi-Agent Coordination"],
         avatar: "image/icon/user.png",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/...",
-        email: "lisa@lab.org",
-        status: "alumni",
-        cohort: 2020,
+        email: "xingwei@lab.org",
+        status: "current",
+        cohort: 2024,
+        affiliation: "NEBULIS Lab"
+    },
+    {
+        name: "尤飞扬",
+        nameEn: "Feiyang You",
+        role: "ra",
+        program: "Research Assistant",
+        advisors: ["苏宁馨"],
+        areas: ["System Architecture", "Robot Autonomy"],
+        avatar: "image/icon/user.png",
+        homepage: "https://example.com",
+        scholar: "https://scholar.google.com/...",
+        github: "https://github.com/...",
+        email: "feiyang@lab.org",
+        status: "current",
+        cohort: 2024,
+        affiliation: "NEBULIS Lab"
+    },
+    {
+        name: "杨庆凯",
+        nameEn: "Qingkai Yang",
+        role: "ra",
+        program: "Research Assistant",
+        advisors: ["苏宁馨"],
+        areas: ["Dynamic Orchestration", "Embodied Intelligence"],
+        avatar: "image/icon/user.png",
+        homepage: "https://example.com",
+        scholar: "https://scholar.google.com/...",
+        github: "https://github.com/...",
+        email: "qingkai@lab.org",
+        status: "current",
+        cohort: 2024,
+        affiliation: "NEBULIS Lab"
+    },
+    {
+        name: "ChatGPT",
+        nameEn: "ChatGPT",
+        role: "ra",
+        program: "Research Assistant",
+        advisors: ["苏宁馨"],
+        areas: ["AI Assistant", "Natural Language Processing"],
+        avatar: "image/icon/user.png",
+        homepage: "https://openai.com",
+        scholar: "https://scholar.google.com/...",
+        github: "https://github.com/...",
+        email: "chatgpt@lab.org",
+        status: "current",
+        cohort: 2024,
         affiliation: "NEBULIS Lab"
     }
 ];
@@ -119,7 +125,8 @@ const roleMapping = {
     'masters': '硕士生',
     'undergrad': '本科生',
     'visiting': '访问学者',
-    'alumni': '校友'
+    'alumni': '校友',
+    'ra': '研究助理'
 };
 
 // Initialize people data
@@ -130,15 +137,30 @@ function initPeopleData() {
     // Clear existing content
     peopleGrid.innerHTML = '';
     
-    // Sort by status and name
-    const sortedPeople = peopleData.sort((a, b) => {
+    // Sort by role priority and name
+    const sortedPeople = [...peopleData].sort((a, b) => {
+        // Faculty 永远最前（保证左上角）
+        if (a.role === 'faculty' && b.role !== 'faculty') return -1;
+        if (b.role === 'faculty' && a.role !== 'faculty') return 1;
+    
         // Current members first
         if (a.status !== b.status) {
             return a.status === 'current' ? -1 : 1;
         }
-        // Then sort by name
+
+        const rolePriority = { 'faculty': 0, 'phd': 1, 'postdoc': 2, 'masters': 3, 'undergrad': 4, 'ra': 5, 'visiting': 6, 'alumni': 7 };
+        const aPriority = rolePriority[a.role] || 8;
+        const bPriority = rolePriority[b.role] || 8;
+        
+        if (aPriority !== bPriority) {
+            return aPriority - bPriority;
+        }
+
         return a.name.localeCompare(b.name);
     });
+    
+    // Debug: log the sorted order
+    console.log('Sorted people order:', sortedPeople.map(p => `${p.name} (${p.role})`));
     
     // Render people cards
     sortedPeople.forEach(person => {
@@ -156,7 +178,8 @@ function getRoleEnText(role) {
         'masters': 'Masters Student',
         'undergrad': 'Undergraduate',
         'visiting': 'Visiting Scholar',
-        'alumni': 'Alumni'
+        'alumni': 'Alumni',
+        'ra': 'Research Assistant'
     };
     return roleEnMapping[role] || role;
 }
@@ -175,9 +198,11 @@ function createPersonCard(person) {
     
     card.innerHTML = `
         <img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">
-        <h3 class="person-name" data-zh="名字" data-en="name">name</h3>
-        <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
-        <div class="person-areas" data-en="Key Words" data-zh="关键词">Key Words: ${areasText}</div>
+        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.name}</h3>
+        <div class="person-info">
+            <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
+            <div class="person-areas" data-en="Key Words" data-zh="关键词">Key Words: ${areasText}</div>
+        </div>
         <div class="person-links">
             ${person.homepage ? `<a href="${person.homepage}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="主页" data-en="Homepage">主页</a>` : ''}
             ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="学术" data-en="Scholar">学术</a>` : ''}
