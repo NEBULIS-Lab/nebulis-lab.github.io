@@ -177,7 +177,7 @@ function createPersonCard(person) {
         <img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">
         <h3 class="person-name" data-zh="名字" data-en="name">name</h3>
         <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
-        <div class="person-areas">${areasText}</div>
+        <div class="person-areas" data-en="Key Words" data-zh="关键词">Key Words: ${areasText}</div>
         <div class="person-links">
             ${person.homepage ? `<a href="${person.homepage}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="主页" data-en="Homepage">主页</a>` : ''}
             ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="学术" data-en="Scholar">学术</a>` : ''}
