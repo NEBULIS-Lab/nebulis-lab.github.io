@@ -160,7 +160,7 @@ function updatePageTitle(lang) {
             'people': 'Team Members - NEBULIS Lab',
             'blog': 'Blog - NEBULIS Lab',
             'resources': 'Resources - NEBULIS Lab',
-            'initiatives': 'Initiatives - NEBULIS Lab',
+            'initiatives': 'Projects - NEBULIS Lab',
             'affiliates': 'Partners - NEBULIS Lab',
             'login': 'Login - NEBULIS Lab',
             '404': 'Page Not Found - NEBULIS Lab'
