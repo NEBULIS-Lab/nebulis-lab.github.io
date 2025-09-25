@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 从localStorage读取保存的语言设置，默认为英文
     const savedLang = localStorage.getItem('nebulis-lang') || 'en';
     setLanguage(savedLang);
+    
+    // 确保年份在语言设置后更新
+    setTimeout(updateCurrentYear, 200);
 });
 
 // 初始化语言切换功能
@@ -44,6 +47,19 @@ function setLanguage(lang) {
     
     // 更新页面标题
     updatePageTitle(lang);
+    
+    // 重新设置年份（因为语言切换会覆盖年份）
+    updateCurrentYear();
+}
+
+// 更新年份函数
+function updateCurrentYear() {
+    const yearElements = document.querySelectorAll('#current-year');
+    const currentYear = new Date().getFullYear();
+    
+    yearElements.forEach(element => {
+        element.textContent = currentYear;
+    });
 }
 
 // 更新页面内容
