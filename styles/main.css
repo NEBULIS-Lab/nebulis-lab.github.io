@@ -1226,7 +1226,7 @@ main {
 }
 
 .intro-header h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-fg);
   margin: 0;
@@ -1311,14 +1311,9 @@ main {
   font-weight: 600;
   color: var(--color-fg);
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
-@media (min-width: 1024px) {
-  .research-title {
-    text-align: left;
-  }
-}
 
 .research-grid {
   display: grid;
