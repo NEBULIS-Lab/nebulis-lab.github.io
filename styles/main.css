@@ -1240,7 +1240,7 @@ main {
 }
 
 .intro-text p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--color-muted);
   line-height: 1.7;
   margin: 0;
@@ -1290,6 +1290,7 @@ main {
   color: var(--color-muted);
   line-height: 1.6;
   margin: 0;
+  text-align: justify;
 }
 
 /* 右侧研究领域部分 */
