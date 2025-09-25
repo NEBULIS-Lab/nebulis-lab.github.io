@@ -1,7 +1,5 @@
 /* NEBULIS Lab Website Styles */
-/* 基于guide.txt中的设计原则和Apple-like Minimal风格 */
 
-/* CSS变量 - 设计令牌 */
 :root {
   --color-bg: #ffffff;
   --color-fg: #0b1220;
@@ -796,6 +794,11 @@ main {
   flex-direction: column;
   gap: var(--space-4);
   align-items: center;
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
@@ -809,7 +812,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  min-width: 200px;
+  min-width: 100px;
+  flex: 1;
+  max-width: 350px;
 }
 
 .filter-group:has(.search-input) {
@@ -821,7 +826,7 @@ main {
 .filter-group label {
   font-weight: 500;
   color: var(--color-fg);
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .filter-select,
@@ -831,7 +836,7 @@ main {
   border-radius: var(--radius-sm);
   background: var(--color-bg);
   color: var(--color-fg);
-  font-size: 16px;
+  font-size: 0.875rem;
   transition: var(--transition);
 }
 
@@ -853,6 +858,7 @@ main {
   gap: var(--space-6);
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
 }
 
 @media (min-width: 640px) {
@@ -886,9 +892,17 @@ main {
   transform: translateY(-4px);
 }
 
+.person-card:hover .person-link {
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border-color: var(--color-fg);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
 .person-avatar {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   border-radius: var(--radius-lg);
   object-fit: cover;
   margin: 0 auto var(--space-4);
@@ -900,20 +914,33 @@ main {
   margin-bottom: var(--space-2);
   color: var(--color-fg);
   text-shadow: none;
+  text-align: center;
+}
+
+.person-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  gap: var(--space-2);
 }
 
 .person-role {
   color: var(--color-muted);
   font-weight: 500;
-  margin-bottom: var(--space-3);
+  margin: 0;
   text-shadow: none;
+  font-size: 0.875rem;
+  white-space: nowrap;
 }
 
 .person-areas {
   color: var(--color-muted);
   font-size: 0.875rem;
-  margin-bottom: var(--space-4);
+  margin: 0;
   text-shadow: none;
+  flex: 1;
+  text-align: right;
 }
 
 .person-links {
@@ -928,11 +955,19 @@ main {
   font-size: 0.875rem;
   transition: var(--transition);
   text-shadow: none;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  display: inline-block;
 }
 
 .person-link:hover {
-  color: var(--color-fg);
+  color: var(--color-bg);
+  background: var(--color-primary);
   text-shadow: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* 空状态 */
@@ -1312,8 +1347,11 @@ main {
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--color-fg);
-  margin: 0;
+  margin: calc(-1 * var(--space-12)) calc(-1 * var(--space-12)) var(--space-4) calc(-1 * var(--space-12));
   text-align: left;
+  background: var(--color-line);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 
@@ -1321,6 +1359,11 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
+  margin-top: 0;
+  margin-left: calc(-1 * var(--space-12));
+  margin-right: calc(-1 * var(--space-12));
+  margin-bottom: calc(-1 * var(--space-12));
+  padding: 0 var(--space-12) var(--space-12) var(--space-12);
 }
 
 .research-card {
@@ -2051,25 +2094,67 @@ main {
   background: var(--color-bg);
 }
 
-.publications-horizontal {
+.publications-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.publication-list-item {
+  border-bottom: 1px solid var(--color-line);
+  padding: var(--space-6) 0;
+}
+
+.publication-list-item:last-child {
+  border-bottom: none;
+}
+
+.publication-list-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-2);
 }
 
-.publication-item {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
+.publication-list-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.publication-list-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-fg);
+  margin: 0 0 var(--space-2) 0;
+  line-height: 1.4;
+}
+
+.publication-list-authors {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.publication-list-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.publication-list-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
   transition: var(--transition);
-  box-shadow: var(--shadow-sm);
 }
 
-.publication-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-primary);
+.publication-list-link:hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
 }
 
 .publication-card {
