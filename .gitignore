@@ -1,6 +1,4 @@
-# NEBULIS Lab Website .gitignore
-
-# 系统文件
+# macOS
 .DS_Store
 .DS_Store?
 ._*
@@ -9,45 +7,12 @@
 ehthumbs.db
 Thumbs.db
 
-# 编辑器文件
+*.tmp
+*.temp
+*~
+
+# ide
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
-
-# 临时文件
-*.tmp
-*.temp
-*.log
-
-# 依赖文件（如果有的话）
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# 构建输出
-dist/
-build/
-out/
-
-# 环境变量文件
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# 备份文件
-*.bak
-*.backup
-*.old
-
-# 压缩文件
-*.zip
-*.tar.gz
-*.rar
-
-# 图片优化后的文件（保留原始文件）
-# 如果使用图片优化工具，可以添加相应的忽略规则

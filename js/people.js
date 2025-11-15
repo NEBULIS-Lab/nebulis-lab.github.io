@@ -27,10 +27,10 @@ const peopleData = [
         advisors: [],
         areas: ["Distributed Systems", "GPU Scheduling", "Embodied Intelligence"],
         avatar: "image/icon/user.png",
-        homepage: "https://example.com",
+        homepage: "https://ningxinsu.github.io/",
         scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "ningxin@lab.org",
+        github: "https://github.com/NingxinSu",
+        email: "ningxinsu@hkust-gz.edu.cn",
         status: "current",
         cohort: 2020,
         affiliation: "NEBULIS Lab"
@@ -42,11 +42,11 @@ const peopleData = [
         program: "PhD",
         advisors: ["苏宁馨"],
         areas: ["GPU Resource Management", "Distributed AI"],
-        avatar: "image/icon/user.png",
-        homepage: "https://example.com",
+        avatar: "image/user/shuaijun.jpg",
+        homepage: "https://shuaijun-liu.github.io/",
         scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "shuaijun@lab.org",
+        github: "https://github.com/Shuaijun-LIU",
+        email: "sliu529@connect.hkust-gz.edu.cn",
         status: "current",
         cohort: 2023,
         affiliation: "NEBULIS Lab"
@@ -58,11 +58,11 @@ const peopleData = [
         program: "Research Assistant",
         advisors: ["苏宁馨"],
         areas: ["Heterogeneous Systems", "Multi-Agent Coordination"],
-        avatar: "image/icon/user.png",
+        avatar: "image/user/xingwei.jpg",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "xingwei@lab.org",
+        github: "https://github.com/HarryXingweiCHEN",
+        email: "xingweichen@hkust-gz.edu.cn",
         status: "current",
         cohort: 2024,
         affiliation: "NEBULIS Lab"
@@ -77,8 +77,8 @@ const peopleData = [
         avatar: "image/icon/user.png",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "feiyang@lab.org",
+        github: "https://github.com/Feiyang-You",
+        email: "feiyangyou@hkust-gz.edu.cn",
         status: "current",
         cohort: 2024,
         affiliation: "NEBULIS Lab"
@@ -189,9 +189,19 @@ function createPersonCard(person) {
     const card = document.createElement('div');
     card.className = 'person-card';
     card.setAttribute('data-role', person.role);
-    card.setAttribute('data-name', person.name.toLowerCase());
-    card.setAttribute('data-areas', person.areas.join(' ').toLowerCase());
-    card.setAttribute('data-advisors', person.advisors.join(' ').toLowerCase());
+    
+    const nameZh = (person.name || '').toLowerCase().trim();
+    const nameEn = (person.nameEn || person.name || '').toLowerCase().trim();
+    const combinedName = `${person.name || ''} ${person.nameEn || ''}`.toLowerCase().trim();
+    const letterMatch = (person.nameEn || person.name || '').match(/[A-Za-z]/);
+    const primaryLetter = letterMatch ? letterMatch[0].toLowerCase() : '';
+
+    card.setAttribute('data-name', combinedName || nameZh || nameEn);
+    card.setAttribute('data-name-zh', nameZh);
+    card.setAttribute('data-name-en', nameEn);
+    card.setAttribute('data-letter', primaryLetter);
+    card.setAttribute('data-areas', (person.areas || []).join(' ').toLowerCase());
+    card.setAttribute('data-advisors', (person.advisors || []).join(' ').toLowerCase());
     
     const roleText = roleMapping[person.role] || person.role;
     const areasText = person.areas.join(', ');
@@ -293,9 +303,12 @@ function applyFilters() {
     
     cards.forEach(card => {
         const cardRole = card.getAttribute('data-role');
-        const cardName = card.getAttribute('data-name');
-        const cardAreas = card.getAttribute('data-areas');
-        const cardAdvisors = card.getAttribute('data-advisors');
+        const cardNameCombined = card.getAttribute('data-name') || '';
+        const cardNameZh = card.getAttribute('data-name-zh') || '';
+        const cardNameEn = card.getAttribute('data-name-en') || '';
+        const cardAreas = card.getAttribute('data-areas') || '';
+        const cardAdvisors = card.getAttribute('data-advisors') || '';
+        const cardLetter = card.getAttribute('data-letter') || '';
         
         let show = true;
         
@@ -305,13 +318,17 @@ function applyFilters() {
         }
         
         // Letter filtering
-        if (selectedLetter && !cardName.startsWith(selectedLetter.toLowerCase())) {
-            show = false;
+        if (selectedLetter) {
+            const letter = selectedLetter.toLowerCase();
+            const matchesLetter = cardLetter === letter || cardNameEn.startsWith(letter);
+            if (!matchesLetter) {
+                show = false;
+            }
         }
         
         // Search filtering
         if (searchQuery) {
-            const searchText = `${cardName} ${cardAreas} ${cardAdvisors}`;
+            const searchText = `${cardNameCombined} ${cardNameZh} ${cardNameEn} ${cardAreas} ${cardAdvisors}`;
             if (!searchText.includes(searchQuery)) {
                 show = false;
             }

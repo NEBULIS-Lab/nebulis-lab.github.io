@@ -37,11 +37,13 @@ function initNavigation() {
         
         // Add/remove background when scrolling
         if (currentScrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.background = 'rgba(216, 235, 255, 0.98)';
             navbar.style.backdropFilter = 'blur(20px)';
+            navbar.style.borderBottomColor = 'rgba(168, 200, 238, 0.6)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = 'rgba(230, 243, 255, 0.9)';
             navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.borderBottomColor = 'rgba(168, 200, 238, 0.6)';
         }
         
         // Scroll direction detection (optional: hide/show navbar)
@@ -234,7 +236,7 @@ function initAnimations() {
     }, observerOptions);
     
     // Observe elements that need animation
-    const animatedElements = document.querySelectorAll('.showcase-card, .post-card, .person-card, .resource-card, .initiative-card, .partner-card');
+    const animatedElements = document.querySelectorAll('.showcase-card, .post-card, .person-card, .resource-card, .initiative-card, .partner-card, .news-feature-card, .news-list-card');
     animatedElements.forEach(el => {
         observer.observe(el);
     });
