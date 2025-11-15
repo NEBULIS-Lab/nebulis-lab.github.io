@@ -26,7 +26,7 @@ const peopleData = [
         program: "Faculty",
         advisors: [],
         areas: ["Distributed Systems", "GPU Scheduling", "Embodied Intelligence"],
-        avatar: "image/icon/user.png",
+        avatar: "image/user/profsu.jpg",
         homepage: "https://ningxinsu.github.io/",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/NingxinSu",
