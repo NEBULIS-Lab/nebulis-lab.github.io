@@ -1,9 +1,9 @@
 {
-  "id": "example-project-2025",
+  "id": "template-project-2025",
   "title": "Your Project Title Here",
   "authors": "Author Name(s) Here",
   "year": 2025,
-  "thumbnail": "image/projects/example-project-2025.png",
+  "thumbnail": "image/projects/template-project-2025.png",
   "short_description": "Brief description of the project for the project card display.",
   "tags": ["Tag1", "Tag2", "Tag3"],
   "pdf": "https://example.com/paper.pdf",
