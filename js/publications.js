@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  // fetch 使用相对于当前页面URL的路径
-  // 对于根目录的页面（如 initiatives.html），路径是 'data/publications.json'
+  // Load publications from JSON file
   const jsonPath = 'data/publications.json';
   
   console.log('Loading publications from:', jsonPath);
