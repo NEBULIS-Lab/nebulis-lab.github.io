@@ -32,7 +32,7 @@
                     <!-- <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a> -->
                 </div>
                 <div class="nav-actions">
-                    <div class="language-switch">
+                    <div class="language-switch" style="visibility: hidden; pointer-events: none;">
                         <button class="lang-btn active" data-lang="en">EN</button>
                         <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
                     </div>
@@ -52,6 +52,7 @@
         <!-- Filter Section -->
         <section class="filter-section">
             <div class="container">
+                <button class="filter-toggle" data-en="Filter" data-zh="筛选">Filter</button>
                 <div class="filter-bar">
                     <div class="filter-group">
                         <label for="role-filter" data-en="Role Filter:" data-zh="角色筛选:">Role Filter:</label>
@@ -69,7 +70,9 @@
                     </div>
                     <div class="filter-group">
                         <label for="search-input" data-en="Search:" data-zh="搜索:">Search:</label>
-                        <input type="text" id="search-input" placeholder="Search by name..." class="search-input" data-en-placeholder="Search by name..." data-zh-placeholder="通过姓名搜索...">
+                        <div class="search-input-wrapper">
+                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input" data-en-placeholder="Search by name..." data-zh-placeholder="通过姓名搜索...">
+                        </div>
                     </div>
                     <div class="filter-group">
                         <label for="letter-filter" data-en="Alphabet Index:" data-zh="字母索引:">Alphabet Index:</label>

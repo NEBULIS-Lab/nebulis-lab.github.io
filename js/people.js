@@ -2,6 +2,14 @@
 // People page filtering and search functionality
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Force English language for people page (temporarily disabled Chinese)
+    // Override language setting to English
+    const currentLang = localStorage.getItem('nebulis-lang');
+    if (currentLang === 'zh') {
+        // Temporarily set to English for this page only
+        // Don't update localStorage to avoid affecting other pages
+    }
+    
     // Initialize people data
     initPeopleData();
     
@@ -11,10 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize search functionality
     initPeopleSearch();
     
-    // Listen for language change events
-    document.addEventListener('languageChanged', function(event) {
-        updatePeopleCardsLanguage(event.detail.lang);
-    });
+    // Initialize mobile filter toggle
+    initMobileFilterToggle();
+    
+    // Temporarily disable language change events for people page
+    // document.addEventListener('languageChanged', function(event) {
+    //     updatePeopleCardsLanguage(event.detail.lang);
+    // });
+    
+    // Force all cards to display in English
+    setTimeout(() => {
+        updatePeopleCardsLanguage('en');
+    }, 100);
 });
 
 // People data (sample data, in real project should be fetched from API)
@@ -33,7 +49,7 @@ const peopleData = [
         github: "https://github.com/NingxinSu",
         email: "ningxinsu@hkust-gz.edu.cn",
         status: "current",
-        cohort: 2020,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     },
     {
@@ -50,7 +66,7 @@ const peopleData = [
         github: "https://github.com/Shuaijun-LIU",
         email: "sliu529@connect.hkust-gz.edu.cn",
         status: "current",
-        cohort: 2023,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     },
     {
@@ -107,7 +123,7 @@ const peopleData = [
     {
         name: "Nebula-ChatBot",
         nameEn: "Nebula-ChatBot",
-        role: "ra",
+        role: "ai",
         program: "Research Assistant",
         advisors: ["苏宁馨"],
         description: "Nebula is the intelligent assistant of NEBULIS Lab, designed to help researchers or potential partners quickly access our project information, datasets, publications, and other lab related resources. Additional features will be launched in the future.",
@@ -185,7 +201,8 @@ function getRoleEnText(role) {
         'undergrad': 'Undergraduate',
         'visiting': 'Visiting Scholar',
         'alumni': 'Alumni',
-        'ra': 'Research Assistant'
+        'ra': 'Research Assistant',
+        'ai': 'AI Assistant'
     };
     return roleEnMapping[role] || role;
 }
@@ -215,19 +232,23 @@ function createPersonCard(person) {
         ? `<a href="${person.homepage}" target="_blank" rel="noopener noreferrer" class="person-avatar-link"><img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar"></a>`
         : `<img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">`;
     
-    // Get current language to set initial description text
-    const currentLang = localStorage.getItem('nebulis-lang') || 'en';
-    const initialDescription = currentLang === 'zh' ? descriptionZh : description;
+    // Force English for people page (temporarily disabled Chinese)
+    // const currentLang = localStorage.getItem('nebulis-lang') || 'en';
+    // const initialDescription = currentLang === 'zh' ? descriptionZh : description;
+    const initialDescription = description; // Always use English
+    
+    // Force English role text
+    const roleEnText = getRoleEnText(person.role);
     
     card.innerHTML = `
         ${avatarElement}
-        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.name}</h3>
-        <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
+        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.nameEn || person.name}</h3>
+        <div class="person-role" data-zh="${roleText}" data-en="${roleEnText}">${roleEnText}</div>
         <div class="person-description" data-zh="${descriptionZh}" data-en="${description}">${initialDescription}</div>
         <div class="person-links">
             ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="Google Scholar" data-en="Google Scholar">Google Scholar</a>` : ''}
             ${person.github ? `<a href="${person.github}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="GitHub" data-en="GitHub">GitHub</a>` : ''}
-            ${person.email ? `<a href="mailto:${person.email}" class="person-link" data-zh="邮箱" data-en="Email">邮箱</a>` : ''}
+            ${person.email ? `<a href="mailto:${person.email}" class="person-link" data-zh="邮箱" data-en="Email">Email</a>` : ''}
         </div>
     `;
     
@@ -295,16 +316,35 @@ function initPeopleFilter() {
 // Initialize people search
 function initPeopleSearch() {
     const searchInput = document.getElementById('search-input');
-    if (!searchInput) return;
+    const searchWrapper = searchInput?.parentElement;
+    if (!searchInput || !searchWrapper) return;
     
     let searchTimeout;
     
     searchInput.addEventListener('input', (e) => {
         clearTimeout(searchTimeout);
         
+        // Add typing animation class to wrapper
+        searchWrapper.classList.add('search-typing');
+        
         searchTimeout = setTimeout(() => {
+            searchWrapper.classList.remove('search-typing');
             applyFilters();
         }, 300);
+    });
+}
+
+// Initialize mobile filter toggle
+function initMobileFilterToggle() {
+    const filterToggle = document.querySelector('.filter-toggle');
+    const filterBar = document.querySelector('.filter-bar');
+    
+    if (!filterToggle || !filterBar) return;
+    
+    filterToggle.addEventListener('click', () => {
+        filterBar.classList.toggle('mobile-open');
+        const isOpen = filterBar.classList.contains('mobile-open');
+        filterToggle.setAttribute('aria-expanded', isOpen);
     });
 }
 
@@ -334,8 +374,12 @@ function applyFilters() {
         
         let show = true;
         
-        // Role filtering
+        // Role filtering (exclude "ai" role from RA filter)
         if (selectedRole && cardRole !== selectedRole) {
+            show = false;
+        }
+        // Exclude "ai" role when filtering by "ra"
+        if (selectedRole === 'ra' && cardRole === 'ai') {
             show = false;
         }
         
