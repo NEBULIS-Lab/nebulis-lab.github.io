@@ -19,9 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize search functionality
     initPeopleSearch();
     
-    // Initialize mobile filter toggle
-    initMobileFilterToggle();
-    
     // Temporarily disable language change events for people page
     // document.addEventListener('languageChanged', function(event) {
     //     updatePeopleCardsLanguage(event.detail.lang);
@@ -331,20 +328,6 @@ function initPeopleSearch() {
             searchWrapper.classList.remove('search-typing');
             applyFilters();
         }, 300);
-    });
-}
-
-// Initialize mobile filter toggle
-function initMobileFilterToggle() {
-    const filterToggle = document.querySelector('.filter-toggle');
-    const filterBar = document.querySelector('.filter-bar');
-    
-    if (!filterToggle || !filterBar) return;
-    
-    filterToggle.addEventListener('click', () => {
-        filterBar.classList.toggle('mobile-open');
-        const isOpen = filterBar.classList.contains('mobile-open');
-        filterToggle.setAttribute('aria-expanded', isOpen);
     });
 }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="Team Members - NEBULIS Lab" data-zh="团队成员 - NEBULIS Lab">Team Members - NEBULIS Lab</title>
+    <title>Team Members - NEBULIS Lab</title>
     <meta name="description" content="Meet NEBULIS Lab team members including faculty, postdocs, PhD students, masters students and visiting scholars.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
@@ -52,32 +52,31 @@
         <!-- Filter Section -->
         <section class="filter-section">
             <div class="container">
-                <button class="filter-toggle" data-en="Filter" data-zh="筛选">Filter</button>
                 <div class="filter-bar">
                     <div class="filter-group">
-                        <label for="role-filter" data-en="Role Filter:" data-zh="角色筛选:">Role Filter:</label>
+                        <label for="role-filter">Role Filter:</label>
                         <select id="role-filter" class="filter-select">
-                            <option value="" data-en="All" data-zh="全部">All</option>
-                            <option value="faculty" data-en="Faculty" data-zh="教师">Faculty</option>
-                            <option value="postdoc" data-en="Postdoc" data-zh="博士后">Postdoc</option>
-                            <option value="phd" data-en="PhD" data-zh="博士生">PhD</option>
-                            <option value="masters" data-en="Masters" data-zh="硕士生">Masters</option>
-                            <option value="undergrad" data-en="Undergrad" data-zh="本科生">Undergrad</option>
-                            <option value="ra" data-en="Research Assistant" data-zh="研究助理">Research Assistant</option>
-                            <option value="visiting" data-en="Visiting" data-zh="访问学者">Visiting</option>
-                            <option value="alumni" data-en="Alumni" data-zh="校友">Alumni</option>
+                            <option value="">All</option>
+                            <option value="faculty">Faculty</option>
+                            <option value="postdoc">Postdoc</option>
+                            <option value="phd">PhD</option>
+                            <option value="masters">Masters</option>
+                            <option value="undergrad">Undergrad</option>
+                            <option value="ra">Research Assistant</option>
+                            <option value="visiting">Visiting</option>
+                            <option value="alumni">Alumni</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="search-input" data-en="Search:" data-zh="搜索:">Search:</label>
+                        <label for="search-input">Search:</label>
                         <div class="search-input-wrapper">
-                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input" data-en-placeholder="Search by name..." data-zh-placeholder="通过姓名搜索...">
+                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input">
                         </div>
                     </div>
                     <div class="filter-group">
-                        <label for="letter-filter" data-en="Alphabet Index:" data-zh="字母索引:">Alphabet Index:</label>
+                        <label for="letter-filter">Alphabet Index:</label>
                         <select id="letter-filter" class="filter-select">
-                            <option value="" data-en="All" data-zh="全部">All</option>
+                            <option value="">All</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -117,8 +116,8 @@
                     <!-- People cards will be dynamically loaded via JavaScript -->
                 </div>
                 <div class="empty-state" id="empty-state" style="display: none;">
-                    <h3 data-en="No Matching Members Found" data-zh="未找到匹配的成员">No Matching Members Found</h3>
-                    <p data-en="Please try adjusting filter conditions or search keywords" data-zh="请尝试调整筛选条件或搜索关键词">Please try adjusting filter conditions or search keywords</p>
+                    <h3>No Matching Members Found</h3>
+                    <p>Please try adjusting filter conditions or search keywords</p>
                 </div>
             </div>
         </section>
@@ -135,7 +134,7 @@
                 </div>
                 <div class="footer-center">
                     <div class="footer-copyright">
-                        <span data-en="&copy; NEBULIS Lab. All rights reserved." data-zh="&copy; NEBULIS Lab. 保留所有权利。">&copy; <span id='current-year'></span> NEBULIS Lab. All rights reserved.</span>
+                        <span data-en="&copy; 2025 NEBULIS Lab @ HKUST(GZ). All rights reserved." data-zh="&copy; 2025 NEBULIS Lab @ HKUST(GZ). 保留所有权利。">&copy; 2025 NEBULIS Lab @ HKUST(GZ). All rights reserved.</span>
                     </div>
                 </div>
                 <div class="footer-right">
@@ -152,6 +151,24 @@
 
     <script src="js/main.js"></script>
     <script src="js/people.js"></script>
+    <script>
+        // Force English language for this page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Override language to English
+            if (window.LanguageSwitch) {
+                window.LanguageSwitch.setLanguage('en');
+            } else {
+                // If language.js hasn't loaded yet, wait and try again
+                setTimeout(function() {
+                    if (window.LanguageSwitch) {
+                        window.LanguageSwitch.setLanguage('en');
+                    }
+                }, 100);
+            }
+            // Set HTML lang attribute to English
+            document.documentElement.lang = 'en';
+        });
+    </script>
     <script src="js/language.js"></script>
 </body>
 </html>
