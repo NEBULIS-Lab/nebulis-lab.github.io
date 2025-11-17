@@ -64,25 +64,21 @@ function renderProjectDetails(project, container) {
   title.textContent = project.title || 'Untitled Project';
   container.appendChild(title);
 
-  // Authors and Year
-  const metaDiv = document.createElement('div');
-  metaDiv.className = 'project-meta';
-  
+  // Authors
   if (project.authors) {
     const authors = document.createElement('p');
     authors.className = 'project-authors';
     authors.textContent = project.authors;
-    metaDiv.appendChild(authors);
+    container.appendChild(authors);
   }
 
+  // Year (separate line)
   if (project.year) {
     const year = document.createElement('p');
     year.className = 'project-year';
     year.textContent = project.year;
-    metaDiv.appendChild(year);
+    container.appendChild(year);
   }
-
-  container.appendChild(metaDiv);
 
   // Action buttons (aligned on same baseline as text)
   const buttonsDiv = document.createElement('div');

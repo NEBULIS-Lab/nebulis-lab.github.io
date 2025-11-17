@@ -1,0 +1,37 @@
+{
+  "id": "example-project-2025",
+  "title": "Your Project Title Here",
+  "authors": "Author Name(s) Here",
+  "year": 2025,
+  "thumbnail": "image/projects/example-project-2025.png",
+  "short_description": "Brief description of the project for the project card display.",
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "pdf": "https://example.com/paper.pdf",
+  "code": "https://github.com/example/repo",
+  "slides": "https://example.com/slides.pdf",
+  "project_page": "https://example.com/project",
+  "sections": [
+    {
+      "title": "Section Title 1",
+      "text": "Section content text goes here. You can write multiple paragraphs or detailed information about this section."
+    },
+    {
+      "title": "Section Title 2",
+      "text": "Another section with its own content. Add as many sections as needed."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/figure1.png",
+      "caption": "Figure caption text describing what the figure shows"
+    }
+  ],
+  "tables": [
+    {
+      "html": "<table><thead><tr><th>Column 1</th><th>Column 2</th></tr></thead><tbody><tr><td>Data 1</td><td>Data 2</td></tr></tbody></table>",
+      "caption": "Table caption describing the table content"
+    }
+  ],
+  "bibtex": "@article{example-project-2025,\n  title={Your Project Title},\n  author={Author Names},\n  year={2025},\n  journal={Journal Name}\n}"
+}
+
