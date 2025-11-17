@@ -1,0 +1,36 @@
+{
+  "id": "ei-robotics-2025",
+  "title": "Embodied Intelligence Systems",
+  "authors": "NEBULIS Lab Team",
+  "year": 2025,
+  "thumbnail": "image/projects/ei-robotics-2025.png",
+  "short_description": "Research on perception, decision-making and execution capabilities of agents in the physical world, developing robotic systems capable of autonomous operation in complex environments.",
+  "tags": ["Embodied AI", "Robotics", "Perception", "Control"],
+  "pdf": "https://example.com/paper.pdf",
+  "code": "https://github.com/NEBULIS-Lab/ei-robotics",
+  "slides": "https://example.com/slides.pdf",
+  "project_page": "https://example.com/project",
+  "sections": [
+    {
+      "title": "Introduction",
+      "text": "Embodied intelligence represents a fundamental shift in how we approach artificial intelligence. Unlike traditional AI systems that operate in abstract digital spaces, embodied agents must interact with the physical world, requiring sophisticated perception, decision-making, and execution capabilities. This research focuses on developing robotic systems that can autonomously operate in complex, dynamic environments."
+    },
+    {
+      "title": "Method",
+      "text": "Our approach combines deep learning for perception, reinforcement learning for decision-making, and robust control algorithms for execution. We employ a modular architecture that allows for incremental learning and adaptation. The system uses multi-modal sensors including cameras, LiDAR, and proprioceptive sensors to build a comprehensive understanding of the environment."
+    },
+    {
+      "title": "Results",
+      "text": "Our experiments demonstrate significant improvements in autonomous navigation, object manipulation, and task completion rates compared to baseline methods. The system successfully operates in both indoor and outdoor environments, handling dynamic obstacles and varying lighting conditions."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/ei-robotics-2025.png",
+      "caption": "Overview of our embodied intelligence system architecture"
+    }
+  ],
+  "tables": [],
+  "bibtex": "@article{ei-robotics-2025,\n  title={Embodied Intelligence Systems},\n  author={NEBULIS Lab Team},\n  year={2025},\n  journal={arXiv preprint}\n}"
+}
+

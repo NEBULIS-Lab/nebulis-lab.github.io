@@ -3977,3 +3977,209 @@ main {
   opacity: 0.8;
   text-decoration: underline;
 }
+
+/* Project Details Page */
+.project-details-section {
+  padding: var(--space-12) 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#project-details-content {
+  padding: 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+  #project-details-content {
+    padding: 0 var(--space-6);
+  }
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: var(--color-fg);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .project-title {
+    font-size: 3rem;
+  }
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: baseline;
+  margin-bottom: var(--space-6);
+  color: var(--color-muted);
+}
+
+.project-authors {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--color-muted);
+}
+
+.project-year {
+  margin: 0;
+  font-size: 1.125rem;
+  color: var(--color-muted);
+}
+
+.project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: baseline;
+  margin-bottom: var(--space-8);
+}
+
+.project-button {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: var(--transition);
+}
+
+.project-button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 88, 202, 0.3);
+}
+
+.project-section {
+  margin-bottom: var(--space-8);
+}
+
+.project-section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+  color: var(--color-fg);
+}
+
+.project-section-text {
+  color: var(--color-muted);
+  line-height: 1.8;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.project-figure {
+  margin: var(--space-8) 0;
+  text-align: center;
+}
+
+.project-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-figure-caption {
+  margin-top: var(--space-3);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.project-table {
+  margin: var(--space-8) 0;
+}
+
+.project-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: var(--space-3);
+}
+
+.project-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.project-table-wrapper th,
+.project-table-wrapper td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.project-table-wrapper th {
+  background: var(--color-card-bg);
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.project-table-wrapper td {
+  color: var(--color-muted);
+}
+
+.project-table-caption {
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  text-align: left;
+  margin-top: var(--space-2);
+}
+
+.project-bibtex {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.project-bibtex-wrapper {
+  position: relative;
+  background: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+}
+
+.project-bibtex-wrapper pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow-x: auto;
+}
+
+.project-bibtex-wrapper code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-fg);
+  white-space: pre;
+}
+
+.project-bibtex-copy {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.project-bibtex-copy:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}

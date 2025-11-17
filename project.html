@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - NEBULIS Lab</title>
-    <meta name="description" content="Learn about NEBULIS Lab's research projects and development directions, exploring our cutting-edge work in AI.">
+    <title>Project Details - NEBULIS Lab</title>
+    <meta name="description" content="Project details from NEBULIS Lab">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,28 +48,17 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Publications Section -->
-        <section class="publications-section">
+        <section class="project-details-section">
             <div class="container">
-                <h2 class="section-title">Recent Publications</h2>
-                <ul id="publications-list" class="publications-list"></ul>
-            </div>
-        </section>
-
-        <!-- Project Showcase -->
-        <section class="initiatives-section">
-            <div class="container">
-                <h2 class="section-title">Research Projects</h2>
-                <div class="initiatives-grid">
-                    <!-- Project cards will be dynamically loaded by projects.js -->
+                <div id="project-details-content">
+                    <!-- Content will be loaded dynamically by project-details.js -->
+                    <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
+                        Loading project details...
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
-
-    <script src="js/publications.js"></script>
-    <script src="js/projects.js"></script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -98,6 +87,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/project-details.js"></script>
     <script>
         // Force English language for this page
         document.addEventListener('DOMContentLoaded', function() {
@@ -119,3 +109,4 @@
     <script src="js/language.js"></script>
 </body>
 </html>
+

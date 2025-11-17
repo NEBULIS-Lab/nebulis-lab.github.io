@@ -1,0 +1,41 @@
+{
+  "id": "gpu-scheduling-2024",
+  "title": "Dynamic GPU Resource Management",
+  "authors": "NEBULIS Lab Team",
+  "year": 2024,
+  "thumbnail": "image/projects/gpu-scheduling-2024.png",
+  "short_description": "Develop intelligent scheduling algorithms for GPU resources in distributed systems, optimizing computational efficiency and enabling seamless resource sharing across heterogeneous agents.",
+  "tags": ["GPU Scheduling", "Resource Management", "Distributed Systems"],
+  "pdf": "https://example.com/gpu-paper.pdf",
+  "code": "https://github.com/NEBULIS-Lab/gpu-scheduler",
+  "slides": "",
+  "project_page": "",
+  "sections": [
+    {
+      "title": "Introduction",
+      "text": "As distributed AI systems scale, efficient GPU resource management becomes critical. Traditional scheduling approaches fail to account for the dynamic nature of AI workloads and the heterogeneity of modern GPU clusters. This project addresses these challenges by developing intelligent scheduling algorithms."
+    },
+    {
+      "title": "Method",
+      "text": "We propose a reinforcement learning-based scheduler that learns optimal resource allocation policies. The system monitors workload characteristics, GPU utilization, and network conditions to make real-time scheduling decisions. Our approach supports both preemptive and non-preemptive scheduling modes."
+    },
+    {
+      "title": "Results",
+      "text": "Experimental results show a 30% improvement in overall system throughput and a 25% reduction in average job completion time compared to traditional schedulers. The system successfully handles mixed workloads including training, inference, and data processing tasks."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/gpu-scheduling-2024.png",
+      "caption": "GPU resource allocation architecture"
+    }
+  ],
+  "tables": [
+    {
+      "html": "<table><thead><tr><th>Metric</th><th>Baseline</th><th>Our Method</th><th>Improvement</th></tr></thead><tbody><tr><td>Throughput</td><td>100 jobs/hour</td><td>130 jobs/hour</td><td>30%</td></tr><tr><td>Avg. Completion Time</td><td>120s</td><td>90s</td><td>25%</td></tr><tr><td>GPU Utilization</td><td>65%</td><td>85%</td><td>31%</td></tr></tbody></table>",
+      "caption": "Performance comparison with baseline schedulers"
+    }
+  ],
+  "bibtex": "@article{gpu-scheduling-2024,\n  title={Dynamic GPU Resource Management},\n  author={NEBULIS Lab Team},\n  year={2024},\n  journal={arXiv preprint}\n}"
+}
+

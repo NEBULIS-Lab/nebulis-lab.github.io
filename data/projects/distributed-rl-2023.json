@@ -1,0 +1,36 @@
+{
+  "id": "distributed-rl-2023",
+  "title": "Scalable Distributed Reinforcement Learning",
+  "authors": "NEBULIS Lab Team",
+  "year": 2023,
+  "thumbnail": "image/projects/distributed-rl-2023.png",
+  "short_description": "A framework for training large-scale reinforcement learning agents across distributed computing environments with efficient communication and synchronization protocols.",
+  "tags": ["Reinforcement Learning", "Distributed Systems", "Multi-Agent"],
+  "pdf": "",
+  "code": "https://github.com/NEBULIS-Lab/distributed-rl",
+  "slides": "https://example.com/rl-slides.pdf",
+  "project_page": "https://example.com/distributed-rl",
+  "sections": [
+    {
+      "title": "Introduction",
+      "text": "Training large-scale reinforcement learning agents requires significant computational resources. Distributed training can accelerate this process, but introduces challenges in communication overhead, synchronization, and sample efficiency. This project develops a scalable framework that addresses these issues."
+    },
+    {
+      "title": "Method",
+      "text": "We design an asynchronous distributed RL framework with hierarchical communication. Agents operate in parallel, collecting experiences independently, while a central coordinator aggregates gradients and updates policy parameters. The system uses prioritized experience replay and gradient compression to minimize communication costs."
+    },
+    {
+      "title": "Results",
+      "text": "Our framework achieves near-linear scaling up to 64 workers, with minimal performance degradation. Training time for complex tasks is reduced by 8x compared to single-worker training. The system maintains sample efficiency while significantly improving wall-clock time."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/distributed-rl-2023.png",
+      "caption": "Distributed RL architecture with hierarchical communication"
+    }
+  ],
+  "tables": [],
+  "bibtex": "@article{distributed-rl-2023,\n  title={Scalable Distributed Reinforcement Learning},\n  author={NEBULIS Lab Team},\n  year={2023},\n  journal={arXiv preprint}\n}"
+}
+
