@@ -21,14 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
 const peopleData = [
     {
         name: "苏宁馨",
-        nameEn: "Ningxin Su",
+        nameEn: "Prof. Ningxin Su",
         role: "faculty",
         program: "Faculty",
         advisors: [],
-        areas: ["Distributed Systems", "GPU Scheduling", "Embodied Intelligence"],
+        description: "Assistant Professor at IoT in HKUST(GZ). Director of the NEBULIS Lab. Received Ph.D. degree from the ECE, University of Toronto, supervised by Prof. Baochun Li. Research interests: Embodied AI, Multi-agent Systems and Distributed Systems.",
+        descriptionZh: "香港科技大学（广州）助理教授，NEBULIS Lab 负责人。博士毕业于多伦多大学电子与计算机工程系，师从 Baochun Li 教授。",
         avatar: "image/user/profsu.jpg",
         homepage: "https://ningxinsu.github.io/",
-        scholar: "https://scholar.google.com/...",
+        scholar: "https://scholar.google.com/citations?user=XkeT3_8AAAAJ&hl=en",
         github: "https://github.com/NingxinSu",
         email: "ningxinsu@hkust-gz.edu.cn",
         status: "current",
@@ -41,10 +42,11 @@ const peopleData = [
         role: "phd",
         program: "PhD",
         advisors: ["苏宁馨"],
-        areas: ["GPU Resource Management", "Distributed AI"],
+        description: "BSc in Statistics & CS from HKBU; MSc in CS from Boston University. Research interests: IoT-based Dynamic Control, LLM Deployment and Inference, 3D Reconstruction. Resently working on an TCM pulse-diagnosis project supervised by Prof. Su.",
+        descriptionZh: "香港浸会大学统计学、计算机科学学士；波士顿大学计算机科学硕士。研究兴趣：边缘计算中的动态控制、大语言模型部署与推理、三维重建。目前在苏教授指导下进行中医脉诊项目研究。",
         avatar: "image/user/shuaijun.jpg",
         homepage: "https://shuaijun-liu.github.io/",
-        scholar: "https://scholar.google.com/...",
+        scholar: "https://scholar.google.com/citations?user=-tBtMaAAAAAJ&hl=en",
         github: "https://github.com/Shuaijun-LIU",
         email: "sliu529@connect.hkust-gz.edu.cn",
         status: "current",
@@ -57,14 +59,15 @@ const peopleData = [
         role: "ra",
         program: "Research Assistant",
         advisors: ["苏宁馨"],
-        areas: ["Heterogeneous Systems", "Multi-Agent Coordination"],
+        description: "BEng in Control & Instrumentation from Nanjing University of Aeronautics and Astronautics; MSc in Precision Instrumentation from NTU (Singapore). Research interests: Embodied AI & VLA/VLM, Optimization & Cutting-edge AI in Robotics, RL.",
+        descriptionZh: "南京航空航天大学控制与仪器工程学士；新加坡南洋理工大学精密仪器硕士。研究兴趣：具身智能与视觉语言模型、机器人优化与前沿AI、强化学习。",
         avatar: "image/user/xingwei.jpg",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/HarryXingweiCHEN",
         email: "xingweichen@hkust-gz.edu.cn",
         status: "current",
-        cohort: 2024,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     },
     {
@@ -73,14 +76,15 @@ const peopleData = [
         role: "ra",
         program: "Research Assistant",
         advisors: ["苏宁馨"],
-        areas: ["System Architecture", "Robot Autonomy"],
-        avatar: "image/icon/user.png",
+        description: "BEng in Automation from Shanghai Jiao Tong University. Research interests: Real-time Motion Generation in Embodied Intelligence. Enjoys soccer and LOL. My friends call me “Dormitory TheShy” due to my remarkably consistent feeding skills.",
+        descriptionZh: "上海交通大学自动化专业学士。研究兴趣：具身智能中的实时运动生成。喜欢足球、英雄联盟和观看比赛。顺便一提，朋友们叫我“宿舍 TheShy”，因为我有着非常稳定的送人头技巧。",
+        avatar: "image/user/feiyang.jpg",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/Feiyang-You",
         email: "feiyangyou@hkust-gz.edu.cn",
         status: "current",
-        cohort: 2024,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     },
     {
@@ -89,30 +93,32 @@ const peopleData = [
         role: "ra",
         program: "Research Assistant",
         advisors: ["苏宁馨"],
-        areas: ["Dynamic Orchestration", "Embodied Intelligence"],
+        description: "Embodied intelligent hardware development.",
+        descriptionZh: "具身智能硬件开发。",
         avatar: "image/icon/user.png",
         homepage: "https://example.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/...",
         email: "qingkai@lab.org",
         status: "current",
-        cohort: 2024,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     },
     {
-        name: "ChatGPT",
-        nameEn: "ChatGPT",
+        name: "Nebula-ChatBot",
+        nameEn: "Nebula-ChatBot",
         role: "ra",
         program: "Research Assistant",
         advisors: ["苏宁馨"],
-        areas: ["AI Assistant", "Natural Language Processing"],
-        avatar: "image/icon/user.png",
+        description: "Nebula is the intelligent assistant of NEBULIS Lab, designed to help researchers or potential partners quickly access our project information, datasets, publications, and other lab related resources. Additional features will be launched in the future.",
+        descriptionZh: "Nebula 是 NEBULIS Lab 的智能助手，旨在帮助研究人员或潜在合作伙伴快速访问我们的项目信息、数据集、出版物和其他实验室相关资源。未来将推出更多功能。",
+        avatar: "image/user/nebula.jpg",
         homepage: "https://openai.com",
         scholar: "https://scholar.google.com/...",
         github: "https://github.com/...",
         email: "chatgpt@lab.org",
         status: "current",
-        cohort: 2024,
+        cohort: 2025,
         affiliation: "NEBULIS Lab"
     }
 ];
@@ -200,22 +206,26 @@ function createPersonCard(person) {
     card.setAttribute('data-name-zh', nameZh);
     card.setAttribute('data-name-en', nameEn);
     card.setAttribute('data-letter', primaryLetter);
-    card.setAttribute('data-areas', (person.areas || []).join(' ').toLowerCase());
-    card.setAttribute('data-advisors', (person.advisors || []).join(' ').toLowerCase());
     
     const roleText = roleMapping[person.role] || person.role;
-    const areasText = person.areas.join(', ');
+    const description = person.description || person.areas?.join(', ') || '';
+    const descriptionZh = person.descriptionZh || description;
+    
+    const avatarElement = person.homepage 
+        ? `<a href="${person.homepage}" target="_blank" rel="noopener noreferrer" class="person-avatar-link"><img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar"></a>`
+        : `<img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">`;
+    
+    // Get current language to set initial description text
+    const currentLang = localStorage.getItem('nebulis-lang') || 'en';
+    const initialDescription = currentLang === 'zh' ? descriptionZh : description;
     
     card.innerHTML = `
-        <img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">
+        ${avatarElement}
         <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.name}</h3>
-        <div class="person-info">
-            <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
-            <div class="person-areas" data-en="Key Words" data-zh="关键词">Key Words: ${areasText}</div>
-        </div>
+        <div class="person-role" data-zh="${roleText}" data-en="${getRoleEnText(person.role)}">${roleText}</div>
+        <div class="person-description" data-zh="${descriptionZh}" data-en="${description}">${initialDescription}</div>
         <div class="person-links">
-            ${person.homepage ? `<a href="${person.homepage}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="主页" data-en="Homepage">主页</a>` : ''}
-            ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="学术" data-en="Scholar">学术</a>` : ''}
+            ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="Google Scholar" data-en="Google Scholar">Google Scholar</a>` : ''}
             ${person.github ? `<a href="${person.github}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="GitHub" data-en="GitHub">GitHub</a>` : ''}
             ${person.email ? `<a href="mailto:${person.email}" class="person-link" data-zh="邮箱" data-en="Email">邮箱</a>` : ''}
         </div>
@@ -237,6 +247,20 @@ function updatePeopleCardsLanguage(lang) {
                 roleElement.textContent = zhText;
             } else {
                 roleElement.textContent = enText;
+            }
+        }
+        
+        // Update description text
+        const descriptionElement = card.querySelector('.person-description');
+        if (descriptionElement) {
+            const zhText = descriptionElement.getAttribute('data-zh');
+            const enText = descriptionElement.getAttribute('data-en');
+            if (zhText && enText) {
+                if (lang === 'zh') {
+                    descriptionElement.textContent = zhText;
+                } else {
+                    descriptionElement.textContent = enText;
+                }
             }
         }
         
@@ -306,8 +330,6 @@ function applyFilters() {
         const cardNameCombined = card.getAttribute('data-name') || '';
         const cardNameZh = card.getAttribute('data-name-zh') || '';
         const cardNameEn = card.getAttribute('data-name-en') || '';
-        const cardAreas = card.getAttribute('data-areas') || '';
-        const cardAdvisors = card.getAttribute('data-advisors') || '';
         const cardLetter = card.getAttribute('data-letter') || '';
         
         let show = true;
@@ -326,9 +348,9 @@ function applyFilters() {
             }
         }
         
-        // Search filtering
+        // Search filtering (only by name)
         if (searchQuery) {
-            const searchText = `${cardNameCombined} ${cardNameZh} ${cardNameEn} ${cardAreas} ${cardAdvisors}`;
+            const searchText = `${cardNameCombined} ${cardNameZh} ${cardNameEn}`;
             if (!searchText.includes(searchQuery)) {
                 show = false;
             }

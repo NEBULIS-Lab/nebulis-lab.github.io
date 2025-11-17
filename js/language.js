@@ -152,6 +152,7 @@ function updatePageTitle(lang) {
             'initiatives': '项目方向 - NEBULIS Lab',
             'affiliates': '合作伙伴 - NEBULIS Lab',
             'login': '登录 - NEBULIS Lab',
+            'join': '加入 NEBULIS Lab',
             '404': '页面未找到 - NEBULIS Lab'
         },
         'en': {
@@ -163,6 +164,7 @@ function updatePageTitle(lang) {
             'initiatives': 'Projects - NEBULIS Lab',
             'affiliates': 'Partners - NEBULIS Lab',
             'login': 'Login - NEBULIS Lab',
+            'join': 'Join NEBULIS Lab',
             '404': 'Page Not Found - NEBULIS Lab'
         }
     };
@@ -190,6 +192,7 @@ function getCurrentPageType() {
         'initiatives': 'initiatives',
         'affiliates': 'affiliates',
         'login': 'login',
+        'join': 'join',
         '404': '404'
     };
     
@@ -205,7 +208,7 @@ function updateNavigationActiveState() {
         link.classList.remove('active');
         
         const href = link.getAttribute('href');
-        if (href === currentPage + '.html' || (currentPage === 'index' && href === 'index.html')) {
+        if (href === currentPage + '.html' || (currentPage === 'index' && (href === 'index.html' || href === './'))) {
             link.classList.add('active');
         }
     });

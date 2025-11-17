@@ -107,6 +107,14 @@ function initSmoothScroll() {
                 top: offsetTop,
                 behavior: 'smooth'
             });
+            
+            // Close mobile menu if open
+            const navMenu = document.querySelector('.nav-menu');
+            const navToggle = document.querySelector('.nav-toggle');
+            if (navMenu && navMenu.classList.contains('mobile-open')) {
+                navMenu.classList.remove('mobile-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     });
 }
