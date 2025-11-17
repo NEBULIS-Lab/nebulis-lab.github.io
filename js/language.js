@@ -82,11 +82,21 @@ function updatePageContent(lang) {
                 element.innerHTML = enText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
             }
         } else {
-            // Regular elements use textContent
+            // Check if content contains HTML tags
+            const containsHTML = (text) => /<[a-z][\s\S]*>/i.test(text);
+            
             if (lang === 'zh') {
-                element.textContent = zhText;
+                if (containsHTML(zhText)) {
+                    element.innerHTML = zhText;
+                } else {
+                    element.textContent = zhText;
+                }
             } else {
-                element.textContent = enText;
+                if (containsHTML(enText)) {
+                    element.innerHTML = enText;
+                } else {
+                    element.textContent = enText;
+                }
             }
         }
     });

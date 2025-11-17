@@ -2572,9 +2572,9 @@ main {
 .about-intro {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
-  background: transparent;
-  padding: var(--space-12);
+  gap: var(--space-6);
+  background: rgba(230, 243, 255, 0.9);
+  padding: var(--space-8) var(--space-6);
   border-radius: var(--radius-lg);
   margin: var(--space-4);
   border: 2px solid var(--color-line);
@@ -2607,14 +2607,14 @@ main {
 .intro-text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
   text-align: justify;
 }
 
 .intro-text p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-muted);
-  line-height: 1.7;
+  line-height: 1.6;
   margin: 0;
   text-align: justify;
 }
@@ -2624,7 +2624,7 @@ main {
   align-items: flex-start;
   gap: var(--space-4);
   background: var(--color-card-bg);
-  padding: var(--space-6);
+  padding: var(--space-4);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-line);
   position: relative;
@@ -2647,11 +2647,10 @@ main {
 
 .vision-text {
   flex: 1;
-  padding-right: var(--space-12);
 }
 
 .vision-text h3 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-fg);
   margin: 0 0 var(--space-2) 0;
@@ -2702,7 +2701,7 @@ main {
 }
 
 .research-card {
-  background: white;
+  background: rgba(230, 243, 255, 0.5);
   border-radius: var(--radius-md);
   padding: var(--space-4);
   box-shadow: var(--shadow-sm);
@@ -2736,6 +2735,54 @@ main {
 .research-card:hover .research-icon img {
   filter: grayscale(0%);
   transform: scale(1.1);
+}
+
+/* Random icon breathing animation */
+.about-research-card.card-breathing {
+  animation: cardBreathe 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.about-research-card.card-breathing .research-icon img {
+  animation: iconBreathe 2s ease-in-out infinite;
+}
+
+.about-research-card.card-breathing:hover {
+  animation: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(10, 88, 202, 0.15);
+  transform: scale(1.02) translateY(-2px);
+}
+
+.about-research-card.card-breathing:hover .research-icon img {
+  animation: none;
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+@keyframes iconBreathe {
+  0%, 100% {
+    filter: grayscale(100%);
+    transform: scale(1);
+  }
+  50% {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes cardBreathe {
+  0%, 100% {
+    border-color: var(--color-line);
+    box-shadow: var(--shadow-sm);
+    background: rgba(230, 243, 255, 0.5);
+  }
+  50% {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(10, 88, 202, 0.15);
+    background: rgba(173, 216, 255, 0.6);
+  }
 }
 
 .research-card h3 {
@@ -3750,4 +3797,132 @@ main {
   .stats {
     break-inside: avoid;
   }
+}
+
+/* About page animations */
+.about-section-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.about-section-title:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.about-section-title:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+
+.vision-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.intro-text-p {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.intro-text-p:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+
+.intro-text-p:nth-of-type(2) {
+  animation-delay: 0.35s;
+}
+
+.intro-text-p:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+
+.vision-text-p {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.5s ease-out 0.4s forwards;
+}
+
+.about-research-card {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.5s ease-out forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.3s ease;
+}
+
+/* After initial animation completes, prevent re-triggering */
+.about-research-card.animation-complete {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* When card-breathing is removed, ensure card stays visible and disable fadeInUp */
+/* This prevents the brief disappearance when switching cards */
+.about-research-card.animation-complete:not(.card-breathing) {
+  animation: none; /* Disable fadeInUp after initial load */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card breathing animation - must have higher priority when animation-complete is present */
+.about-research-card.animation-complete.card-breathing {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: cardBreathe 2s ease-in-out infinite !important;
+}
+
+.about-research-card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.about-research-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.about-research-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.about-research-card:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.about-research-card:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.about-research-card:nth-child(6) {
+  animation-delay: 0.8s;
+}
+
+.about-research-card:hover {
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 88, 202, 0.15);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* About page link styling */
+.intro-text a,
+.vision-text a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.intro-text a:hover,
+.vision-text a:hover {
+  color: var(--color-primary);
+  opacity: 0.8;
+  text-decoration: underline;
 }
