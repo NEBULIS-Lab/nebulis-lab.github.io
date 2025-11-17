@@ -3472,7 +3472,7 @@ main {
 
 /* Publications Section */
 .publications-section {
-  padding: var(--space-16) 0;
+  padding: var(--space-12) 0;
   background: var(--color-bg);
 }
 
@@ -3482,12 +3482,12 @@ main {
   margin: 0;
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  padding: var(--space-8) var(--space-16);
 }
 
 .publication-list-item {
   border-bottom: 1px solid var(--color-line);
-  padding: var(--space-6) 0;
+  padding: var(--space-3) 0;
 }
 
 .publication-list-item:last-child {
@@ -3496,35 +3496,56 @@ main {
 
 .publication-list-content {
   display: flex;
+  gap: var(--space-4);
+  align-items: flex-end;
+}
+
+.publication-list-text {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
 .publication-list-meta {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
 }
 
 .publication-list-title {
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--color-fg);
-  margin: 0 0 var(--space-2) 0;
+  margin: 0 0 var(--space-1) 0;
   line-height: 1.4;
 }
 
 .publication-list-authors {
   color: var(--color-muted);
   font-size: 0.875rem;
-  margin: 0 0 var(--space-3) 0;
+  margin: 0;
 }
 
 .publication-list-links {
   display: flex;
-  gap: var(--space-3);
-  justify-content: flex-end;
+  gap: var(--space-2);
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.publication-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: rgba(10, 88, 202, 0.15);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .publication-list-link {
@@ -3728,7 +3749,7 @@ main {
   gap: 1px;
   padding: 1px;
   background: var(--color-card-bg);
-  border-radius: var(--radius-sm);
+  border-radius: 8px;
   border: 1px solid var(--color-line);
   box-shadow: var(--shadow-sm);
 }
@@ -3740,7 +3761,7 @@ main {
   color: var(--color-muted);
   font-size: 0.65rem;
   font-weight: 500;
-  border-radius: var(--radius-sm);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
   min-height: 20px;

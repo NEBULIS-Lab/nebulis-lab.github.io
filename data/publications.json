@@ -1,0 +1,112 @@
+[
+  {
+    "year": "2024",
+    "title": "MLOps in the Metaverse: Human-Centric Continuous Integration",
+    "authors": "Ningxin Su, Baochun Li",
+    "venue": "IEEE JSAC",
+    "pdf": "https://ieeexplore.ieee.org/document/10379159",
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2024",
+    "title": "Towards Communication-Efficient Homomorphic Encryption in Federated Learning",
+    "authors": "Zeyuan Zuo, Ningxin Su, Baochun Li, Teng Zhang",
+    "venue": "ACM SoCC",
+    "pdf": null,
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2024",
+    "title": "Democratizing the Federation in Federated Learning",
+    "authors": "Ningxin Su, Baochun Li, Bo Li",
+    "venue": "IEEE MASS",
+    "pdf": "https://ningxinsu.github.io/assets/mass24.pdf",
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2024",
+    "title": "Calibre: Towards Fair and Accurate Personalized Federated Learning with Self-Supervised Learning",
+    "authors": "Sijia Chen, Ningxin Su, Baochun Li",
+    "venue": "IEEE ICDCS",
+    "pdf": "https://ningxinsu.github.io/assets/icdcs24.pdf",
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2024",
+    "title": "Relic: Federated Conditional Textual Inversion with Prototype Alignment",
+    "authors": "Sijia Chen, Ningxin Su, Baochun Li",
+    "venue": "IEEE/ACM IWQoS",
+    "pdf": "https://ningxinsu.github.io/assets/schen-iwqos24.pdf",
+    "code": null,
+    "project": null,
+    "slides": "https://ningxinsu.github.io/assets/iwqos24_slides.pdf",
+    "award": null
+  },
+  {
+    "year": "2024",
+    "title": "Titanic: Towards Production Federated Learning with Large Language Models",
+    "authors": "Ningxin Su, Chenghao Hu, Baochun Li, Bo Li",
+    "venue": "IEEE INFOCOM",
+    "pdf": null,
+    "code": null,
+    "project": null,
+    "slides": "https://ningxinsu.github.io/assets/infocom24-slides.pdf",
+    "award": null
+  },
+  {
+    "year": "2023",
+    "title": "Plato: An Open-Source Research Framework for Production Federated Learning",
+    "authors": "Baochun Li, Ningxin Su, Chen Ying, Fei Wang",
+    "venue": "ACM TURC",
+    "pdf": "https://ningxinsu.github.io/assets/turc23.pdf",
+    "code": "https://github.com/TL-System/plato",
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2023",
+    "title": "Multi-Server Stable Rendezvous for the Metaverse",
+    "authors": "Ningxin Su, Baochun Li, Bo Li",
+    "venue": "IEEE MetaCom",
+    "pdf": "https://ningxinsu.github.io/assets/metacom23.pdf",
+    "code": null,
+    "project": null,
+    "slides": "https://ningxinsu.github.io/assets/metacom23_slides.pdf",
+    "award": "Best Paper Award"
+  },
+  {
+    "year": "2023",
+    "title": "Asynchronous Federated Unlearning",
+    "authors": "Ningxin Su, Baochun Li",
+    "venue": "IEEE INFOCOM",
+    "pdf": "https://ningxinsu.github.io/assets/infocom23.pdf",
+    "code": "https://github.com/TL-System/plato/tree/main/examples/unlearning/knot",
+    "project": "https://ningxinsu.github.io/projects/infocom23/",
+    "slides": "https://ningxinsu.github.io/assets/infocom23_slides.pdf",
+    "award": null
+  },
+  {
+    "year": "2022",
+    "title": "How Asynchronous can Federated Learning Be?",
+    "authors": "Ningxin Su, Baochun Li",
+    "venue": "IEEE/ACM IWQoS",
+    "pdf": "https://ningxinsu.github.io/assets/iwqos22.pdf",
+    "code": "https://github.com/TL-System/plato/tree/main/examples/async/port",
+    "project": "https://ningxinsu.github.io/projects/iwqos22/",
+    "slides": "https://ningxinsu.github.io/assets/iwqos22_slides.pdf",
+    "award": null
+  }
+]
