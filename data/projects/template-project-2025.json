@@ -1,9 +1,7 @@
 {
-  "_comments": {
-    "note": "This is a template file for creating new projects. Copy this file and modify the content.",
-    "note_zh": "这是创建新项目的模板文件。复制此文件并修改内容。",
-    "important": "The 'id' field must exactly match the filename (without .json extension)",
-    "important_zh": "'id' 字段必须与文件名（不含 .json 扩展名）完全一致"
+  "_template_notes": {
+    "en": "This is a template file. Copy and modify for your project. The 'id' field must match the filename (without .json). Fields marked with '_note' are comments only and can be deleted.",
+    "zh": "这是模板文件。复制并修改用于您的项目。'id' 字段必须与文件名（不含 .json）匹配。标记为 '_note' 的字段仅为注释，可以删除。"
   },
   "id": "template-project-2025",
   "title": "Project Title Here",
@@ -14,13 +12,17 @@
   "short_description": "Brief description of the project for the project card display.",
   "tags": ["Tag1", "Tag2", "Tag3"],
   "pdf": "https://example.com/paper.pdf",
-  "_pdf_note": "Optional: Leave as empty string \"\" if no PDF link. Button will not display if empty. / 可选：如果没有 PDF 链接，留空字符串 \"\"。如果为空，按钮不会显示。",
+  "_pdf_note_en": "Optional: Use empty string \"\" if no PDF link (button won't display)",
+  "_pdf_note_zh": "可选：如果没有 PDF 链接，使用空字符串 \"\"（按钮不会显示）",
   "code": "https://github.com/example/repo",
-  "_code_note": "Optional: Leave as empty string \"\" if no code link. Button will not display if empty. / 可选：如果没有代码链接，留空字符串 \"\"。如果为空，按钮不会显示。",
+  "_code_note_en": "Optional: Use empty string \"\" if no code link (button won't display)",
+  "_code_note_zh": "可选：如果没有代码链接，使用空字符串 \"\"（按钮不会显示）",
   "slides": "https://example.com/slides.pdf",
-  "_slides_note": "Optional: Leave as empty string \"\" if no slides link. Button will not display if empty. / 可选：如果没有幻灯片链接，留空字符串 \"\"。如果为空，按钮不会显示。",
+  "_slides_note_en": "Optional: Use empty string \"\" if no slides link (button won't display)",
+  "_slides_note_zh": "可选：如果没有幻灯片链接，使用空字符串 \"\"（按钮不会显示）",
   "project_page": "https://example.com/project",
-  "_project_page_note": "Optional: Leave as empty string \"\" if no project page link. Button will not display if empty. / 可选：如果没有项目页面链接，留空字符串 \"\"。如果为空，按钮不会显示。",
+  "_project_page_note_en": "Optional: Use empty string \"\" if no project page link (button won't display)",
+  "_project_page_note_zh": "可选：如果没有项目页面链接，使用空字符串 \"\"（按钮不会显示）",
   "sections": [
     {
       "title": "Section Title 1",
@@ -44,5 +46,6 @@
     }
   ],
   "bibtex": "@article{example-project-2025,\n  title={Your Project Title},\n  author={Author Names},\n  year={2025},\n  journal={Journal Name}\n}",
-  "_bibtex_note": "Optional: Leave as empty string \"\" if no BibTeX citation. BibTeX section will not display if empty. / 可选：如果没有 BibTeX 引用，留空字符串 \"\"。如果为空，BibTeX 部分不会显示。"
+  "_bibtex_note_en": "Optional: Use empty string \"\" if no BibTeX citation (section won't display)",
+  "_bibtex_note_zh": "可选：如果没有 BibTeX 引用，使用空字符串 \"\"（该部分不会显示）"
 }
