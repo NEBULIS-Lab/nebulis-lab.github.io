@@ -1028,6 +1028,10 @@ html {
   scroll-behavior: smooth;
   height: 100%;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 body {
@@ -1040,6 +1044,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 main {
@@ -1051,11 +1059,16 @@ main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 var(--space-4);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 767px) {
   .container {
     padding: 0 var(--space-4);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
@@ -1151,12 +1164,17 @@ main {
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  z-index: 99;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 }
 
 @media (max-width: 767px) {
   .nav-menu {
     gap: var(--space-2);
     padding: var(--space-6) var(--space-4);
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .nav-link {
@@ -1167,6 +1185,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
   }
   
   .lab-name {
@@ -1175,6 +1194,11 @@ main {
   
   .logo-img {
     height: 32px;
+  }
+  
+  .navbar .container {
+    position: relative;
+    overflow: visible;
   }
 }
 
@@ -1268,6 +1292,8 @@ main {
   min-height: 44px;
   align-items: center;
   justify-content: center;
+  z-index: 101;
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -3855,6 +3881,16 @@ main {
   padding: var(--space-8) var(--space-16);
 }
 
+@media (max-width: 767px) {
+  .publications-list {
+    padding: var(--space-6) var(--space-4);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 .publication-list-item {
   border-bottom: 1px solid var(--color-line);
   padding: var(--space-3) 0;
@@ -3969,6 +4005,16 @@ main {
   padding: var(--space-8) var(--space-16);
 }
 
+@media (max-width: 767px) {
+  .news-list {
+    padding: var(--space-6) var(--space-4);
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
 .news-list-item {
   border-bottom: 1px solid var(--color-line);
   padding: var(--space-3) 0;
@@ -3982,6 +4028,22 @@ main {
   display: flex;
   gap: var(--space-4);
   align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .news-list-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    width: 100%;
+  }
+  
+  .news-list-image {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .news-list-image {
