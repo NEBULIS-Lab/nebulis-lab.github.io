@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('Loading publications from:', jsonPath);
   console.log('Current page URL:', window.location.href);
 
-  fetch(jsonPath)
+  // Use cache: 'no-cache' to ensure we always get the latest data
+  fetch(jsonPath, { cache: 'no-cache' })
     .then(response => {
       console.log('Response status:', response.status, response.statusText);
       if (!response.ok) {

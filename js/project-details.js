@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contentEl.innerHTML = `
       <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
         <h1>Project Not Found</h1>
-        <p>No project ID specified. Please select a project from the <a href="initiatives.html">Projects page</a>.</p>
+        <p>No project ID specified. Please select a project from the <a href="projects.html">Projects page</a>.</p>
       </div>
     `;
     return;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
           <h1>Project Not Found</h1>
           <p>Failed to load project: ${error.message}</p>
-          <p><a href="initiatives.html">← Back to Projects</a></p>
+          <p><a href="projects.html">← Back to Projects</a></p>
         </div>
       `;
     });
@@ -72,12 +72,20 @@ function renderProjectDetails(project, container) {
     container.appendChild(authors);
   }
 
-  // Year (separate line)
-  if (project.year) {
-    const year = document.createElement('p');
-    year.className = 'project-year';
-    year.textContent = project.year;
-    container.appendChild(year);
+  // Venue/Year (separate line)
+  if (project.venue || project.year) {
+    const venueYear = document.createElement('p');
+    venueYear.className = 'project-year';
+    let venueYearText = '';
+    if (project.venue && project.year) {
+      venueYearText = `${project.venue} ${project.year}`;
+    } else if (project.venue) {
+      venueYearText = project.venue;
+    } else if (project.year) {
+      venueYearText = project.year.toString();
+    }
+    venueYear.textContent = venueYearText;
+    container.appendChild(venueYear);
   }
 
   // Action buttons (aligned on same baseline as text)
@@ -95,10 +103,10 @@ function renderProjectDetails(project, container) {
     buttonsDiv.appendChild(button);
   };
 
-  addButton('PDF', project.pdf);
-  addButton('Code', project.code);
-  addButton('Slides', project.slides);
-  addButton('Project Page', project.project_page);
+  addButton('[PDF]', project.pdf);
+  addButton('[Code]', project.code);
+  addButton('[Slides]', project.slides);
+  addButton('[Project Page]', project.project_page);
 
   if (buttonsDiv.children.length > 0) {
     container.appendChild(buttonsDiv);

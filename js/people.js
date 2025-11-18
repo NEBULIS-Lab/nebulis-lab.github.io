@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Don't update localStorage to avoid affecting other pages
     }
     
-    // Initialize people data
-    initPeopleData();
+    // Load people data from JSON file
+    loadPeopleData();
     
     // Initialize filtering functionality
     initPeopleFilter();
@@ -30,111 +30,55 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
 });
 
-// People data (sample data, in real project should be fetched from API)
-const peopleData = [
-    {
-        name: "苏宁馨",
-        nameEn: "Prof. Ningxin Su",
-        role: "faculty",
-        program: "Faculty",
-        advisors: [],
-        description: "Assistant Professor at IoT in HKUST(GZ). Director of the NEBULIS Lab. Received Ph.D. degree from the ECE, University of Toronto, supervised by Prof. Baochun Li. Research interests: Embodied AI, Multi-agent Systems and Distributed Systems.",
-        descriptionZh: "香港科技大学（广州）助理教授，NEBULIS Lab 负责人。博士毕业于多伦多大学电子与计算机工程系，师从 Baochun Li 教授。",
-        avatar: "image/user/profsu.jpg",
-        homepage: "https://ningxinsu.github.io/",
-        scholar: "https://scholar.google.com/citations?user=XkeT3_8AAAAJ&hl=en",
-        github: "https://github.com/NingxinSu",
-        email: "ningxinsu@hkust-gz.edu.cn",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "刘帅军",
-        nameEn: "Shuaijun Liu",
-        role: "phd",
-        program: "PhD",
-        advisors: ["苏宁馨"],
-        description: "BSc in Statistics & CS from HKBU; MSc in CS from Boston University. Research interests: IoT-based Dynamic Control, LLM Deployment and Inference, 3D Reconstruction. Resently working on an TCM pulse-diagnosis project supervised by Prof. Su.",
-        descriptionZh: "香港浸会大学统计学、计算机科学学士；波士顿大学计算机科学硕士。研究兴趣：边缘计算中的动态控制、大语言模型部署与推理、三维重建。目前在苏教授指导下进行中医脉诊项目研究。",
-        avatar: "image/user/shuaijun.jpg",
-        homepage: "https://shuaijun-liu.github.io/",
-        scholar: "https://scholar.google.com/citations?user=-tBtMaAAAAAJ&hl=en",
-        github: "https://github.com/Shuaijun-LIU",
-        email: "sliu529@connect.hkust-gz.edu.cn",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "陈星维",
-        nameEn: "Xingwei Chen",
-        role: "ra",
-        program: "Research Assistant",
-        advisors: ["苏宁馨"],
-        description: "BEng in Control & Instrumentation from Nanjing University of Aeronautics and Astronautics; MSc in Precision Instrumentation from NTU (Singapore). Research interests: Embodied AI & VLA/VLM, Optimization & Cutting-edge AI in Robotics, RL.",
-        descriptionZh: "南京航空航天大学控制与仪器工程学士；新加坡南洋理工大学精密仪器硕士。研究兴趣：具身智能与视觉语言模型、机器人优化与前沿AI、强化学习。",
-        avatar: "image/user/xingwei.jpg",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/HarryXingweiCHEN",
-        email: "xingweichen@hkust-gz.edu.cn",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "尤飞扬",
-        nameEn: "Feiyang You",
-        role: "ra",
-        program: "Research Assistant",
-        advisors: ["苏宁馨"],
-        description: "BEng in Automation from Shanghai Jiao Tong University. Research interests: Real-time Motion Generation in Embodied Intelligence. Enjoys soccer and LOL. My friends call me “Dormitory TheShy” due to my remarkably consistent feeding skills.",
-        descriptionZh: "上海交通大学自动化专业学士。研究兴趣：具身智能中的实时运动生成。喜欢足球、英雄联盟和观看比赛。顺便一提，朋友们叫我“宿舍 TheShy”，因为我有着非常稳定的送人头技巧。",
-        avatar: "image/user/feiyang.jpg",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/Feiyang-You",
-        email: "feiyangyou@hkust-gz.edu.cn",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "杨庆凯",
-        nameEn: "Qingkai Yang",
-        role: "ra",
-        program: "Research Assistant",
-        advisors: ["苏宁馨"],
-        description: "Embodied intelligent hardware development.",
-        descriptionZh: "具身智能硬件开发。",
-        avatar: "image/icon/user.png",
-        homepage: "https://example.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "qingkai@lab.org",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    },
-    {
-        name: "Nebula-ChatBot",
-        nameEn: "Nebula-ChatBot",
-        role: "ai",
-        program: "Research Assistant",
-        advisors: ["苏宁馨"],
-        description: "Nebula is the intelligent assistant of NEBULIS Lab, designed to help researchers or potential partners quickly access our project information, datasets, publications, and other lab related resources. Additional features will be launched in the future.",
-        descriptionZh: "Nebula 是 NEBULIS Lab 的智能助手，旨在帮助研究人员或潜在合作伙伴快速访问我们的项目信息、数据集、出版物和其他实验室相关资源。未来将推出更多功能。",
-        avatar: "image/user/nebula.jpg",
-        homepage: "https://openai.com",
-        scholar: "https://scholar.google.com/...",
-        github: "https://github.com/...",
-        email: "chatgpt@lab.org",
-        status: "current",
-        cohort: 2025,
-        affiliation: "NEBULIS Lab"
-    }
-];
+// People data will be loaded from JSON file
+let peopleData = [];
+
+// Load people data from JSON file
+function loadPeopleData() {
+    const jsonPath = 'data/people.json';
+    
+    console.log('Loading people data from:', jsonPath);
+    
+    fetch(jsonPath)
+        .then(response => {
+            console.log('Response status:', response.status, response.statusText);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Loaded people data:', data.length);
+            if (!Array.isArray(data) || data.length === 0) {
+                console.warn('No people data found in JSON file');
+                const peopleGrid = document.getElementById('people-grid');
+                if (peopleGrid) {
+                    peopleGrid.innerHTML = '<div style="padding: var(--space-4); color: var(--color-muted);">No team members available.</div>';
+                }
+                return;
+            }
+            
+            peopleData = data;
+            // Initialize people data display
+            initPeopleData();
+        })
+        .catch(error => {
+            console.error('Failed to load people data:', error);
+            console.error('Error details:', {
+                message: error.message,
+                stack: error.stack,
+                attemptedPath: jsonPath,
+                currentURL: window.location.href
+            });
+            const peopleGrid = document.getElementById('people-grid');
+            if (peopleGrid) {
+                peopleGrid.innerHTML = `<div style="padding: var(--space-4); color: var(--color-muted);">
+                    Failed to load people data. Error: ${error.message}<br>
+                    <small>Attempted path: ${jsonPath}</small>
+                </div>`;
+            }
+        });
+}
 
 // Role mapping
 const roleMapping = {

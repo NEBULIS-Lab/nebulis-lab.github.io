@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Members - NEBULIS Lab</title>
-    <meta name="description" content="Meet NEBULIS Lab team members including faculty, postdocs, PhD students, masters students and visiting scholars.">
+    <title>Publications - NEBULIS Lab</title>
+    <meta name="description" content="Recent publications from NEBULIS Lab">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +25,9 @@
                 <div class="nav-menu">
                     <a href="index.html" class="nav-link" data-en="Home" data-zh="首页">Home</a>
                     <a href="about.html" class="nav-link" data-en="About" data-zh="关于">About</a>
-                    <a href="people.html" class="nav-link active" data-en="Members" data-zh="人员">Members</a>
+                    <a href="people.html" class="nav-link" data-en="Members" data-zh="人员">Members</a>
                     <!-- <a href="blog.html" class="nav-link" data-en="Blog" data-zh="博客">Blog</a> -->
-                    <a href="publications.html" class="nav-link" data-en="Publications" data-zh="出版物">Publications</a>
+                    <a href="publications.html" class="nav-link active" data-en="Publications" data-zh="出版物">Publications</a>
                     <a href="projects.html" class="nav-link" data-en="Projects" data-zh="项目">Projects</a>
                     <a href="join.html" class="nav-link" data-en="Join Us" data-zh="加入我们">Join Us</a>
                     <!-- <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a> -->
@@ -49,77 +49,11 @@
 
     <!-- Main Content -->
     <main>
-
-        <!-- Filter Section -->
-        <section class="filter-section">
+        <!-- Publications Section -->
+        <section class="publications-section">
             <div class="container">
-                <div class="filter-bar">
-                    <div class="filter-group">
-                        <label for="role-filter">Role Filter:</label>
-                        <select id="role-filter" class="filter-select">
-                            <option value="">All</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="postdoc">Postdoc</option>
-                            <option value="phd">PhD</option>
-                            <option value="masters">Masters</option>
-                            <option value="undergrad">Undergrad</option>
-                            <option value="ra">Research Assistant</option>
-                            <option value="visiting">Visiting</option>
-                            <option value="alumni">Alumni</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="search-input">Search:</label>
-                        <div class="search-input-wrapper">
-                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input">
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <label for="letter-filter">Alphabet Index:</label>
-                        <select id="letter-filter" class="filter-select">
-                            <option value="">All</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                            <option value="F">F</option>
-                            <option value="G">G</option>
-                            <option value="H">H</option>
-                            <option value="I">I</option>
-                            <option value="J">J</option>
-                            <option value="K">K</option>
-                            <option value="L">L</option>
-                            <option value="M">M</option>
-                            <option value="N">N</option>
-                            <option value="O">O</option>
-                            <option value="P">P</option>
-                            <option value="Q">Q</option>
-                            <option value="R">R</option>
-                            <option value="S">S</option>
-                            <option value="T">T</option>
-                            <option value="U">U</option>
-                            <option value="V">V</option>
-                            <option value="W">W</option>
-                            <option value="X">X</option>
-                            <option value="Y">Y</option>
-                            <option value="Z">Z</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- People Grid -->
-        <section class="people-grid-section">
-            <div class="container">
-                <div class="people-grid" id="people-grid">
-                    <!-- People cards will be dynamically loaded via JavaScript -->
-                </div>
-                <div class="empty-state" id="empty-state" style="display: none;">
-                    <h3>No Matching Members Found</h3>
-                    <p>Please try adjusting filter conditions or search keywords</p>
-                </div>
+                <h2 class="section-title">Recent Publications</h2>
+                <ul id="publications-list" class="publications-list"></ul>
             </div>
         </section>
     </main>
@@ -150,8 +84,8 @@
         </div>
     </footer>
 
+    <script src="js/publications.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/people.js"></script>
     <script>
         // Force English language for this page
         document.addEventListener('DOMContentLoaded', function() {
@@ -173,3 +107,4 @@
     <script src="js/language.js"></script>
 </body>
 </html>
+

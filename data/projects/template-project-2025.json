@@ -1,7 +1,8 @@
 {
   "id": "template-project-2025",
-  "title": "Your Project Title Here",
+  "title": "Project Title Here",
   "authors": "Author Name(s) Here",
+  "venue": "IEEE NEBULIS Conference",
   "year": 2025,
   "thumbnail": "image/projects/template-project-2025.png",
   "short_description": "Brief description of the project for the project card display.",
@@ -22,7 +23,7 @@
   ],
   "figures": [
     {
-      "src": "image/projects/figure1.png",
+      "src": "image/projects/template-project-2025.png",
       "caption": "Figure caption text describing what the figure shows"
     }
   ],

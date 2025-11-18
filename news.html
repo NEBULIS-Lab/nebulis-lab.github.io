@@ -3,43 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-en="NEBULIS Lab - Building Reliable AI Systems for the Real World" data-zh="NEBULIS Lab - 构建真实世界的可靠AI系统">NEBULIS Lab - Building Reliable AI Systems for the Real World</title>
-    <meta name="description" content="From embodied intelligence to distributed RL, we turn ideas into open research and usable tools.">
-    <meta property="og:title" content="NEBULIS Lab - Embodied Intelligence & Distributed AI Research">
-    <meta property="og:description" content="We build reliable, scalable embodied intelligence and distributed AI systems for real-world deployment.">
-    <meta property="og:image" content="image/logo.png">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>News - NEBULIS Lab</title>
+    <meta name="description" content="All news and updates from NEBULIS Lab">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="news-page">
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" class="logo">
-                    <img src="image/logo.png" alt="NEBULIS Lab logo" class="logo-img">
+                    <img src="image/logo.png" alt="NEBULIS Lab" class="logo-img">
                     <span class="lab-name">NEBULIS Lab</span>
                 </a>
             </div>
             <div class="nav-right">
                 <div class="nav-menu">
-                    <a href="index.html" class="nav-link active" data-en="Home" data-zh="首页">Home</a>
-                    <a href="about.html" class="nav-link" data-en="About" data-zh="关于">About</a>
-                    <a href="people.html" class="nav-link" data-en="Members" data-zh="人员">Members</a>
-                    <!-- <a href="blog.html" class="nav-link" data-en="Blog" data-zh="博客">Blog</a> -->
-                    <a href="publications.html" class="nav-link" data-en="Publications" data-zh="出版物">Publications</a>
-                    <a href="projects.html" class="nav-link" data-en="Projects" data-zh="项目">Projects</a>
-                    <a href="join.html" class="nav-link" data-en="Join Us" data-zh="加入我们">Join Us</a>
-                    <!-- <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a> -->
+                    <a href="index.html" class="nav-link">Back to Homepage</a>
                 </div>
                 <div class="nav-actions">
-                    <div class="language-switch">
+                    <div class="language-switch" style="visibility: hidden; pointer-events: none;">
                         <button class="lang-btn active" data-lang="en">EN</button>
-                        <button class="lang-btn" data-lang="zh">中文</button>
+                        <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
                     </div>
                 </div>
             </div>
@@ -53,23 +42,10 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title" data-en="Advancing Embodied Intelligence and Distributed AI Systems" data-zh="推进具身智能与分布式AI系统">Advancing Embodied Intelligence and Distributed AI Systems</h1>
-                    <p class="hero-subtitle" data-en="We investigates fundamental challenges in embodied intelligence, distributed AI, multi-agent coordination, and robotic deployment." data-zh="我们致力于探索具身智能、分布式AI架构、多智能体协调和机器人部署中的基础性挑战。">Our research group investigates fundamental challenges in embodied intelligence, distributed AI architectures, multi-agent coordination, and real-world robotic deployment.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- News Section -->
         <section class="news-section">
             <div class="container">
-                <div class="news-header">
-                    <h2 class="section-title" data-en="Recent News" data-zh="最近动态">Recent News</h2>
-                    <a href="news.html" class="btn btn-outline btn-sm" data-en="View All" data-zh="查看全部">View All</a>
-                </div>
+                <h2 class="section-title" data-en="News" data-zh="动态">News</h2>
                 <ul id="news-list" class="news-list"></ul>
             </div>
         </section>
@@ -101,8 +77,27 @@
         </div>
     </footer>
 
-    <script src="js/news.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/news-page.js"></script>
+    <script>
+        // Force English language for this page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Override language to English
+            if (window.LanguageSwitch) {
+                window.LanguageSwitch.setLanguage('en');
+            } else {
+                // If language.js hasn't loaded yet, wait and try again
+                setTimeout(function() {
+                    if (window.LanguageSwitch) {
+                        window.LanguageSwitch.setLanguage('en');
+                    }
+                }, 100);
+            }
+            // Set HTML lang attribute to English
+            document.documentElement.lang = 'en';
+        });
+    </script>
     <script src="js/language.js"></script>
 </body>
 </html>
+
