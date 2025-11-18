@@ -928,12 +928,51 @@
   }
 
   .join-orbit {
-    position: static;
-    width: auto;
-    height: auto;
-    border-radius: var(--radius-lg);
-    border-style: solid;
-    margin-bottom: var(--space-3);
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(10, 88, 202, 0.2);
+    padding: var(--space-2);
+  }
+  
+  .join-orbit span {
+    font-size: clamp(0.65rem, 2vw, 0.75rem);
+    max-width: 80px;
+  }
+  
+  .join-orbit-primary {
+    inset: 8% auto auto 8%;
+    width: 85px;
+    height: 85px;
+  }
+  
+  .join-orbit-secondary {
+    inset: auto 10% 12% auto;
+    width: 75px;
+    height: 75px;
+  }
+  
+  .join-orbit-tertiary {
+    inset: 42% auto auto 8%;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .join-orbit-quaternary {
+    inset: 12% auto auto 58%;
+    width: 78px;
+    height: 78px;
+  }
+  
+  .join-orbit-quinary {
+    inset: auto auto 10% 55%;
+    width: 72px;
+    height: 72px;
+  }
+  
+  .join-orbit-senary {
+    inset: 58% auto auto 55%;
+    width: 65px;
+    height: 65px;
   }
 
   .join-hero-right {
@@ -945,11 +984,13 @@
   }
 
   .join-hero-visual-watermark .watermark-main {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    letter-spacing: 0.1em;
   }
   
   .join-hero-visual-watermark .watermark-sub {
-    font-size: 1.2rem;
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    margin-top: 0.3em;
   }
 
   .join-timeline-list::before {
@@ -1119,7 +1160,32 @@ main {
   justify-content: space-between;
   padding: var(--space-4) var(--space-4);
   position: relative;
+  z-index: 102;
 }
+
+@media (max-width: 767px) {
+  .navbar .container {
+    position: relative;
+    overflow: visible;
+    z-index: 102;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  .nav-brand {
+    flex: 0 0 auto;
+    z-index: 103;
+    position: relative;
+    max-width: calc(100% - 60px);
+  }
+  
+  .nav-toggle {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+
 @media (min-width: 640px) {
   .navbar .container {
     padding: var(--space-4) var(--space-6);
@@ -1245,11 +1311,31 @@ main {
   display: none;
   align-items: center;
   gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .nav-right {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+    position: absolute !important;
+  }
 }
 
 @media (min-width: 768px) {
   .nav-right {
     display: flex;
+    visibility: visible;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    pointer-events: auto;
+    position: relative;
   }
 }
 
@@ -1306,10 +1392,11 @@ main {
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  z-index: 101;
+  z-index: 105;
   position: relative;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  flex-shrink: 0;
 }
 
 @media (max-width: 767px) {
@@ -1317,6 +1404,32 @@ main {
     display: flex !important;
     pointer-events: auto !important;
     cursor: pointer !important;
+    z-index: 105 !important;
+    position: relative !important;
+    background: transparent !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: var(--space-2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: 44px !important;
+    height: 44px !important;
+    flex-shrink: 0 !important;
+    order: 999 !important;
+  }
+  
+  .nav-toggle:active,
+  .nav-toggle:focus {
+    background: rgba(10, 88, 202, 0.1) !important;
+    border-radius: var(--radius-sm);
+    outline: 2px solid rgba(10, 88, 202, 0.3);
+    outline-offset: 2px;
+  }
+  
+  .nav-toggle span {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 

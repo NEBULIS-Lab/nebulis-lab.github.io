@@ -69,10 +69,17 @@ function initMobileMenu() {
         return;
     }
     
+    // Check if we're on mobile (width <= 767px)
+    const isMobile = () => window.innerWidth <= 767;
+    
     // Use mousedown and touchstart for better mobile support
     const handleToggle = (e) => {
+        // Only handle on mobile
+        if (!isMobile()) return;
+        
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
         
         const isOpen = navMenu.classList.contains('mobile-open');
         
@@ -83,33 +90,49 @@ function initMobileMenu() {
             navMenu.classList.add('mobile-open');
             navToggle.setAttribute('aria-expanded', 'true');
         }
+        
+        return false;
     };
     
+    // Remove any existing listeners to avoid duplicates
+    const newToggle = navToggle.cloneNode(true);
+    navToggle.parentNode.replaceChild(newToggle, navToggle);
+    const freshToggle = document.querySelector('.nav-toggle');
+    
     // Add multiple event listeners for better compatibility
-    navToggle.addEventListener('click', handleToggle);
-    navToggle.addEventListener('touchstart', handleToggle, { passive: false });
-    navToggle.addEventListener('mousedown', handleToggle);
+    freshToggle.addEventListener('click', handleToggle, { capture: true });
+    freshToggle.addEventListener('touchstart', handleToggle, { passive: false, capture: true });
+    freshToggle.addEventListener('touchend', (e) => {
+        if (isMobile()) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, { passive: false });
     
     // Click outside to close menu (with delay to avoid immediate close)
     let clickOutsideTimeout;
     document.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        
         clearTimeout(clickOutsideTimeout);
         clickOutsideTimeout = setTimeout(() => {
             if (navMenu.classList.contains('mobile-open')) {
-                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                if (!freshToggle.contains(e.target) && !navMenu.contains(e.target)) {
                     navMenu.classList.remove('mobile-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
+                    freshToggle.setAttribute('aria-expanded', 'false');
                 }
             }
         }, 10);
-    });
+    }, true);
     
     // Close menu when clicking on nav links
     const navLinks = navMenu.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navMenu.classList.remove('mobile-open');
-            navToggle.setAttribute('aria-expanded', 'false');
+            if (isMobile()) {
+                navMenu.classList.remove('mobile-open');
+                freshToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     });
 }
