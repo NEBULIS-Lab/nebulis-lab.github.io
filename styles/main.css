@@ -2539,6 +2539,20 @@ main {
   box-shadow: var(--shadow-sm);
 }
 
+/* Button style for chatbot button */
+.person-link.chatbot-button {
+  cursor: pointer;
+  font-family: inherit;
+  border: 1px solid var(--color-line);
+  background: var(--color-card-bg);
+}
+
+.person-link.chatbot-button:hover {
+  color: var(--color-bg);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
 /* 空状态 */
 .empty-state {
   text-align: center;

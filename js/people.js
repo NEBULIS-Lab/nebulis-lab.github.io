@@ -181,17 +181,49 @@ function createPersonCard(person) {
     // Force English role text
     const roleEnText = getRoleEnText(person.role);
     
-    card.innerHTML = `
-        ${avatarElement}
-        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.nameEn || person.name}</h3>
-        <div class="person-role" data-zh="${roleText}" data-en="${roleEnText}">${roleEnText}</div>
-        <div class="person-description" data-zh="${descriptionZh}" data-en="${description}">${initialDescription}</div>
+    // Check if this is Nebula-ChatBot
+    const isNebulaChatBot = (person.name === 'Nebula-ChatBot' || person.nameEn === 'Nebula-ChatBot');
+    
+    // Generate links section - special handling for Nebula-ChatBot
+    let linksHTML = '';
+    if (isNebulaChatBot) {
+        // Only show "Talk with Chatbot" button for Nebula-ChatBot
+        linksHTML = `
+        <div class="person-links">
+            <button class="person-link chatbot-button" data-zh="与聊天机器人对话" data-en="Talk with Chatbot">Talk with Chatbot</button>
+        </div>
+        `;
+    } else {
+        // Regular links for other people
+        linksHTML = `
         <div class="person-links">
             ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="Google Scholar" data-en="Google Scholar">Google Scholar</a>` : ''}
             ${person.github ? `<a href="${person.github}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="GitHub" data-en="GitHub">GitHub</a>` : ''}
             ${person.email ? `<a href="mailto:${person.email}" class="person-link" data-zh="邮箱" data-en="Email">Email</a>` : ''}
         </div>
+        `;
+    }
+    
+    card.innerHTML = `
+        ${avatarElement}
+        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.nameEn || person.name}</h3>
+        <div class="person-role" data-zh="${roleText}" data-en="${roleEnText}">${roleEnText}</div>
+        <div class="person-description" data-zh="${descriptionZh}" data-en="${description}">${initialDescription}</div>
+        ${linksHTML}
     `;
+    
+    // Add click handler for Nebula-ChatBot button
+    if (isNebulaChatBot) {
+        const chatbotButton = card.querySelector('.chatbot-button');
+        if (chatbotButton) {
+            chatbotButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Functionality not yet available
+                // You can add a notification here if needed
+                console.log('Chatbot feature coming soon');
+            });
+        }
+    }
     
     return card;
 }

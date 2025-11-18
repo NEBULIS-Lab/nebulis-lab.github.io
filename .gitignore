@@ -16,3 +16,6 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# documentation
+lab_website_maintenance.md
