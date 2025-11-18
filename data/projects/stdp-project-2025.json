@@ -1,0 +1,53 @@
+{
+  "id": "stdp-project-2025",
+  "title": "SDTP: Saliency-driven Dynamic Token Pruning for Large Language Models",
+  "authors": "Shuaijun Liu",
+  "venue": "not available now",
+  "year": 2025,
+  "thumbnail": "image/projects/stdp/cut.jpg",
+  "short_description": "We propose an efficient token pruning framework that accelerates LLM inference by dynamically removing redundant tokens during prefill, achieving 2.6-10× speedup with minimal performance degradation.",
+  "tags": ["Large Language Models", "Token Pruning", "Inference Acceleration"],
+  "pdf": "",
+  "code": "https://github.com/NEBULIS-Lab/shuaijun-ijcai26",
+  "slides": "",
+  "project_page": "",
+  "sections": [
+    {
+      "title": "Overview",
+      "text": "SDTP (Saliency-driven Dynamic Token Pruning) is a two-stage framework designed to accelerate large language model inference by selectively removing redundant tokens during the prefill phase. The method employs a learnable token importance predictor trained to approximate saliency-based token rankings, enabling dynamic pruning across multiple Transformer layers while maintaining model performance."
+    },
+    {
+      "title": "Methodology",
+      "text": "The framework consists of two main stages: (1) Saliency Computation: We compute token importance scores using gradient-weighted hidden states across selected layers, creating a baseline saliency map. (2) Pruning Module Training: A lightweight MLP module is trained to predict token importance, supervised by saliency scores through a combination of language modeling loss, MSE loss, and ranking loss. During inference, tokens are dynamically pruned at multiple layers with a keep ratio of 0.7, preserving the first 4 and last 16 tokens to maintain semantic integrity."
+    },
+    {
+      "title": "Key Features",
+      "text": "The implementation features layer-wise progressive pruning across 10 Transformer layers, RoPE-compatible position encoding updates, and seamless multi-GPU support. The pruning module is plug-and-play, requiring no modifications to the base model architecture. The method achieves significant speedup by reducing both computation FLOPs and inter-GPU communication overhead in distributed settings."
+    },
+    {
+      "title": "Results (Part 1)",
+      "text": "This work presents Part 1 implementation results. Experiments on Qwen2-7B demonstrate substantial inference acceleration: single-GPU prefill speedup of 2.6-3.0× and multi-GPU end-to-end speedup of up to 10× for sequences ranging from 4K to 32K tokens. The method maintains comparable performance with 65% token pruning, achieving up to 34% GPU memory reduction. The core pruning framework has been successfully implemented and validated."
+    },
+    {
+      "title": "Future Work",
+      "text": "Future work includes comprehensive evaluation on LongBench and lm-eval benchmarks, ablation studies to analyze component contributions, and integration with additional optimization techniques such as FlashAttention and KV cache compression."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/stdp/checkpoints_saliency_pt.png",
+      "caption": "Saliency computation results showing token importance scores across different layers. The saliency baseline provides supervision signals for training the learnable pruning module."
+    },
+    {
+      "src": "image/projects/stdp/run_inference_multigpu.png",
+      "caption": "Multi-GPU inference performance comparison between baseline and SDTP methods. Results show consistent 7.92-10.12× speedup across different sequence lengths (4K-32K tokens) on 8× NVIDIA RTX 5880 Ada GPUs."
+    }
+  ],
+  "tables": [
+    {
+      "html": "<table><thead><tr><th>Sequence Length</th><th>Baseline Latency (s)</th><th>SDTP Latency (s)</th><th>Speedup</th></tr></thead><tbody><tr><td>4096</td><td>8.36</td><td>0.83</td><td>10.12×</td></tr><tr><td>8192</td><td>9.15</td><td>0.99</td><td>9.23×</td></tr><tr><td>16384</td><td>11.90</td><td>1.50</td><td>7.92×</td></tr><tr><td>32768</td><td>21.01</td><td>2.45</td><td>8.57×</td></tr></tbody></table>",
+      "caption": "Multi-GPU inference latency comparison: SDTP achieves 7.92-10.12× speedup over baseline across different sequence lengths."
+    }
+  ],
+  "bibtex": ""
+}

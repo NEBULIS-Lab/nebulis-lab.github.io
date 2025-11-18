@@ -1,4 +1,10 @@
 {
+  "_comments": {
+    "note": "This is a template file for creating new projects. Copy this file and modify the content.",
+    "note_zh": "这是创建新项目的模板文件。复制此文件并修改内容。",
+    "important": "The 'id' field must exactly match the filename (without .json extension)",
+    "important_zh": "'id' 字段必须与文件名（不含 .json 扩展名）完全一致"
+  },
   "id": "template-project-2025",
   "title": "Project Title Here",
   "authors": "Author Name(s) Here",
@@ -8,9 +14,13 @@
   "short_description": "Brief description of the project for the project card display.",
   "tags": ["Tag1", "Tag2", "Tag3"],
   "pdf": "https://example.com/paper.pdf",
+  "_pdf_note": "Optional: Leave as empty string \"\" if no PDF link. Button will not display if empty. / 可选：如果没有 PDF 链接，留空字符串 \"\"。如果为空，按钮不会显示。",
   "code": "https://github.com/example/repo",
+  "_code_note": "Optional: Leave as empty string \"\" if no code link. Button will not display if empty. / 可选：如果没有代码链接，留空字符串 \"\"。如果为空，按钮不会显示。",
   "slides": "https://example.com/slides.pdf",
+  "_slides_note": "Optional: Leave as empty string \"\" if no slides link. Button will not display if empty. / 可选：如果没有幻灯片链接，留空字符串 \"\"。如果为空，按钮不会显示。",
   "project_page": "https://example.com/project",
+  "_project_page_note": "Optional: Leave as empty string \"\" if no project page link. Button will not display if empty. / 可选：如果没有项目页面链接，留空字符串 \"\"。如果为空，按钮不会显示。",
   "sections": [
     {
       "title": "Section Title 1",
@@ -29,10 +39,10 @@
   ],
   "tables": [
     {
-      "html": "<table><thead><tr><th>Column 1</th><th>Column 2</th></tr></thead><tbody><tr><td>Data 1</td><td>Data 2</td></tr></tbody></table>",
+      "html": "<table><thead><tr><th>Column 1</th><th>Column 2</th></tr></thead><tbody><tr><td>Data 1</td><td>Data 2</td></tbody></table>",
       "caption": "Table caption describing the table content"
     }
   ],
-  "bibtex": "@article{example-project-2025,\n  title={Your Project Title},\n  author={Author Names},\n  year={2025},\n  journal={Journal Name}\n}"
+  "bibtex": "@article{example-project-2025,\n  title={Your Project Title},\n  author={Author Names},\n  year={2025},\n  journal={Journal Name}\n}",
+  "_bibtex_note": "Optional: Leave as empty string \"\" if no BibTeX citation. BibTeX section will not display if empty. / 可选：如果没有 BibTeX 引用，留空字符串 \"\"。如果为空，BibTeX 部分不会显示。"
 }
-

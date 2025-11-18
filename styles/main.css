@@ -2505,6 +2505,8 @@ main {
   color: var(--color-muted);
   margin-bottom: var(--space-4);
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .initiative-tags {

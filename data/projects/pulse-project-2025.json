@@ -1,0 +1,53 @@
+{
+  "id": "pulse-project-2025",
+  "title": "AI-Powered Traditional Chinese Medicine Pulse Diagnosis System",
+  "authors": "Shuaijun Liu",
+  "venue": "not available now",
+  "year": 2025,
+  "thumbnail": "image/projects/pulse/pulse.jpg",
+  "short_description": "This project aims to build an end-to-end system for Traditional Chinese Medicine pulse diagnosis, integrating computer vision-based pulse point localization, innovative wearable measurement devices with PPG sensors and pressure control, and AI diagnostic models for 24-hour monitoring.",
+  "tags": ["Traditional Chinese Medicine", "Pulse Diagnosis", "Wearable Devices"],
+  "pdf": "",
+  "code": "https://github.com/NEBULIS-Lab/Locate_pulse_points",
+  "slides": "",
+  "project_page": "",
+  "sections": [
+    {
+      "title": "Project Overview",
+      "text": "This project aims to build a complete end-to-end AI Traditional Chinese Medicine (TCM) pulse diagnosis system. The system consists of five core modules: (1) Vision-based coarse localization of three pulse points (Cun, Guan, Chi), (2) Fine localization system combining optical scanning (Moiré/structured light/rPPG) and sensor arrays for precise measurement, (3) Innovative smart wearable measurement device integrating air/liquid bladders, PPG modules, pressure sensing, and valve/pump systems, (4) Specially trained AI diagnostic model for TCM pulse diagnosis, and (5) Mobile deployment solution for 24-hour continuous monitoring."
+    },
+    {
+      "title": "Vision-Based Pulse Point Localization",
+      "text": "The first completed component is a vision-based coarse localization system (version1.1) that automatically detects and locates the three TCM pulse points (Cun, Guan, Chi) on the wrist. The system uses MediaPipe Holistic for hand keypoint detection, processes hand geometry to identify the radial artery region, and applies geometric mapping algorithms to precisely locate each pulse point. The system provides real-time visualization with augmented reality overlays showing the detected pulse points and their coordinates. It also includes palm orientation detection to ensure accurate measurements."
+    },
+    {
+      "title": "Smart Wearable Measurement Device",
+      "text": "The wearable device prototype integrates multiple sensors and actuators for precise pulse measurement. The device consists of three independent air/liquid bladder systems corresponding to the three pulse points, each equipped with a MAX30102 PPG sensor for photoplethysmography measurement. A pressure sensor (Honeywell MPRLS0025PA) provides closed-loop control for bladder pressure. Three micro pumps with MOSFET control modules enable precise pressure regulation. The device also includes an OLED display for real-time data visualization and a button for user interaction. The main control unit uses STM32F103C8T6 or ESP32 microcontroller with TCA9548A I2C multiplexer to interface with multiple sensors."
+    },
+    {
+      "title": "Technical Implementation",
+      "text": "The vision system is built using MediaPipe Holistic, OpenCV, and Python, providing real-time hand tracking and pulse point localization. The PPG data acquisition system (version2.0) includes data visualization tools for analyzing collected pulse waveforms. The wearable device hardware integrates multiple MAX30102 PPG sensors, pressure sensors, micro pumps with PWM control, and power management systems. The system is designed to collect synchronized data from all three pulse points simultaneously, enabling comprehensive TCM pulse diagnosis analysis."
+    },
+    {
+      "title": "Future Work",
+      "text": "Ongoing work includes fine localization using rPPG (remote photoplethysmography) optical scanning with pulsatility mapping, sensor array testing and integration, closed-loop pressure control implementation, data fusion algorithms combining vision, optical scanning, and sensor data, training of AI diagnostic models based on collected data, and mobile device deployment for 24-hour continuous monitoring."
+    }
+  ],
+  "figures": [
+    {
+      "src": "image/projects/pulse/pulse.jpg",
+      "caption": "Vision-based pulse point localization system (version1.1) showing real-time detection of Cun, Guan, and Chi pulse points on the wrist with MediaPipe hand keypoint tracking and augmented reality visualization."
+    },
+    {
+      "src": "image/projects/pulse/ppg.jpg",
+      "caption": "Smart wearable device prototype showing the first-stage progress, including the flexible fabric strap with integrated PPG sensor modules (MAX30102), main control board, and wiring connections for the three-pulse-point measurement system."
+    }
+  ],
+  "tables": [
+    {
+      "html": "<table><thead><tr><th>Component</th><th>Specification</th><th>Quantity</th><th>Function</th></tr></thead><tbody><tr><td>Main Controller</td><td>STM32F103C8T6 or ESP32 DevKit</td><td>1</td><td>Main control, signal acquisition, algorithm execution</td></tr><tr><td>I2C Multiplexer</td><td>TCA9548A Module</td><td>1</td><td>Expand multiple devices with same address</td></tr><tr><td>PPG Module</td><td>GY-MAX30102</td><td>3</td><td>Measure pulse waves at Cun, Guan, Chi points</td></tr><tr><td>Pressure Sensor</td><td>Honeywell MPRLS0025PA (I2C)</td><td>1</td><td>Read bladder pressure for closed-loop control</td></tr><tr><td>Micro Pump</td><td>5V DC Motor Pump</td><td>3</td><td>Control three bladder pressurization</td></tr><tr><td>MOSFET Module</td><td>AO3400A / IRLZ44N / AOD4184A</td><td>3</td><td>Control pump power switch (PWM speed control)</td></tr><tr><td>Display</td><td>SSD1306 OLED 0.96\" (128×64)</td><td>1</td><td>Display heart rate, pressure, status</td></tr><tr><td>Button</td><td>Self-reset button + 10k pull-up resistor</td><td>1</td><td>User interaction (start/stop)</td></tr></tbody></table>",
+      "caption": "Hardware component specifications for the smart wearable measurement device"
+    }
+  ],
+  "bibtex": ""
+}
