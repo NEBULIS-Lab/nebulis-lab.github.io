@@ -1240,7 +1240,16 @@ main {
   }
   
   .nav-menu.mobile-open {
-    display: flex;
+    display: flex !important;
+  }
+  
+  /* 确保菜单在body下时也能正确显示 */
+  body > .nav-menu {
+    display: none;
+  }
+  
+  body > .nav-menu.mobile-open {
+    display: flex !important;
   }
   
   .nav-link {
@@ -1263,10 +1272,9 @@ main {
     height: 32px;
   }
   
-  /* 在移动端，让 nav-right 显示，但只显示 nav-menu，隐藏 nav-actions */
+  /* 在移动端，隐藏 nav-right 和 nav-actions */
   .nav-right {
-    display: flex;
-    position: static;
+    display: none;
   }
   
   .nav-actions {

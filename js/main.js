@@ -59,12 +59,59 @@ function initNavigation() {
     });
 }
 
-// Mobile menu toggle - 简化版本
+// Mobile menu toggle - 增强版本，解决移动端菜单显示问题
 function initMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
     if (!navToggle || !navMenu) return;
+    
+    // 检测是否为移动端
+    function isMobile() {
+        return window.innerWidth <= 767;
+    }
+    
+    // 在移动端将菜单移动到body下，避免父元素display: none的影响
+    let menuMoved = false;
+    const navRight = document.querySelector('.nav-right');
+    
+    function moveMenuToBody() {
+        if (isMobile() && navMenu.parentElement !== document.body) {
+            document.body.appendChild(navMenu);
+            menuMoved = true;
+        }
+    }
+    
+    function restoreMenuPosition() {
+        if (!isMobile() && menuMoved && navRight) {
+            // 确保nav-menu在nav-right中的正确位置（在nav-actions之前）
+            const navActions = navRight.querySelector('.nav-actions');
+            if (navActions) {
+                navRight.insertBefore(navMenu, navActions);
+            } else {
+                navRight.appendChild(navMenu);
+            }
+            menuMoved = false;
+        }
+    }
+    
+    // 初始化时检查
+    if (isMobile()) {
+        moveMenuToBody();
+    }
+    
+    // 监听窗口大小变化
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (isMobile()) {
+                moveMenuToBody();
+            } else {
+                restoreMenuPosition();
+            }
+        }, 100);
+    });
     
     // 简单的切换函数
     function toggleMenu() {
@@ -77,6 +124,10 @@ function initMobileMenu() {
     navToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
+        // 确保在移动端菜单已移动到body
+        if (isMobile()) {
+            moveMenuToBody();
+        }
         toggleMenu();
     });
     
