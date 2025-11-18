@@ -59,80 +59,43 @@ function initNavigation() {
     });
 }
 
-// Mobile menu toggle
+// Mobile menu toggle - 简化版本
 function initMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (!navToggle || !navMenu) {
-        console.warn('Navigation menu elements not found');
-        return;
+    if (!navToggle || !navMenu) return;
+    
+    // 简单的切换函数
+    function toggleMenu() {
+        navMenu.classList.toggle('mobile-open');
+        const isOpen = navMenu.classList.contains('mobile-open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     }
     
-    // Check if we're on mobile (width <= 767px)
-    const isMobile = () => window.innerWidth <= 767;
-    
-    // Use mousedown and touchstart for better mobile support
-    const handleToggle = (e) => {
-        // Only handle on mobile
-        if (!isMobile()) return;
-        
+    // 绑定点击事件
+    navToggle.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        e.stopImmediatePropagation();
-        
-        const isOpen = navMenu.classList.contains('mobile-open');
-        
-        if (isOpen) {
-            navMenu.classList.remove('mobile-open');
-            navToggle.setAttribute('aria-expanded', 'false');
-        } else {
-            navMenu.classList.add('mobile-open');
-            navToggle.setAttribute('aria-expanded', 'true');
-        }
-        
-        return false;
-    };
+        toggleMenu();
+    });
     
-    // Remove any existing listeners to avoid duplicates
-    const newToggle = navToggle.cloneNode(true);
-    navToggle.parentNode.replaceChild(newToggle, navToggle);
-    const freshToggle = document.querySelector('.nav-toggle');
-    
-    // Add multiple event listeners for better compatibility
-    freshToggle.addEventListener('click', handleToggle, { capture: true });
-    freshToggle.addEventListener('touchstart', handleToggle, { passive: false, capture: true });
-    freshToggle.addEventListener('touchend', (e) => {
-        if (isMobile()) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, { passive: false });
-    
-    // Click outside to close menu (with delay to avoid immediate close)
-    let clickOutsideTimeout;
-    document.addEventListener('click', (e) => {
-        if (!isMobile()) return;
-        
-        clearTimeout(clickOutsideTimeout);
-        clickOutsideTimeout = setTimeout(() => {
-            if (navMenu.classList.contains('mobile-open')) {
-                if (!freshToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                    navMenu.classList.remove('mobile-open');
-                    freshToggle.setAttribute('aria-expanded', 'false');
-                }
+    // 点击外部关闭菜单
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('mobile-open')) {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('mobile-open');
+                navToggle.setAttribute('aria-expanded', 'false');
             }
-        }, 10);
-    }, true);
+        }
+    });
     
-    // Close menu when clicking on nav links
+    // 点击菜单项关闭菜单
     const navLinks = navMenu.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (isMobile()) {
-                navMenu.classList.remove('mobile-open');
-                freshToggle.setAttribute('aria-expanded', 'false');
-            }
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('mobile-open');
+            navToggle.setAttribute('aria-expanded', 'false');
         });
     });
 }

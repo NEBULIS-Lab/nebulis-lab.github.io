@@ -1138,13 +1138,6 @@ main {
   box-sizing: border-box;
 }
 
-@media (max-width: 767px) {
-  .navbar {
-    position: sticky;
-    z-index: 100;
-  }
-}
-
 .navbar::before {
   content: "";
   position: absolute;
@@ -1160,30 +1153,6 @@ main {
   justify-content: space-between;
   padding: var(--space-4) var(--space-4);
   position: relative;
-  z-index: 102;
-}
-
-@media (max-width: 767px) {
-  .navbar .container {
-    position: relative;
-    overflow: visible;
-    z-index: 102;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-  
-  .nav-brand {
-    flex: 0 0 auto;
-    z-index: 103;
-    position: relative;
-    max-width: calc(100% - 60px);
-  }
-  
-  .nav-toggle {
-    flex: 0 0 auto;
-    margin-left: auto;
-  }
 }
 
 @media (min-width: 640px) {
@@ -1220,36 +1189,50 @@ main {
   width: auto;
 }
 
-.nav-menu {
-  display: none;
-  align-items: center;
-  gap: var(--space-4);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  flex-direction: column;
-  padding: var(--space-4);
-  border-bottom: 1px solid rgba(168, 200, 238, 0.6);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out, visibility 0.35s ease-in-out;
-  z-index: 99;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
+/* 桌面端导航菜单 */
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    border-bottom: none;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    visibility: visible;
+    gap: var(--space-4);
+    align-items: center;
+  }
 }
 
+/* 移动端导航菜单 - 专门样式 */
 @media (max-width: 767px) {
   .nav-menu {
-    gap: var(--space-2);
-    padding: var(--space-6) var(--space-4);
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
     width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-bottom: 1px solid rgba(168, 200, 238, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    gap: var(--space-2);
     box-sizing: border-box;
+  }
+  
+  .nav-menu.mobile-open {
+    display: flex;
   }
   
   .nav-link {
@@ -1272,38 +1255,8 @@ main {
     height: 32px;
   }
   
-  .navbar .container {
-    position: relative;
-    overflow: visible;
-  }
-  
   .nav-right {
-    display: none !important;
-  }
-}
-
-.nav-menu.mobile-open {
-  display: flex !important;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  pointer-events: auto !important;
-  visibility: visible !important;
-}
-
-@media (min-width: 768px) {
-  .nav-menu {
-    display: flex;
-    position: static;
-    flex-direction: row;
-    background: transparent;
-    backdrop-filter: none;
-    padding: 0;
-    border-bottom: none;
-    box-shadow: none;
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-    visibility: visible;
+    display: none;
   }
 }
 
@@ -1311,31 +1264,11 @@ main {
   display: none;
   align-items: center;
   gap: var(--space-6);
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 767px) {
-  .nav-right {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    pointer-events: none !important;
-    position: absolute !important;
-  }
 }
 
 @media (min-width: 768px) {
   .nav-right {
     display: flex;
-    visibility: visible;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    pointer-events: auto;
-    position: relative;
   }
 }
 
@@ -1380,56 +1313,36 @@ main {
   background: var(--color-primary);
 }
 
-.nav-toggle {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-2);
-  min-width: 44px;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  z-index: 105;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  flex-shrink: 0;
-}
-
+/* 移动端菜单按钮 - 专门样式 */
 @media (max-width: 767px) {
   .nav-toggle {
-    display: flex !important;
-    pointer-events: auto !important;
-    cursor: pointer !important;
-    z-index: 105 !important;
-    position: relative !important;
-    background: transparent !important;
-    border: none !important;
-    margin: 0 !important;
-    padding: var(--space-2) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    width: 44px !important;
-    height: 44px !important;
-    flex-shrink: 0 !important;
-    order: 999 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(10, 88, 202, 0.1);
+    touch-action: manipulation;
+    flex-shrink: 0;
+    margin-left: auto;
   }
   
-  .nav-toggle:active,
-  .nav-toggle:focus {
-    background: rgba(10, 88, 202, 0.1) !important;
+  .nav-toggle:active {
+    background: rgba(10, 88, 202, 0.1);
     border-radius: var(--radius-sm);
-    outline: 2px solid rgba(10, 88, 202, 0.3);
-    outline-offset: 2px;
   }
   
-  .nav-toggle span {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+  .nav-brand {
+    flex: 0 0 auto;
+    max-width: calc(100% - 60px);
   }
 }
 
