@@ -1,5 +1,13 @@
 # NEBULIS Lab Website Maintenance Guide
 
+**⚠️ 版权声明 / Copyright Notice**
+
+本项目未基于其他开源网站框架，版权完全归属于 NEBULIS Lab，未经授权不得使用。详见 [LICENSE](LICENSE) 文件。
+
+This project is not based on any other open-source website framework. All rights to this project are exclusively owned by NEBULIS Lab and may not be used without authorization. See [LICENSE](LICENSE) file for details.
+
+---
+
 This guide explains how to quickly maintain and update the NEBULIS Lab website. The website uses a pure static architecture where all content is managed through JSON files, without needing to modify HTML or JavaScript code.
 
 ## Table of Contents
