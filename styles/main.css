@@ -1263,7 +1263,13 @@ main {
     height: 32px;
   }
   
+  /* 在移动端，让 nav-right 显示，但只显示 nav-menu，隐藏 nav-actions */
   .nav-right {
+    display: flex;
+    position: static;
+  }
+  
+  .nav-actions {
     display: none;
   }
 }
