@@ -1153,6 +1153,14 @@ main {
   justify-content: space-between;
   padding: var(--space-4) var(--space-4);
   position: relative;
+  min-height: 60px;
+}
+
+@media (max-width: 767px) {
+  .navbar .container {
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
 }
 
 @media (min-width: 640px) {
@@ -1325,14 +1333,18 @@ main {
     padding: var(--space-2);
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     align-items: center;
     justify-content: center;
     z-index: 101;
     position: relative;
     -webkit-tap-highlight-color: rgba(10, 88, 202, 0.1);
     touch-action: manipulation;
-    flex-shrink: 0;
-    margin-left: auto;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin-left: auto !important;
+    order: 999;
   }
   
   .nav-toggle:active {
@@ -1341,8 +1353,24 @@ main {
   }
   
   .nav-brand {
-    flex: 0 0 auto;
-    max-width: calc(100% - 60px);
+    flex: 0 1 auto;
+    max-width: calc(100% - 100px);
+    overflow: hidden;
+    min-width: 0;
+  }
+  
+  .nav-brand .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .lab-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
