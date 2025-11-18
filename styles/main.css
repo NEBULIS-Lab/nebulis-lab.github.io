@@ -1093,6 +1093,15 @@ main {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(168, 200, 238, 0.6);
   transition: var(--transition);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .navbar {
+    position: sticky;
+    z-index: 100;
+  }
 }
 
 .navbar::before {
@@ -1186,6 +1195,7 @@ main {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(10, 88, 202, 0.1);
   }
   
   .lab-name {
@@ -1200,14 +1210,18 @@ main {
     position: relative;
     overflow: visible;
   }
+  
+  .nav-right {
+    display: none !important;
+  }
 }
 
 .nav-menu.mobile-open {
-  display: flex;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  visibility: visible;
+  display: flex !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
 }
 
 @media (min-width: 768px) {
@@ -1294,6 +1308,16 @@ main {
   justify-content: center;
   z-index: 101;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+@media (max-width: 767px) {
+  .nav-toggle {
+    display: flex !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
 }
 
 @media (min-width: 768px) {

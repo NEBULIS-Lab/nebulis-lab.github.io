@@ -64,10 +64,13 @@ function initMobileMenu() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (!navToggle || !navMenu) return;
+    if (!navToggle || !navMenu) {
+        console.warn('Navigation menu elements not found');
+        return;
+    }
     
-    // Prevent event bubbling issues
-    navToggle.addEventListener('click', (e) => {
+    // Use mousedown and touchstart for better mobile support
+    const handleToggle = (e) => {
         e.preventDefault();
         e.stopPropagation();
         
@@ -80,16 +83,25 @@ function initMobileMenu() {
             navMenu.classList.add('mobile-open');
             navToggle.setAttribute('aria-expanded', 'true');
         }
-    });
+    };
     
-    // Click outside to close menu
+    // Add multiple event listeners for better compatibility
+    navToggle.addEventListener('click', handleToggle);
+    navToggle.addEventListener('touchstart', handleToggle, { passive: false });
+    navToggle.addEventListener('mousedown', handleToggle);
+    
+    // Click outside to close menu (with delay to avoid immediate close)
+    let clickOutsideTimeout;
     document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('mobile-open')) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('mobile-open');
-                navToggle.setAttribute('aria-expanded', 'false');
+        clearTimeout(clickOutsideTimeout);
+        clickOutsideTimeout = setTimeout(() => {
+            if (navMenu.classList.contains('mobile-open')) {
+                if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                    navMenu.classList.remove('mobile-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
             }
-        }
+        }, 10);
     });
     
     // Close menu when clicking on nav links
