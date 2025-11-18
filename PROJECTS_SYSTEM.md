@@ -22,7 +22,7 @@ NEBULIS_LAB/
 │   ├── projects.js               # Project list loader
 │   └── project-details.js        # Project details loader
 ├── initiatives.html              # Projects list page (updated)
-├── project.html                  # Project details page (new)
+├── project.html                  # Project details page
 └── styles/
     └── main.css                  # Stylesheet (updated with project details styles)
 ```
