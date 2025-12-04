@@ -34,6 +34,23 @@
     "affiliation": "NEBULIS Lab"
   },
   {
+    "name": "吴承宇",
+    "nameEn": "Chengyu Wu",
+    "role": "phd",
+    "program": "PhD",
+    "advisors": ["苏宁馨"],
+    "description": "BEng in Electronic Engineering from Tsinghua University. Research interests: VLA/VLM, Multi-Agent Embodied AI.",
+    "descriptionZh": "清华大学电子工程系学士。研究兴趣：视觉语言模型、多智能体具身智能。",
+    "avatar": "image/user/Chengyu.jpg",
+    "homepage": "https://example.com",
+    "scholar": "https://scholar.google.com/...",
+    "github": "https://github.com/Sohho",
+    "email": "2679942002@qq.com",
+    "status": "current",
+    "cohort": 2025,
+    "affiliation": "NEBULIS Lab"
+  },
+  {
     "name": "陈星维",
     "nameEn": "Xingwei Chen",
     "role": "ra",
