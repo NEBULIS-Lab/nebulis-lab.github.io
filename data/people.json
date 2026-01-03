@@ -83,6 +83,22 @@
     "status": "current",
     "cohort": 2025,
     "affiliation": "NEBULIS Lab"
+  },
+  {
+    "name": "郝舒扬",
+    "nameEn": "Shuyang Hao",
+    "role": "ra",
+    "program": "Research Assistant",
+    "advisors": ["苏宁馨"],
+    "description": "Bachelor of Engineering in Artificial Intelligence from Southeast University. Research interests: Multi-Agent Collaboration, Embodied Intelligence, Trustworthy AI.",
+    "descriptionZh": "东南大学人工智能专业工程学士。研究兴趣：多智能体协作、具身智能、可信人工智能。",
+    "avatar": "image/user/xingwei.jpg",
+    "homepage": "https://example.com",
+    "scholar": "https://scholar.google.com.hk/citations?user=7_wHcGoAAAAJ&hl=zh-CN",
+    "github": "https://github.com/Jmyjz",
+    "email": "haoshuyang9@gmail.com",
+    "status": "current",
+    "cohort": 2025,
+    "affiliation": "NEBULIS Lab"
   }
 ]
-
