@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - NEBULIS Lab</title>
+    <title data-en="News - NEBULIS Lab" data-zh="动态 - NEBULIS Lab">News - NEBULIS Lab</title>
     <meta name="description" content="All news and updates from NEBULIS Lab">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="image/logo.png">
@@ -23,10 +23,10 @@
             </div>
             <div class="nav-right">
                 <div class="nav-menu">
-                    <a href="index.html" class="nav-link">Back to Homepage</a>
+                    <a href="index.html" class="nav-link" data-en="Back to Homepage" data-zh="返回首页">Back to Homepage</a>
                 </div>
                 <div class="nav-actions">
-                    <div class="language-switch" style="visibility: hidden; pointer-events: none;">
+                    <div class="language-switch">
                         <button class="lang-btn active" data-lang="en">EN</button>
                         <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
                     </div>
@@ -79,25 +79,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/news-page.js"></script>
-    <script>
-        // Force English language for this page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Override language to English
-            if (window.LanguageSwitch) {
-                window.LanguageSwitch.setLanguage('en');
-            } else {
-                // If language.js hasn't loaded yet, wait and try again
-                setTimeout(function() {
-                    if (window.LanguageSwitch) {
-                        window.LanguageSwitch.setLanguage('en');
-                    }
-                }, 100);
-            }
-            // Set HTML lang attribute to English
-            document.documentElement.lang = 'en';
-        });
-    </script>
     <script src="js/language.js"></script>
 </body>
 </html>
-

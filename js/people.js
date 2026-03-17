@@ -2,14 +2,6 @@
 // People page filtering and search functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Force English language for people page (temporarily disabled Chinese)
-    // Override language setting to English
-    const currentLang = localStorage.getItem('nebulis-lang');
-    if (currentLang === 'zh') {
-        // Temporarily set to English for this page only
-        // Don't update localStorage to avoid affecting other pages
-    }
-    
     // Load people data from JSON file
     loadPeopleData();
     
@@ -19,15 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize search functionality
     initPeopleSearch();
     
-    // Temporarily disable language change events for people page
-    // document.addEventListener('languageChanged', function(event) {
-    //     updatePeopleCardsLanguage(event.detail.lang);
-    // });
-    
-    // Force all cards to display in English
-    setTimeout(() => {
-        updatePeopleCardsLanguage('en');
-    }, 100);
+    document.addEventListener('languageChanged', function(event) {
+        updatePeopleCardsLanguage(event.detail.lang);
+    });
 });
 
 // People data will be loaded from JSON file
@@ -130,6 +116,8 @@ function initPeopleData() {
         const card = createPersonCard(person);
         peopleGrid.appendChild(card);
     });
+
+    updatePeopleCardsLanguage(getPeoplePageLanguage());
 }
 
 // Get role English translation
@@ -169,17 +157,26 @@ function createPersonCard(person) {
     const description = person.description || person.areas?.join(', ') || '';
     const descriptionZh = person.descriptionZh || description;
     
-    const avatarElement = person.homepage 
-        ? `<a href="${person.homepage}" target="_blank" rel="noopener noreferrer" class="person-avatar-link"><img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar"></a>`
-        : `<img src="${person.avatar}" alt="${person.name} portrait" class="person-avatar">`;
-    
-    // Force English for people page (temporarily disabled Chinese)
-    // const currentLang = localStorage.getItem('nebulis-lang') || 'en';
-    // const initialDescription = currentLang === 'zh' ? descriptionZh : description;
-    const initialDescription = description; // Always use English
-    
-    // Force English role text
+    const currentLang = getPeoplePageLanguage();
+    const initialName = currentLang === 'zh' ? person.name : (person.nameEn || person.name);
+    const initialDescription = currentLang === 'zh' ? descriptionZh : description;
     const roleEnText = getRoleEnText(person.role);
+    const initialRole = currentLang === 'zh' ? roleText : roleEnText;
+
+    const safeNameZhAttr = escapeHtmlAttr(person.name || '');
+    const safeNameEnAttr = escapeHtmlAttr(person.nameEn || person.name || '');
+    const safeRoleZhAttr = escapeHtmlAttr(roleText);
+    const safeRoleEnAttr = escapeHtmlAttr(roleEnText);
+    const safeDescriptionZhAttr = escapeHtmlAttr(descriptionZh);
+    const safeDescriptionEnAttr = escapeHtmlAttr(description);
+    const safeInitialName = escapeHtml(initialName);
+    const safeInitialRole = escapeHtml(initialRole);
+    const safeInitialDescription = escapeHtml(initialDescription);
+    const safeAvatar = escapeHtmlAttr(person.avatar || '');
+    const safeHomepage = escapeHtmlAttr(person.homepage || '');
+    const safeScholar = escapeHtmlAttr(person.scholar || '');
+    const safeGithub = escapeHtmlAttr(person.github || '');
+    const safeEmail = escapeHtmlAttr(person.email || '');
     
     // Check if this is Nebula-ChatBot
     const isNebulaChatBot = (person.name === 'Nebula-ChatBot' || person.nameEn === 'Nebula-ChatBot');
@@ -197,18 +194,22 @@ function createPersonCard(person) {
         // Regular links for other people
         linksHTML = `
         <div class="person-links">
-            ${person.scholar ? `<a href="${person.scholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="Google Scholar" data-en="Google Scholar">Google Scholar</a>` : ''}
-            ${person.github ? `<a href="${person.github}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="GitHub" data-en="GitHub">GitHub</a>` : ''}
-            ${person.email ? `<a href="mailto:${person.email}" class="person-link" data-zh="邮箱" data-en="Email">Email</a>` : ''}
+            ${person.scholar ? `<a href="${safeScholar}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="Google Scholar" data-en="Google Scholar">Google Scholar</a>` : ''}
+            ${person.github ? `<a href="${safeGithub}" class="person-link" target="_blank" rel="noopener noreferrer" data-zh="GitHub" data-en="GitHub">GitHub</a>` : ''}
+            ${person.email ? `<a href="mailto:${safeEmail}" class="person-link" data-zh="邮箱" data-en="Email">Email</a>` : ''}
         </div>
         `;
     }
+
+    const avatarElement = person.homepage
+        ? `<a href="${safeHomepage}" target="_blank" rel="noopener noreferrer" class="person-avatar-link"><img src="${safeAvatar}" alt="${safeNameEnAttr} portrait" class="person-avatar"></a>`
+        : `<img src="${safeAvatar}" alt="${safeNameEnAttr} portrait" class="person-avatar">`;
     
     card.innerHTML = `
         ${avatarElement}
-        <h3 class="person-name" data-zh="${person.name}" data-en="${person.nameEn || person.name}">${person.nameEn || person.name}</h3>
-        <div class="person-role" data-zh="${roleText}" data-en="${roleEnText}">${roleEnText}</div>
-        <div class="person-description" data-zh="${descriptionZh}" data-en="${description}">${initialDescription}</div>
+        <h3 class="person-name" data-zh="${safeNameZhAttr}" data-en="${safeNameEnAttr}">${safeInitialName}</h3>
+        <div class="person-role" data-zh="${safeRoleZhAttr}" data-en="${safeRoleEnAttr}">${safeInitialRole}</div>
+        <div class="person-description" data-zh="${safeDescriptionZhAttr}" data-en="${safeDescriptionEnAttr}">${safeInitialDescription}</div>
         ${linksHTML}
     `;
     
@@ -232,6 +233,13 @@ function createPersonCard(person) {
 function updatePeopleCardsLanguage(lang) {
     const personCards = document.querySelectorAll('.person-card');
     personCards.forEach(card => {
+        const nameElement = card.querySelector('.person-name');
+        if (nameElement) {
+            const zhText = nameElement.getAttribute('data-zh');
+            const enText = nameElement.getAttribute('data-en');
+            nameElement.textContent = lang === 'zh' ? zhText : enText;
+        }
+
         // Update role text
         const roleElement = card.querySelector('.person-role');
         if (roleElement) {
@@ -396,3 +404,23 @@ window.PeoplePage = {
     applyFilters,
     resetFilters
 };
+
+function getPeoplePageLanguage() {
+    if (window.LanguageSwitch && typeof window.LanguageSwitch.getCurrentLanguage === 'function') {
+        return window.LanguageSwitch.getCurrentLanguage();
+    }
+    return localStorage.getItem('nebulis-lang') || 'en';
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function escapeHtmlAttr(value) {
+    return escapeHtml(value)
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}

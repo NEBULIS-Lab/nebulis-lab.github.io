@@ -4,6 +4,23 @@
  * Files should follow format: <id>-<year>.json
  */
 
+let loadedProjects = [];
+
+const projectMessages = {
+  en: {
+    noConfig: 'No projects configured.',
+    noProjects: 'No projects available.',
+    details: 'View Project Details ->',
+    loadError: 'Failed to load projects.'
+  },
+  zh: {
+    noConfig: '未配置项目。',
+    noProjects: '暂无项目。',
+    details: '查看项目详情 ->',
+    loadError: '项目加载失败。'
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   const gridEl = document.querySelector('.initiatives-grid');
   if (!gridEl) {
@@ -13,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const projectsPath = 'data/projects/';
   const manifestPath = `${projectsPath}manifest.json`;
-  
-  // First, load the manifest to get list of project files
+  const currentLang = getProjectsPageLanguage();
+
   fetch(manifestPath)
     .then(response => {
       if (!response.ok) {
@@ -24,19 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(manifest => {
       const projectFiles = manifest.projects || [];
-      
+
       if (projectFiles.length === 0) {
-        gridEl.innerHTML = '<div style="padding: var(--space-4); color: var(--color-muted);">No projects configured.</div>';
-        return;
+        renderProjects([], gridEl, currentLang, 'noConfig');
+        return null;
       }
 
-      // Load all projects
-      // Files that don't exist will be gracefully skipped (return null)
       return Promise.all(
-        projectFiles.map(filename => 
+        projectFiles.map(filename =>
           fetch(`${projectsPath}${filename}`)
             .then(response => {
-              // If file doesn't exist (404), skip it silently
               if (response.status === 404) {
                 console.warn(`Project file not found: ${filename}, skipping...`);
                 return null;
@@ -47,16 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
               return response.json();
             })
             .then(data => {
-              // If data is null (file not found), return null
               if (!data) return null;
-              
-              // Extract year from filename for sorting
+
               const yearMatch = filename.match(/-(\d{4})\.json$/);
-              const fileYear = yearMatch ? parseInt(yearMatch[1]) : data.year || 0;
+              const fileYear = yearMatch ? parseInt(yearMatch[1], 10) : data.year || 0;
               return { ...data, _fileYear: fileYear };
             })
             .catch(error => {
-              // Only log non-404 errors
               if (!error.message.includes('404')) {
                 console.error(`Error loading ${filename}:`, error);
               }
@@ -66,40 +77,27 @@ document.addEventListener('DOMContentLoaded', function() {
       );
     })
     .then(projects => {
-      if (!projects) return; // Already handled empty case
-      
-      // Filter out failed loads
-      const validProjects = projects.filter(p => p !== null);
-      
-      if (validProjects.length === 0) {
-        gridEl.innerHTML = '<div style="padding: var(--space-4); color: var(--color-muted);">No projects available.</div>';
-        return;
-      }
+      if (!projects) return;
 
-      // Sort by year (from filename) in descending order (newest first)
-      validProjects.sort((a, b) => b._fileYear - a._fileYear);
-
-      // Clear existing content
-      gridEl.innerHTML = '';
-
-      // Generate project cards
-      validProjects.forEach(project => {
-        const card = createProjectCard(project);
-        gridEl.appendChild(card);
-      });
+      loadedProjects = projects.filter(project => project !== null);
+      loadedProjects.sort((a, b) => b._fileYear - a._fileYear);
+      renderProjects(loadedProjects, gridEl, getProjectsPageLanguage());
     })
     .catch(error => {
       console.error('Failed to load projects:', error);
-      gridEl.innerHTML = `<div style="padding: var(--space-4); color: var(--color-muted);">
-        Failed to load projects. Error: ${error.message}
-      </div>`;
+      renderProjects([], gridEl, getProjectsPageLanguage(), 'loadError', error.message);
     });
+
+  document.addEventListener('languageChanged', function(event) {
+    renderProjects(loadedProjects, gridEl, event.detail.lang);
+  });
 });
 
 /**
  * Create a project card element
  */
-function createProjectCard(project) {
+function createProjectCard(project, lang) {
+  const messages = projectMessages[lang] || projectMessages.en;
   const card = document.createElement('div');
   card.className = 'initiative-card';
 
@@ -118,12 +116,17 @@ function createProjectCard(project) {
 
   // Title
   const title = document.createElement('h2');
-  title.textContent = project.title || 'Untitled Project';
+  title.textContent = getProjectField(project, lang, ['titleZh', 'title_zh'], project.title || 'Untitled Project');
   contentDiv.appendChild(title);
 
   // Description
   const description = document.createElement('p');
-  description.textContent = project.short_description || '';
+  description.textContent = getProjectField(
+    project,
+    lang,
+    ['shortDescriptionZh', 'short_description_zh', 'short_descriptionZh'],
+    project.short_description || ''
+  );
   contentDiv.appendChild(description);
 
   // Tags
@@ -145,7 +148,7 @@ function createProjectCard(project) {
   const detailLink = document.createElement('a');
   detailLink.href = `project.html?id=${project.id}`;
   detailLink.className = 'initiative-link';
-  detailLink.textContent = 'View Project Details →';
+  detailLink.textContent = messages.details;
   linksDiv.appendChild(detailLink);
   contentDiv.appendChild(linksDiv);
 
@@ -155,3 +158,43 @@ function createProjectCard(project) {
   return card;
 }
 
+function renderProjects(projects, gridEl, lang, state, errorMessage) {
+  const messages = projectMessages[lang] || projectMessages.en;
+  gridEl.innerHTML = '';
+
+  if (state === 'noConfig') {
+    gridEl.innerHTML = `<div style="padding: var(--space-4); color: var(--color-muted);">${messages.noConfig}</div>`;
+    return;
+  }
+
+  if (state === 'loadError') {
+    gridEl.innerHTML = `<div style="padding: var(--space-4); color: var(--color-muted);">${messages.loadError} ${errorMessage || ''}</div>`;
+    return;
+  }
+
+  if (!projects.length) {
+    gridEl.innerHTML = `<div style="padding: var(--space-4); color: var(--color-muted);">${messages.noProjects}</div>`;
+    return;
+  }
+
+  projects.forEach(project => {
+    const card = createProjectCard(project, lang);
+    gridEl.appendChild(card);
+  });
+}
+
+function getProjectField(project, lang, zhKeys, fallback) {
+  if (lang === 'zh') {
+    for (const key of zhKeys) {
+      if (project[key]) return project[key];
+    }
+  }
+  return fallback;
+}
+
+function getProjectsPageLanguage() {
+  if (window.LanguageSwitch && typeof window.LanguageSwitch.getCurrentLanguage === 'function') {
+    return window.LanguageSwitch.getCurrentLanguage();
+  }
+  return localStorage.getItem('nebulis-lang') || 'en';
+}

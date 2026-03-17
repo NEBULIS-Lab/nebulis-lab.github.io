@@ -3,6 +3,21 @@
  * Used on news.html page to show all news items
  */
 
+let loadedNewsItems = [];
+
+const newsMessages = {
+  en: {
+    noNews: 'No news available.',
+    loadError: 'Failed to load news.',
+    untitled: 'Untitled News'
+  },
+  zh: {
+    noNews: '暂无动态。',
+    loadError: '动态加载失败。',
+    untitled: '未命名动态'
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   const listEl = document.getElementById('news-list');
   if (!listEl) {
@@ -26,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const newsFiles = manifest.news || [];
       
       if (newsFiles.length === 0) {
-        listEl.innerHTML = '<li style="padding: var(--space-4); color: var(--color-muted);">No news available.</li>';
+        renderNews([], listEl, getNewsPageLanguage(), 'empty');
         return;
       }
 
@@ -56,17 +71,14 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(newsItems => {
       if (!newsItems) return;
       
-      // Filter out failed loads
-      const validNews = newsItems.filter(item => item !== null);
-      
-      if (validNews.length === 0) {
-        listEl.innerHTML = '<li style="padding: var(--space-4); color: var(--color-muted);">No news available.</li>';
+      loadedNewsItems = newsItems.filter(item => item !== null);
+
+      if (loadedNewsItems.length === 0) {
+        renderNews([], listEl, getNewsPageLanguage(), 'empty');
         return;
       }
 
-      // Sort by date (newest first) if date exists
-      // Dates with format YYYY-MM-DD are prioritized over "TBD" or other text
-      validNews.sort((a, b) => {
+      loadedNewsItems.sort((a, b) => {
         const dateA = a.date || '';
         const dateB = b.date || '';
         
@@ -90,27 +102,23 @@ document.addEventListener('DOMContentLoaded', function() {
         return dateB.localeCompare(dateA);
       });
 
-      // Clear existing content
-      listEl.innerHTML = '';
-
-      // Generate news list items (show all)
-      validNews.forEach(newsItem => {
-        const li = createNewsListItem(newsItem);
-        listEl.appendChild(li);
-      });
+      renderNews(loadedNewsItems, listEl, getNewsPageLanguage());
     })
     .catch(error => {
       console.error('Failed to load news:', error);
-      listEl.innerHTML = `<li style="padding: var(--space-4); color: var(--color-muted);">
-        Failed to load news. Error: ${error.message}
-      </li>`;
+      renderNews([], listEl, getNewsPageLanguage(), 'error', error.message);
     });
+
+  document.addEventListener('languageChanged', function(event) {
+    renderNews(loadedNewsItems, listEl, event.detail.lang);
+  });
 });
 
 /**
  * Create a news list item element
  */
-function createNewsListItem(newsItem) {
+function createNewsListItem(newsItem, lang) {
+  const messages = newsMessages[lang] || newsMessages.en;
   const li = document.createElement('li');
   li.className = 'news-list-item';
 
@@ -129,7 +137,7 @@ function createNewsListItem(newsItem) {
     imageDiv.className = 'news-list-image';
     const img = document.createElement('img');
     img.src = imagePath;
-    img.alt = newsItem.title || 'News image';
+    img.alt = getLocalizedField(newsItem, lang, ['titleZh', 'title_zh'], newsItem.title || messages.untitled);
     img.loading = 'lazy';
     imageDiv.appendChild(img);
   } else {
@@ -148,7 +156,7 @@ function createNewsListItem(newsItem) {
   if (newsItem.tag) {
     const tagSpan = document.createElement('span');
     tagSpan.className = 'news-tag';
-    tagSpan.textContent = newsItem.tag;
+    tagSpan.textContent = getLocalizedTag(newsItem, lang);
     meta.appendChild(tagSpan);
   }
 
@@ -162,13 +170,13 @@ function createNewsListItem(newsItem) {
   // Title
   const title = document.createElement('h3');
   title.className = 'news-list-title';
-  title.textContent = newsItem.title || 'Untitled News';
+  title.textContent = getLocalizedField(newsItem, lang, ['titleZh', 'title_zh'], newsItem.title || messages.untitled);
 
   // Excerpt
   if (newsItem.excerpt) {
     const excerpt = document.createElement('p');
     excerpt.className = 'news-list-excerpt';
-    excerpt.textContent = newsItem.excerpt;
+    excerpt.textContent = getLocalizedField(newsItem, lang, ['excerptZh', 'excerpt_zh'], newsItem.excerpt);
     textWrapper.appendChild(meta);
     textWrapper.appendChild(title);
     textWrapper.appendChild(excerpt);
@@ -194,3 +202,50 @@ function createNewsListItem(newsItem) {
   return li;
 }
 
+function renderNews(newsItems, listEl, lang, state, errorMessage) {
+  const messages = newsMessages[lang] || newsMessages.en;
+  listEl.innerHTML = '';
+
+  if (state === 'empty') {
+    listEl.innerHTML = `<li style="padding: var(--space-4); color: var(--color-muted);">${messages.noNews}</li>`;
+    return;
+  }
+
+  if (state === 'error') {
+    listEl.innerHTML = `<li style="padding: var(--space-4); color: var(--color-muted);">${messages.loadError} ${errorMessage || ''}</li>`;
+    return;
+  }
+
+  newsItems.forEach(newsItem => {
+    listEl.appendChild(createNewsListItem(newsItem, lang));
+  });
+}
+
+function getLocalizedField(item, lang, zhKeys, fallback) {
+  if (lang === 'zh') {
+    for (const key of zhKeys) {
+      if (item[key]) return item[key];
+    }
+  }
+  return fallback;
+}
+
+function getLocalizedTag(newsItem, lang) {
+  if (lang === 'zh') {
+    if (newsItem.tagZh || newsItem.tag_zh) {
+      return newsItem.tagZh || newsItem.tag_zh;
+    }
+    const tagMap = {
+      Announcement: '公告'
+    };
+    return tagMap[newsItem.tag] || newsItem.tag;
+  }
+  return newsItem.tag;
+}
+
+function getNewsPageLanguage() {
+  if (window.LanguageSwitch && typeof window.LanguageSwitch.getCurrentLanguage === 'function') {
+    return window.LanguageSwitch.getCurrentLanguage();
+  }
+  return localStorage.getItem('nebulis-lang') || 'en';
+}

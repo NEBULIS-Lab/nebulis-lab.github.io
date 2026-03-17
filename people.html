@@ -33,7 +33,7 @@
                     <!-- <a href="login.html" class="nav-link" data-en="Login" data-zh="登录">Login</a> -->
                 </div>
                 <div class="nav-actions">
-                    <div class="language-switch" style="visibility: hidden; pointer-events: none;">
+                    <div class="language-switch">
                         <button class="lang-btn active" data-lang="en">EN</button>
                         <button class="lang-btn" data-lang="zh" data-zh="中文" data-en="中文">中文</button>
                     </div>
@@ -55,29 +55,29 @@
             <div class="container">
                 <div class="filter-bar">
                     <div class="filter-group">
-                        <label for="role-filter">Role Filter:</label>
+                        <label for="role-filter" data-en="Role Filter:" data-zh="角色筛选：">Role Filter:</label>
                         <select id="role-filter" class="filter-select">
-                            <option value="">All</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="postdoc">Postdoc</option>
-                            <option value="phd">PhD</option>
-                            <option value="masters">Masters</option>
-                            <option value="undergrad">Undergrad</option>
-                            <option value="ra">Research Assistant</option>
-                            <option value="visiting">Visiting</option>
-                            <option value="alumni">Alumni</option>
+                            <option value="" data-en="All" data-zh="全部">All</option>
+                            <option value="faculty" data-en="Faculty" data-zh="教师">Faculty</option>
+                            <option value="postdoc" data-en="Postdoc" data-zh="博士后">Postdoc</option>
+                            <option value="phd" data-en="PhD" data-zh="博士生">PhD</option>
+                            <option value="masters" data-en="Masters" data-zh="硕士生">Masters</option>
+                            <option value="undergrad" data-en="Undergrad" data-zh="本科生">Undergrad</option>
+                            <option value="ra" data-en="Research Assistant" data-zh="研究助理">Research Assistant</option>
+                            <option value="visiting" data-en="Visiting" data-zh="访问学者">Visiting</option>
+                            <option value="alumni" data-en="Alumni" data-zh="校友">Alumni</option>
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label for="search-input">Search:</label>
+                        <label for="search-input" data-en="Search:" data-zh="搜索：">Search:</label>
                         <div class="search-input-wrapper">
-                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input">
+                            <input type="text" id="search-input" placeholder="Search by name..." class="search-input" data-en-placeholder="Search by name..." data-zh-placeholder="按姓名搜索...">
                         </div>
                     </div>
                     <div class="filter-group">
-                        <label for="letter-filter">Alphabet Index:</label>
+                        <label for="letter-filter" data-en="Alphabet Index:" data-zh="字母索引：">Alphabet Index:</label>
                         <select id="letter-filter" class="filter-select">
-                            <option value="">All</option>
+                            <option value="" data-en="All" data-zh="全部">All</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -117,8 +117,8 @@
                     <!-- People cards will be dynamically loaded via JavaScript -->
                 </div>
                 <div class="empty-state" id="empty-state" style="display: none;">
-                    <h3>No Matching Members Found</h3>
-                    <p>Please try adjusting filter conditions or search keywords</p>
+                    <h3 data-en="No Matching People Found" data-zh="未找到匹配成员">No Matching People Found</h3>
+                    <p data-en="Please try adjusting filter conditions or search keywords" data-zh="请尝试调整筛选条件或搜索关键词">Please try adjusting filter conditions or search keywords</p>
                 </div>
             </div>
         </section>
@@ -152,24 +152,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/people.js"></script>
-    <script>
-        // Force English language for this page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Override language to English
-            if (window.LanguageSwitch) {
-                window.LanguageSwitch.setLanguage('en');
-            } else {
-                // If language.js hasn't loaded yet, wait and try again
-                setTimeout(function() {
-                    if (window.LanguageSwitch) {
-                        window.LanguageSwitch.setLanguage('en');
-                    }
-                }, 100);
-            }
-            // Set HTML lang attribute to English
-            document.documentElement.lang = 'en';
-        });
-    </script>
     <script src="js/language.js"></script>
 </body>
 </html>

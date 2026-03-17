@@ -4,6 +4,44 @@
  * Loads data from: data/projects/<projectID>.json
  */
 
+let loadedProject = null;
+let projectContainer = null;
+let projectErrorState = null;
+let projectErrorMessage = '';
+
+const projectDetailMessages = {
+  en: {
+    projectNotFound: 'Project Not Found',
+    noProjectId: 'No project ID specified. Please select a project from the Projects page.',
+    backToProjects: '<- Back to Projects',
+    loading: 'Loading project details...',
+    failedToLoad: 'Failed to load project:',
+    pdf: '[PDF]',
+    code: '[Code]',
+    slides: '[Slides]',
+    projectPage: '[Project Page]',
+    bibtex: 'BibTeX',
+    copy: 'Copy',
+    copied: 'Copied!',
+    copyFailed: 'Failed'
+  },
+  zh: {
+    projectNotFound: '未找到项目',
+    noProjectId: '未指定项目 ID。请从项目页面选择一个项目。',
+    backToProjects: '<- 返回项目列表',
+    loading: '正在加载项目详情...',
+    failedToLoad: '项目加载失败：',
+    pdf: '[论文]',
+    code: '[代码]',
+    slides: '[幻灯片]',
+    projectPage: '[项目主页]',
+    bibtex: 'BibTeX',
+    copy: '复制',
+    copied: '已复制！',
+    copyFailed: '失败'
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   const contentEl = document.getElementById('project-details-content');
   if (!contentEl) {
@@ -11,17 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
+  projectContainer = contentEl;
+
   // Get project ID from URL parameter
   const urlParams = new URLSearchParams(window.location.search);
   const projectId = urlParams.get('id');
 
   if (!projectId) {
-    contentEl.innerHTML = `
-      <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
-        <h1>Project Not Found</h1>
-        <p>No project ID specified. Please select a project from the <a href="projects.html">Projects page</a>.</p>
-      </div>
-    `;
+    renderProjectError('noProjectId');
     return;
   }
 
@@ -36,39 +71,43 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(project => {
-      renderProjectDetails(project, contentEl);
-      // Update page title
-      document.title = `${project.title} - NEBULIS Lab`;
+      loadedProject = project;
+      projectErrorState = null;
+      projectErrorMessage = '';
+      renderProjectDetails(project, contentEl, getProjectDetailsLanguage());
     })
     .catch(error => {
       console.error('Failed to load project:', error);
-      contentEl.innerHTML = `
-        <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
-          <h1>Project Not Found</h1>
-          <p>Failed to load project: ${error.message}</p>
-          <p><a href="projects.html">← Back to Projects</a></p>
-        </div>
-      `;
+      renderProjectError('loadError', error.message);
     });
+
+  document.addEventListener('languageChanged', function(event) {
+    if (loadedProject && projectContainer) {
+      renderProjectDetails(loadedProject, projectContainer, event.detail.lang);
+    } else if (projectContainer) {
+      renderProjectError(projectErrorState || 'noProjectId', projectErrorMessage);
+    }
+  });
 });
 
 /**
  * Render project details
  */
-function renderProjectDetails(project, container) {
+function renderProjectDetails(project, container, lang) {
+  const messages = projectDetailMessages[lang] || projectDetailMessages.en;
   container.innerHTML = '';
 
   // Title (H1)
   const title = document.createElement('h1');
   title.className = 'project-title';
-  title.textContent = project.title || 'Untitled Project';
+  title.textContent = getLocalizedProjectField(project, lang, ['titleZh', 'title_zh'], project.title || 'Untitled Project');
   container.appendChild(title);
 
   // Authors
   if (project.authors) {
     const authors = document.createElement('p');
     authors.className = 'project-authors';
-    authors.textContent = project.authors;
+    authors.textContent = getLocalizedProjectField(project, lang, ['authorsZh', 'authors_zh'], project.authors);
     container.appendChild(authors);
   }
 
@@ -78,9 +117,9 @@ function renderProjectDetails(project, container) {
     venueYear.className = 'project-year';
     let venueYearText = '';
     if (project.venue && project.year) {
-      venueYearText = `${project.venue} ${project.year}`;
+      venueYearText = `${getLocalizedProjectField(project, lang, ['venueZh', 'venue_zh'], project.venue)} ${project.year}`;
     } else if (project.venue) {
-      venueYearText = project.venue;
+      venueYearText = getLocalizedProjectField(project, lang, ['venueZh', 'venue_zh'], project.venue);
     } else if (project.year) {
       venueYearText = project.year.toString();
     }
@@ -103,10 +142,10 @@ function renderProjectDetails(project, container) {
     buttonsDiv.appendChild(button);
   };
 
-  addButton('[PDF]', project.pdf);
-  addButton('[Code]', project.code);
-  addButton('[Slides]', project.slides);
-  addButton('[Project Page]', project.project_page);
+  addButton(messages.pdf, project.pdf);
+  addButton(messages.code, project.code);
+  addButton(messages.slides, project.slides);
+  addButton(messages.projectPage, project.project_page);
 
   if (buttonsDiv.children.length > 0) {
     container.appendChild(buttonsDiv);
@@ -120,13 +159,13 @@ function renderProjectDetails(project, container) {
 
       const sectionTitle = document.createElement('h2');
       sectionTitle.className = 'project-section-title';
-      sectionTitle.textContent = section.title || '';
+      sectionTitle.textContent = getLocalizedProjectField(section, lang, ['titleZh', 'title_zh'], section.title || '');
       sectionDiv.appendChild(sectionTitle);
 
       const sectionText = document.createElement('div');
       sectionText.className = 'project-section-text';
       // Preserve line breaks
-      sectionText.innerHTML = section.text.replace(/\n/g, '<br>');
+      sectionText.innerHTML = getLocalizedProjectField(section, lang, ['textZh', 'text_zh'], section.text || '').replace(/\n/g, '<br>');
       sectionDiv.appendChild(sectionText);
 
       container.appendChild(sectionDiv);
@@ -141,14 +180,14 @@ function renderProjectDetails(project, container) {
 
       const img = document.createElement('img');
       img.src = figure.src;
-      img.alt = figure.caption || '';
+      img.alt = getLocalizedProjectField(figure, lang, ['captionZh', 'caption_zh'], figure.caption || '');
       img.loading = 'lazy';
       figureDiv.appendChild(img);
 
       if (figure.caption) {
         const caption = document.createElement('p');
         caption.className = 'project-figure-caption';
-        caption.textContent = figure.caption;
+        caption.textContent = getLocalizedProjectField(figure, lang, ['captionZh', 'caption_zh'], figure.caption);
         figureDiv.appendChild(caption);
       }
 
@@ -170,7 +209,7 @@ function renderProjectDetails(project, container) {
       if (table.caption) {
         const caption = document.createElement('p');
         caption.className = 'project-table-caption';
-        caption.textContent = table.caption;
+        caption.textContent = getLocalizedProjectField(table, lang, ['captionZh', 'caption_zh'], table.caption);
         tableDiv.appendChild(caption);
       }
 
@@ -185,7 +224,7 @@ function renderProjectDetails(project, container) {
 
     const bibtexTitle = document.createElement('h2');
     bibtexTitle.className = 'project-section-title';
-    bibtexTitle.textContent = 'BibTeX';
+    bibtexTitle.textContent = messages.bibtex;
     bibtexDiv.appendChild(bibtexTitle);
 
     const bibtexWrapper = document.createElement('div');
@@ -200,18 +239,18 @@ function renderProjectDetails(project, container) {
     // Copy button
     const copyButton = document.createElement('button');
     copyButton.className = 'project-bibtex-copy';
-    copyButton.textContent = 'Copy';
+    copyButton.textContent = messages.copy;
     copyButton.onclick = function() {
       navigator.clipboard.writeText(project.bibtex).then(() => {
-        copyButton.textContent = 'Copied!';
+        copyButton.textContent = messages.copied;
         setTimeout(() => {
-          copyButton.textContent = 'Copy';
+          copyButton.textContent = messages.copy;
         }, 2000);
       }).catch(err => {
         console.error('Failed to copy:', err);
-        copyButton.textContent = 'Failed';
+        copyButton.textContent = messages.copyFailed;
         setTimeout(() => {
-          copyButton.textContent = 'Copy';
+          copyButton.textContent = messages.copy;
         }, 2000);
       });
     };
@@ -220,5 +259,43 @@ function renderProjectDetails(project, container) {
     bibtexDiv.appendChild(bibtexWrapper);
     container.appendChild(bibtexDiv);
   }
+
+  document.title = `${title.textContent} - NEBULIS Lab`;
 }
 
+function renderProjectError(type, errorMessage) {
+  if (!projectContainer) return;
+
+  const lang = getProjectDetailsLanguage();
+  const messages = projectDetailMessages[lang] || projectDetailMessages.en;
+  projectErrorState = type;
+  projectErrorMessage = errorMessage || '';
+  let bodyText = messages.noProjectId;
+  if (type === 'loadError') {
+    bodyText = `${messages.failedToLoad} ${errorMessage || ''}`;
+  }
+
+  projectContainer.innerHTML = `
+    <div style="padding: var(--space-8); text-align: center; color: var(--color-muted);">
+      <h1>${messages.projectNotFound}</h1>
+      <p>${bodyText}</p>
+      <p><a href="projects.html">${messages.backToProjects}</a></p>
+    </div>
+  `;
+}
+
+function getLocalizedProjectField(item, lang, zhKeys, fallback) {
+  if (lang === 'zh') {
+    for (const key of zhKeys) {
+      if (item[key]) return item[key];
+    }
+  }
+  return fallback;
+}
+
+function getProjectDetailsLanguage() {
+  if (window.LanguageSwitch && typeof window.LanguageSwitch.getCurrentLanguage === 'function') {
+    return window.LanguageSwitch.getCurrentLanguage();
+  }
+  return localStorage.getItem('nebulis-lang') || 'en';
+}
