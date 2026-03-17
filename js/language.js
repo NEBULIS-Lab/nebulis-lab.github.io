@@ -54,7 +54,7 @@ function setLanguage(lang) {
 
 // Update year function
 function updateCurrentYear() {
-    const yearElements = document.querySelectorAll('#current-year');
+    const yearElements = document.querySelectorAll('.current-year');
     const currentYear = new Date().getFullYear();
     
     yearElements.forEach(element => {
@@ -70,17 +70,11 @@ function updatePageContent(lang) {
     elements.forEach(element => {
         const zhText = element.getAttribute('data-zh');
         const enText = element.getAttribute('data-en');
+        const localizedText = lang === 'zh' ? zhText : enText;
+        const hasYearPlaceholder = localizedText.includes('{{CURRENT_YEAR}}');
         
-        // Check if element contains year element
-        const hasYearElement = element.querySelector('#current-year');
-        
-        if (hasYearElement) {
-            // If contains year element, special handling required
-            if (lang === 'zh') {
-                element.innerHTML = zhText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
-            } else {
-                element.innerHTML = enText.replace('NEBULIS Lab.', '<span id="current-year"></span> NEBULIS Lab.');
-            }
+        if (hasYearPlaceholder) {
+            element.innerHTML = localizedText.replace('{{CURRENT_YEAR}}', '<span class="current-year"></span>');
         } else {
             // Check if content contains HTML tags
             const containsHTML = (text) => /<[a-z][\s\S]*>/i.test(text);
