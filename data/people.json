@@ -50,23 +50,23 @@
     "cohort": 2025,
     "affiliation": "NEBULIS Lab"
   },
-  {
-    "name": "陈星维",
-    "nameEn": "Xingwei Chen",
+{
+    "name": "王一安",
+    "nameEn": "Yian Wang",
     "role": "ra",
     "program": "Research Assistant",
     "advisors": ["苏宁馨"],
-    "description": "BEng in Control & Instrumentation from Nanjing University of Aeronautics and Astronautics; MSc in Precision Instrumentation from NTU (Singapore). Research interests: Embodied AI & VLA/VLM, Optimization & Cutting-edge AI in Robotics, RL.",
-    "descriptionZh": "南京航空航天大学控制与仪器工程学士；新加坡南洋理工大学精密仪器硕士。研究兴趣：具身智能与视觉语言模型、机器人优化与前沿AI、强化学习。",
-    "avatar": "image/user/xingwei.jpg",
+    "description": "Bachelor's student in Automation from Huazhong University of Science and Technology. Research interests: Legged Robot, VLA, Dexterous Manipulation, RL, Real-world RL.",
+    "descriptionZh": "华中科技大学自动化专业学士（在读）。研究兴趣：足式机器人、VLA、灵巧操作、强化学习、真机强化学习。",
+    "avatar": "image/user/yian.jpg",
     "homepage": "https://example.com",
-    "scholar": "https://scholar.google.com/...",
-    "github": "https://github.com/HarryXingweiCHEN",
-    "email": "xingweichen@hkust-gz.edu.cn",
+    "scholar": "https://scholar.google.com/citations?user=6r1AhYcAAAAJ&hl=en",
+    "github": "https://github.com/WWWWYYYYAAAA",
+    "email": "wya994719@gmail.com",
     "status": "current",
-    "cohort": 2025,
+    "cohort": 2026,
     "affiliation": "NEBULIS Lab"
-  },
+  }
   {
     "name": "尤飞扬",
     "nameEn": "Feiyang You",
