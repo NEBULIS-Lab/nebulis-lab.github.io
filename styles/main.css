@@ -1272,20 +1272,27 @@ main {
     height: 32px;
   }
   
-  /* 在移动端，隐藏 nav-right 和 nav-actions */
+  /* 在移动端保留语言切换按钮，仅隐藏内嵌导航容器 */
   .nav-right {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+    min-width: 0;
   }
   
   .nav-actions {
-    display: none;
+    display: flex;
+    flex-shrink: 0;
   }
 }
 
 .nav-right {
   display: none;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-4);
+  min-width: 0;
+  margin-left: auto;
 }
 
 @media (min-width: 768px) {
@@ -1297,6 +1304,11 @@ main {
 .nav-actions {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-menu {
+  min-width: 0;
 }
 
 .nav-link {
@@ -1368,7 +1380,7 @@ main {
   
   .nav-brand {
     flex: 0 1 auto;
-    max-width: calc(100% - 100px);
+    max-width: calc(100% - 170px);
     overflow: hidden;
     min-width: 0;
   }
@@ -1385,6 +1397,11 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .language-switch {
+    transform: scale(0.95);
+    transform-origin: right center;
   }
 }
 
