@@ -101,4 +101,21 @@
     "cohort": 2025,
     "affiliation": "NEBULIS Lab"
   }
+  {
+    "name": "张成龙",
+    "nameEn": "Chenglong Zhang",
+    "role": "ra",
+    "program": "Research Assistant",
+    "advisors": ["苏宁馨"],
+    "description": "Master in Mathematics from NPU and Bachelor in Information and Computing Science from TYUT. My research focuses on VLA, Embodied AI, Multi-agent Systems, and Dynamical Systems Forecasting. I am currently exploring new frontiers in AI and robotics and would love to connect with you!",
+    "descriptionZh": "西北工业大学数学硕士，太原理工大学信息与计算科学学士。研究兴趣：VLA,具身智能，多智能体，动力系统预测。目前正在转行学习！欢迎交流",
+    "avatar": "image/user/chenglong.jpg",
+    "homepage": "https://example.com",
+    "scholar": "https://scholar.google.com.hk/citations?user=omYi4QsAAAAJ&hl=zh-CN&authuser=1",
+    "github": "https://github.com/clzJY",
+    "email": "15203561398@163.com",
+    "status": "current",
+    "cohort": 2026,
+    "affiliation": "NEBULIS Lab"
+  }
 ]
