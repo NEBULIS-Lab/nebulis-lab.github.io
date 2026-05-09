@@ -4432,6 +4432,14 @@ main {
   line-height: 1.5;
 }
 
+.news-list-excerpt strong {
+  font-weight: 700;
+}
+
+.news-list-excerpt em {
+  font-style: italic;
+}
+
 .news-list-link-wrapper {
   display: flex;
   gap: var(--space-4);
