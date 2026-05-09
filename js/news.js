@@ -168,10 +168,15 @@ function createNewsListItem(newsItem) {
   title.textContent = newsItem.title || 'Untitled News';
 
   // Excerpt
-  if (newsItem.excerpt) {
+  const excerptHtml = newsItem.excerptHtml || newsItem.excerpt_html;
+  if (excerptHtml || newsItem.excerpt) {
     const excerpt = document.createElement('p');
     excerpt.className = 'news-list-excerpt';
-    excerpt.textContent = newsItem.excerpt;
+    if (excerptHtml) {
+      excerpt.innerHTML = excerptHtml;
+    } else {
+      excerpt.textContent = newsItem.excerpt;
+    }
     textWrapper.appendChild(meta);
     textWrapper.appendChild(title);
     textWrapper.appendChild(excerpt);
@@ -185,6 +190,10 @@ function createNewsListItem(newsItem) {
     const link = document.createElement('a');
     link.href = newsItem.link;
     link.className = 'news-list-link-wrapper';
+    if (/^https?:\/\//.test(newsItem.link)) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
     if (imageDiv) link.appendChild(imageDiv);
     link.appendChild(textWrapper);
     content.appendChild(link);

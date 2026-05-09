@@ -173,10 +173,15 @@ function createNewsListItem(newsItem, lang) {
   title.textContent = getLocalizedField(newsItem, lang, ['titleZh', 'title_zh'], newsItem.title || messages.untitled);
 
   // Excerpt
-  if (newsItem.excerpt) {
+  const excerptHtml = getLocalizedField(newsItem, lang, ['excerptHtmlZh', 'excerpt_html_zh'], newsItem.excerptHtml || newsItem.excerpt_html);
+  if (excerptHtml || newsItem.excerpt) {
     const excerpt = document.createElement('p');
     excerpt.className = 'news-list-excerpt';
-    excerpt.textContent = getLocalizedField(newsItem, lang, ['excerptZh', 'excerpt_zh'], newsItem.excerpt);
+    if (excerptHtml) {
+      excerpt.innerHTML = excerptHtml;
+    } else {
+      excerpt.textContent = getLocalizedField(newsItem, lang, ['excerptZh', 'excerpt_zh'], newsItem.excerpt);
+    }
     textWrapper.appendChild(meta);
     textWrapper.appendChild(title);
     textWrapper.appendChild(excerpt);
@@ -190,6 +195,10 @@ function createNewsListItem(newsItem, lang) {
     const link = document.createElement('a');
     link.href = newsItem.link;
     link.className = 'news-list-link-wrapper';
+    if (/^https?:\/\//.test(newsItem.link)) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
     if (imageDiv) link.appendChild(imageDiv);
     link.appendChild(textWrapper);
     content.appendChild(link);
