@@ -1,6 +1,6 @@
 {
   "id": "brace-project-2026",
-  "title": "BRACE: Budgeted Replanning for Embodied Agents",
+  "title": "Budgeted Replanning for Embodied Agents",
   "titleZh": "BRACE：面向具身智能体的预算化重规划",
   "authors": "Shuaijun Liu, Feiyang You, Xingwei Chen, Ningxin Su",
   "venue": "ICML 2026",
@@ -8,7 +8,7 @@
   "thumbnail": "image/projects/brace/overview.png",
   "short_description": "BRACE treats replanning as a budgeted control loop for embodied agents, deciding when to replan, which mode to use, and how many tokens and milliseconds each replanning call can spend. Together with E-RECAP, it reduces replanning token counts and latency SLO violations while preserving task success across navigation, manipulation, coordination, and AirSim benchmarks.",
   "shortDescriptionZh": "BRACE 将具身智能体的重规划建模为预算化控制循环，决定何时重规划、采用何种模式，以及每次重规划调用可以使用多少 token 和延迟预算。结合 E-RECAP 后，该方法在导航、操作、协作和 AirSim 场景中降低重规划 token 开销与延迟 SLO 违约率，同时保持任务成功率。",
-  "tags": ["Embodied AI", "Replanning", "Latency-Aware Systems", "Token Budgeting"],
+  "tags": ["Replanning", "Latency-Aware Systems", "Token Budgeting"],
   "pdf": "",
   "code": "",
   "slides": "",
