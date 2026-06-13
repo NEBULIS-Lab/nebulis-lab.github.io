@@ -146,9 +146,14 @@ function createProjectCard(project, lang) {
   const linksDiv = document.createElement('div');
   linksDiv.className = 'initiative-links';
   const detailLink = document.createElement('a');
-  detailLink.href = `project.html?id=${project.id}`;
+  const detailUrl = project.detail_link || `project.html?id=${project.id}`;
+  detailLink.href = detailUrl;
   detailLink.className = 'initiative-link';
   detailLink.textContent = messages.details;
+  if (/^https?:\/\//.test(detailUrl)) {
+    detailLink.target = '_blank';
+    detailLink.rel = 'noopener noreferrer';
+  }
   linksDiv.appendChild(detailLink);
   contentDiv.appendChild(linksDiv);
 
