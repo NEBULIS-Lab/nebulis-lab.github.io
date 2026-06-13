@@ -1,5 +1,38 @@
 [
   {
+    "year": "2026",
+    "title": "When Replanning Becomes the Bottleneck: Budgeted Replanning for Embodied Agents",
+    "authors": "Shuaijun Liu, Feiyang You, Xingwei Chen, Ningxin Su",
+    "venue": "ICML",
+    "pdf": null,
+    "code": null,
+    "project": "https://nebulis-lab.com/BRACE",
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2026",
+    "title": "Square: Towards Sharing Internet-Scale GPU Clouds Fairly and Efficiently",
+    "authors": "Ningxin Su, Freeman Cheng, Baochun Li",
+    "venue": "IEEE/ACM IWQoS",
+    "pdf": "https://iqua.ece.toronto.edu/papers/nsu-iwqos26.pdf",
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2026",
+    "title": "State of the Union: Towards Reproducible Performance Evaluations in Federated Learning",
+    "authors": "Ningxin Su, Baochun Li, Bo Li",
+    "venue": "IEEE TKDE",
+    "pdf": "https://www.computer.org/csdl/journal/tk/5555/01/11536925/2gPKXEibZPG",
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
     "year": "2024",
     "title": "MLOps in the Metaverse: Human-Centric Continuous Integration",
     "authors": "Ningxin Su, Baochun Li",
