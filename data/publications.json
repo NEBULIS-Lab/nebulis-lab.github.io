@@ -71,7 +71,7 @@
     "authors": "Sijia Chen, Ningxin Su, Baochun Li",
     "venue": "IEEE ICDCS",
     "pdf": "https://ningxinsu.github.io/assets/icdcs24.pdf",
-    "code": null,
+    "code": "https://github.com/TL-System/plato/tree/main/examples/ssl/calibre",
     "project": null,
     "slides": null,
     "award": null
