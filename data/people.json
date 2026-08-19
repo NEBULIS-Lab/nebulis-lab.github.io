@@ -53,8 +53,8 @@
   {
     "name": "尤飞扬",
     "nameEn": "Feiyang You",
-    "role": "ra",
-    "program": "Research Assistant",
+    "role": "phd",
+    "program": "PhD",
     "advisors": ["苏宁馨"],
     "description": "BEng in Automation from Shanghai Jiao Tong University. Research interests: Real-time Motion Generation in Embodied Intelligence. Enjoys soccer and LOL. My friends call me 'Dormitory TheShy' due to my remarkably consistent feeding skills.",
     "descriptionZh": "上海交通大学自动化专业学士。研究兴趣：具身智能中的实时运动生成。喜欢足球、英雄联盟和观看比赛。顺便一提，朋友们叫我\"宿舍 TheShy\", 因为我有着非常稳定的送人头技巧。",
@@ -70,8 +70,8 @@
   {
     "name": "郝舒扬",
     "nameEn": "Shuyang Hao",
-    "role": "ra",
-    "program": "Research Assistant",
+    "role": "phd",
+    "program": "PhD",
     "advisors": ["苏宁馨"],
     "description": "Bachelor of Engineering in Artificial Intelligence from Southeast University. Research interests: Multi-Agent Collaboration, Embodied Intelligence, Trustworthy AI.",
     "descriptionZh": "东南大学人工智能专业工程学士。研究兴趣：多智能体协作、具身智能、可信人工智能。",
@@ -87,8 +87,8 @@
   {
     "name": "张成龙",
     "nameEn": "Chenglong Zhang",
-    "role": "ra",
-    "program": "Research Assistant",
+    "role": "phd",
+    "program": "PhD",
     "advisors": ["苏宁馨"],
     "description": "Master in Mathematics from NPU and Bachelor in Information and Computing Science from TYUT. My research focuses on VLA, Embodied AI, Multi-agent Systems, and Dynamical Systems Forecasting. I am currently exploring new frontiers in AI and robotics and would love to connect with you!",
     "descriptionZh": "西北工业大学数学硕士，太原理工大学信息与计算科学学士。研究兴趣：VLA,具身智能，多智能体，动力系统预测。目前正在转行学习！欢迎交流",

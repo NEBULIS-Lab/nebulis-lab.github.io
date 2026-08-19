@@ -3068,6 +3068,130 @@ main {
   }
 }
 
+/* Equipments Page */
+.equipments-section {
+  padding: var(--space-12) 0;
+  background: var(--color-card-bg);
+}
+
+@media (max-width: 767px) {
+  .equipments-section {
+    padding: var(--space-8) 0;
+  }
+}
+
+.equipment-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--space-10);
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .equipment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.equipment-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.equipment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.equipment-image,
+.equipment-media-placeholder {
+  aspect-ratio: 16/9;
+  width: 100%;
+  background: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+.equipment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.equipment-media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.equipment-media-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 22px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-md);
+}
+
+.equipment-info {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.equipment-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.equipment-brand {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.equipment-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-fg);
+}
+
+.equipment-meta li {
+  font-size: 0.925rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.equipment-meta strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
 .initiative-content {
   padding: var(--space-6);
 }
