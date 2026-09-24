@@ -1,13 +1,45 @@
 [
   {
     "year": "2026",
-<<<<<<< Updated upstream
-    "title": "When Replanning Becomes the Bottleneck: Budgeted Replanning for Embodied Agents",
-    "authors": "Shuaijun Liu, Feiyang You, Xingwei Chen, Ningxin Su",
-    "venue": "ICML",
+    "title": "Beyond Appearance Shifts: Task-Semantic Action Calibration for VLA Models",
+    "authors": "Shuaijun Liu, Feiyang You, Chengyu Wu, Shuyang Hao, Chenglong Zhang, Jingyao Cai, Xingwei Chen, Li Sun, Ningxin Su",
+    "venue": "NeurIPS",
     "pdf": null,
     "code": null,
-    "project": "https://nebulis-lab.com/BRACE",
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2026",
+    "title": "Toward Efficient Reasoning of Large Language Models via Latent Concept-Pyramid Modeling",
+    "authors": "Sijia Chen, Ningxin Su",
+    "venue": "NeurIPS",
+    "pdf": null,
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2026",
+    "title": "Patch4Patch: Restoring Structural Connectivity in Patch-based Vision Encoders",
+    "authors": "Yaqi Zhang, Shuntian Yao, Niantai Qu, Runguo Chen, Hanyu Lai, Ningxin Su, Li Sun, Sen Su",
+    "venue": "NeurIPS",
+    "pdf": null,
+    "code": null,
+    "project": null,
+    "slides": null,
+    "award": null
+  },
+  {
+    "year": "2026",
+    "title": "HeteroTac-Lift: Empirical Lift Admission via Heterogeneous Bilateral Tactile Servoing and Risk-Budgeted Compliance",
+    "authors": "Xingwei Chen, Shuaijun Liu, Feiyang You, Ningxin Su",
+    "venue": "IEEE/RSJ IROS",
+    "pdf": null,
+    "code": null,
+    "project": null,
     "slides": null,
     "award": null
   },
@@ -29,58 +61,22 @@
     "venue": "IEEE TKDE",
     "pdf": "https://ningxinsu.github.io/assets/ningxin-tkde26.pdf",
     "code": "https://github.com/TL-System/plato",
-=======
-    "title": "State of the Union: Towards Reproducible Performance Evaluations in Federated Learning",
-    "authors": "Ningxin Su, Baochun Li, Bo Li",
-    "venue": "IEEE TKDE",
-    "pdf": null,
-    "code": null,
->>>>>>> Stashed changes
     "project": null,
     "slides": null,
     "award": null
   },
   {
-    "year": "2026",
-    "title": "HeteroTac-Lift: Empirical Lift Admission via Heterogeneous Bilateral Tactile Servoing and Risk-Budgeted Compliance",
-<<<<<<< Updated upstream
-    "authors": "",
-=======
-    "authors": "Xingwei Chen, Shuaijun Liu, Feiyang You, Ningxin Su",
->>>>>>> Stashed changes
-    "venue": "IEEE/RSJ IROS",
-    "pdf": null,
-    "code": null,
-    "project": null,
-    "slides": null,
-    "award": null
-  },
-  {
-<<<<<<< Updated upstream
-=======
     "year": "2026",
     "title": "When Replanning Becomes the Bottleneck: Budgeted Replanning for Embodied Agents",
     "authors": "Shuaijun Liu, Feiyang You, Xingwei Chen, Ningxin Su",
     "venue": "ICML",
     "pdf": null,
     "code": null,
-    "project": null,
+    "project": "https://nebulis-lab.com/BRACE",
     "slides": null,
     "award": null
   },
   {
-    "year": "2026",
-    "title": "Square: Towards Sharing Internet-Scale GPU Clouds Fairly and Efficiently",
-    "authors": "Ningxin Su, Freeman Cheng, Baochun Li",
-    "venue": "IEEE/ACM IWQoS",
-    "pdf": null,
-    "code": null,
-    "project": null,
-    "slides": null,
-    "award": null
-  },
-  {
->>>>>>> Stashed changes
     "year": "2024",
     "title": "MLOps in the Metaverse: Human-Centric Continuous Integration",
     "authors": "Ningxin Su, Baochun Li",
