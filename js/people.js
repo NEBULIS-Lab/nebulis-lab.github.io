@@ -182,7 +182,7 @@ function createPersonCard(person) {
     if (person.homepage && person.homepageInvitation) {
         const invitationEn = person.homepageInvitation;
         const invitationZh = person.homepageInvitationZh || invitationEn;
-        invitationHTML = ` <span class="person-homepage-invitation"><span data-en="${escapeHtmlAttr(invitationEn)}" data-zh="${escapeHtmlAttr(invitationZh)}">${escapeHtml(currentLang === 'zh' ? invitationZh : invitationEn)}</span> <a href="${safeHomepage}" class="person-homepage-text" target="_blank" rel="noopener noreferrer" data-en="my personal homepage" data-zh="我的个人主页">${currentLang === 'zh' ? '我的个人主页' : 'my personal homepage'}</a><span data-en="." data-zh="看看。">${currentLang === 'zh' ? '看看。' : '.'}</span></span>`;
+        invitationHTML = ` <span class="person-homepage-invitation"><span data-en="${escapeHtmlAttr(invitationEn)}" data-zh="${escapeHtmlAttr(invitationZh)}">${escapeHtml(currentLang === 'zh' ? invitationZh : invitationEn)}</span> <span data-en="my personal " data-zh="我的个人">${currentLang === 'zh' ? '我的个人' : 'my personal '}</span><a href="${safeHomepage}" class="person-homepage-text" target="_blank" rel="noopener noreferrer" data-en="homepage" data-zh="主页">${currentLang === 'zh' ? '主页' : 'homepage'}</a><span data-en="." data-zh="看看。">${currentLang === 'zh' ? '看看。' : '.'}</span></span>`;
     }
     
     // Check if this is Nebula-ChatBot
