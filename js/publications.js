@@ -6,7 +6,7 @@ const publicationMessages = {
     loadError: 'Failed to load publications.',
     labels: {
       paper: 'Paper',
-      project: 'Project',
+      project: 'Page',
       slides: 'Slides',
       code: 'Code'
     }
@@ -16,7 +16,7 @@ const publicationMessages = {
     loadError: '论文加载失败。',
     labels: {
       paper: '论文',
-      project: '项目',
+      project: '主页',
       slides: '幻灯片',
       code: '代码'
     }

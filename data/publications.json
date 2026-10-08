@@ -4,9 +4,9 @@
     "title": "Beyond Appearance Shifts: Task-Semantic Action Calibration for VLA Models",
     "authors": "Shuaijun Liu, Feiyang You, Chengyu Wu, Shuyang Hao, Chenglong Zhang, Jingyao Cai, Xingwei Chen, Li Sun, Ningxin Su",
     "venue": "NeurIPS",
-    "pdf": null,
-    "code": null,
-    "project": null,
+    "pdf": "https://arxiv.org/abs/2609.23650",
+    "code": "https://github.com/NEBULIS-Lab/Beyond-Appearance-Shifts",
+    "project": "https://nebulis-lab.com/Beyond-Appearance-Shifts/",
     "slides": null,
     "award": null
   },
@@ -70,8 +70,8 @@
     "title": "When Replanning Becomes the Bottleneck: Budgeted Replanning for Embodied Agents",
     "authors": "Shuaijun Liu, Feiyang You, Xingwei Chen, Ningxin Su",
     "venue": "ICML",
-    "pdf": null,
-    "code": null,
+    "pdf": "https://arxiv.org/abs/2608.01428",
+    "code": "https://github.com/NEBULIS-Lab/BRACE",
     "project": "https://nebulis-lab.com/BRACE",
     "slides": null,
     "award": null
