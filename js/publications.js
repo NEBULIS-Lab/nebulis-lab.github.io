@@ -7,6 +7,7 @@ const publicationMessages = {
     labels: {
       paper: 'Paper',
       project: 'Page',
+      poster: 'Poster',
       slides: 'Slides',
       code: 'Code'
     }
@@ -17,6 +18,7 @@ const publicationMessages = {
     labels: {
       paper: '论文',
       project: '主页',
+      poster: '海报',
       slides: '幻灯片',
       code: '代码'
     }
@@ -144,6 +146,7 @@ function renderPublications(publications, listEl, lang, state, errorMessage) {
 
     addLink(messages.labels.paper, pub.pdf);
     addLink(messages.labels.project, pub.project);
+    addLink(messages.labels.poster, pub.poster);
     addLink(messages.labels.slides, pub.slides);
     addLink(messages.labels.code, pub.code);
 
