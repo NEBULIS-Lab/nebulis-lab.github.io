@@ -1,0 +1,12 @@
+{
+  "id": "mimicx-project-2026",
+  "title": "MimicX: Policy-in-the-Loop Supervision Refinement for Video-Driven Humanoid Motion Tracking",
+  "titleZh": "MimicX：策略在环的监督优化，用于视频驱动的人形机器人运动跟踪",
+  "year": 2026,
+  "thumbnail": "image/projects/mimicx/tennis-motion.png",
+  "thumbnailFit": "contain",
+  "short_description": "MimicX learns humanoid motion-tracking policies from human video and uses execution feedback to refine training supervision. It diagnoses difficult motion segments and body regions, adapts objectives and curricula, and verifies improvements through repeated policy rollouts.",
+  "shortDescriptionZh": "MimicX 从人类视频中学习人形机器人运动跟踪策略，并利用执行反馈改进训练监督。方法诊断困难动作片段与身体部位，调整训练目标和课程，再通过重复策略执行验证改进效果。",
+  "tags": ["Humanoid Robotics", "Video Imitation", "Policy Learning"],
+  "detail_link": "https://nebulis-lab.com/MimicX/"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "beyond-appearance-shifts-project-2026",
+  "title": "Beyond Appearance Shifts: Task-Semantic Action Calibration for VLA Models",
+  "titleZh": "Beyond Appearance Shifts：面向 VLA 模型的任务语义动作校准",
+  "year": 2026,
+  "thumbnail": "image/projects/beyond-appearance-shifts/overview.png",
+  "thumbnailFit": "contain",
+  "short_description": "BAS-VLA helps vision-language-action policies stay stable when appearance changes and adapt when the task changes. A residual action calibrator learns from matched clean, task-preserving, and semantic-breaking examples, while a selective visual auxiliary supports robustness across simulation and real-robot manipulation.",
+  "shortDescriptionZh": "BAS-VLA 让视觉-语言-动作策略在外观变化时保持稳定，在任务语义变化时调整动作。方法通过配对的原始、任务保持与语义改变样本学习残差动作校准，并结合选择性视觉辅助，提升仿真与真实机器人操作中的鲁棒性。",
+  "tags": ["Vision-Language-Action", "Task Semantics", "Robotic Manipulation"],
+  "detail_link": "https://nebulis-lab.com/Beyond-Appearance-Shifts/"
+}

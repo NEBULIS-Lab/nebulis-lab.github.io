@@ -104,6 +104,9 @@ function createProjectCard(project, lang) {
   // Image
   const imageDiv = document.createElement('div');
   imageDiv.className = 'initiative-image';
+  if (project.thumbnailFit === 'contain') {
+    imageDiv.classList.add('initiative-image-contain');
+  }
   const img = document.createElement('img');
   img.src = project.thumbnail || 'image/project/example1.png';
   img.alt = project.title || 'Project image';

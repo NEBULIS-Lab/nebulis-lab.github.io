@@ -177,6 +177,13 @@ function createPersonCard(person) {
     const safeScholar = escapeHtmlAttr(person.scholar || '');
     const safeGithub = escapeHtmlAttr(person.github || '');
     const safeEmail = escapeHtmlAttr(person.email || '');
+
+    let invitationHTML = '';
+    if (person.homepage && person.homepageInvitation) {
+        const invitationEn = person.homepageInvitation;
+        const invitationZh = person.homepageInvitationZh || invitationEn;
+        invitationHTML = ` <span class="person-homepage-invitation"><span data-en="${escapeHtmlAttr(invitationEn)}" data-zh="${escapeHtmlAttr(invitationZh)}">${escapeHtml(currentLang === 'zh' ? invitationZh : invitationEn)}</span> <a href="${safeHomepage}" class="person-homepage-text" target="_blank" rel="noopener noreferrer" data-en="my personal homepage" data-zh="我的个人主页">${currentLang === 'zh' ? '我的个人主页' : 'my personal homepage'}</a><span data-en="." data-zh="看看。">${currentLang === 'zh' ? '看看。' : '.'}</span></span>`;
+    }
     
     // Check if this is Nebula-ChatBot
     const isNebulaChatBot = (person.name === 'Nebula-ChatBot' || person.nameEn === 'Nebula-ChatBot');
@@ -209,7 +216,7 @@ function createPersonCard(person) {
         ${avatarElement}
         <h3 class="person-name" data-zh="${safeNameZhAttr}" data-en="${safeNameEnAttr}">${safeInitialName}</h3>
         <div class="person-role" data-zh="${safeRoleZhAttr}" data-en="${safeRoleEnAttr}">${safeInitialRole}</div>
-        <div class="person-description" data-zh="${safeDescriptionZhAttr}" data-en="${safeDescriptionEnAttr}">${safeInitialDescription}</div>
+        <div class="person-description"><span class="person-description-text" data-zh="${safeDescriptionZhAttr}" data-en="${safeDescriptionEnAttr}">${safeInitialDescription}</span>${invitationHTML}</div>
         ${linksHTML}
     `;
     
@@ -253,7 +260,7 @@ function updatePeopleCardsLanguage(lang) {
         }
         
         // Update description text
-        const descriptionElement = card.querySelector('.person-description');
+        const descriptionElement = card.querySelector('.person-description-text');
         if (descriptionElement) {
             const zhText = descriptionElement.getAttribute('data-zh');
             const enText = descriptionElement.getAttribute('data-en');
@@ -267,7 +274,7 @@ function updatePeopleCardsLanguage(lang) {
         }
         
         // Update link text
-        const links = card.querySelectorAll('.person-link[data-zh][data-en]');
+        const links = card.querySelectorAll('.person-link[data-zh][data-en], .person-homepage-invitation [data-zh][data-en]');
         links.forEach(link => {
             const zhText = link.getAttribute('data-zh');
             const enText = link.getAttribute('data-en');

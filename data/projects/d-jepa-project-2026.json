@@ -1,0 +1,12 @@
+{
+  "id": "d-jepa-project-2026",
+  "title": "D-JEPA: A Decision-Aligned Latent World Model",
+  "titleZh": "D-JEPA：决策对齐的潜在世界模型",
+  "year": 2026,
+  "thumbnail": "image/projects/d-jepa/overview.webp",
+  "thumbnailFit": "contain",
+  "short_description": "D-JEPA aligns predictive world models with action selection. It learns decision-relevant relations among predicted futures, combines evidence from multiple predictive geometries, and writes this structure back into latent representations for robotic manipulation and autonomous driving.",
+  "shortDescriptionZh": "D-JEPA 将预测式世界模型与动作选择对齐，学习预测未来之间与决策相关的关系，融合多种预测几何中的信息，并将决策结构写回潜在表征，服务于机器人操作与自动驾驶。",
+  "tags": ["World Models", "JEPA", "Decision Alignment"],
+  "detail_link": "https://nebulis-lab.com/D-JEPA/"
+}
