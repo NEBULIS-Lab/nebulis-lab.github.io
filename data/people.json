@@ -102,5 +102,22 @@
     "status": "current",
     "cohort": 2026,
     "affiliation": "NEBULIS Lab"
+  },
+  {
+    "name": "张靖豪",
+    "nameEn": "Jing Hao Teo",
+    "role": "Undergraduate",
+    "program": "Undergraduate",
+    "advisors": ["苏宁馨"],
+    "description": "25 Undergraduate.Intended area: AI. My research focuses on VLA, embodied AI, multimodal perception, and human-centered robot learning.",
+    "descriptionZh": "2025级本科生，意向方向为人工智能。研究兴趣包括视觉语言动作模型（VLA）、具身智能、多模态感知和以人为中心的机器人学习。",
+    "avatar": "",
+    "homepage": "",
+    "scholar": "",
+    "github": "https://github.com/TeoJingHao",
+    "email": "jhteo307@connect.hkust-gz.edu.cn",
+    "status": "current",
+    "cohort": 2026,
+    "affiliation": "NEBULIS Lab"
   }
 ]
