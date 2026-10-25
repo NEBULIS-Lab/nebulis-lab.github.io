@@ -316,3 +316,18 @@ Simply edit the corresponding JSON file.
 ---
 
 If you have any questions, please refer to the JSON file structure of existing projects or contact the website maintainer.
+
+
+## Live Visitor Statistics
+
+All root website pages load `js/visitors.js` and `styles/visitors.css`. One document load (including a return from the browser back/forward cache) counts as one page view. New loads have independent event IDs; retries reuse the same ID. Collection runs only on the lab's production hostnames, with URL query strings and fragments omitted.
+
+The footer preserves the approved layout. It displays aggregate counts and IP-estimated country/region aggregates from the public statistics API. Figures remain unavailable if the API fails; demo values are never substituted. The previous `visitor-preview.html` route redirects to the live footer.
+
+The durable backend is maintained separately through Sites, project `appgprj_6add812d00408191b1d72643e279e253`; its source and D1 schema migrations are stored in that project's source repository. The endpoint is configured in `js/visitors.js`. The application database stores location aggregates and delivery IDs, not complete IP addresses, cookies, or URL query strings. Delivery IDs older than 24 hours are pruned on the next accepted visit. Public GET `/api/stats` does not create visits.
+
+The cached basemap in `image/visitor-world.svg` uses Natural Earth public-domain geometry; `js/visitor-data.js` uses the matching Natural Earth 1 projection. Counts begin with the first accepted live page load, reported by the API as `startedAt`.
+
+Country markers use Natural Earth public-domain label positions; they represent countries/regions, not precise visitor cities. The deployed host forwards Cloudflare country headers, and the collector does not need an external IP lookup service.
+
+Run the website regression checks with `node --test tests/*.test.mjs`. The backend source has its separate real-SQLite test suite.
