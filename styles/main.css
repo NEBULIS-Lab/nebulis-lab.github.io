@@ -3248,6 +3248,14 @@ main {
   margin-bottom: var(--space-4);
 }
 
+.initiative-content .initiative-venue {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  text-align: start;
+}
+
 .initiative-links {
   display: flex;
   gap: var(--space-4);

@@ -192,7 +192,7 @@ Add the new project JSON filename to the `projects` array in `data/projects/mani
 ```
 
 **Important Notes:**
-- Projects are automatically sorted by year in descending order (newest first) based on the filename, so manual sorting is not needed.
+- Projects are sorted by filename year descending. Within a year, the manifest order is preserved: conference papers first, newest conference first, followed by preprints in descending arXiv first-submission order.
 - **Adding a project:** You need to both create the JSON file AND add its filename to `manifest.json`.
 - **Removing a project:** You can either:
   1. Delete the JSON file AND remove it from `manifest.json` (recommended)
@@ -229,7 +229,14 @@ The project details page (`project.html`) automatically loads all information fr
 - Extracts year from filename: `<id>-<year>.json`
 - Uses regular expression: `/-(\d{4})\.json$/`
 - Sorts by year in descending order (newest projects first)
+- Keeps manifest order within the same year, including conference priority and arXiv first-submission chronology
 - Does not rely on the year field in JSON for sorting
+
+### Bilingual Project Cards
+
+- `titleZh`, `shortDescriptionZh`, `tagsZh`, `venueZh`, and `thumbnailAltZh` provide the Chinese versions of `title`, `short_description`, `tags`, `venue`, and `thumbnailAlt`.
+- `venue` displays a conference name/year or an arXiv first-submission date, for example `arXiv · 2026-10-16`; `venueZh` can use `arXiv 预印本 · 2026-10-16`.
+- The language switch re-renders card text, tags, metadata, and image alternative text while retaining project order and destination links.
 
 ### Error Handling
 - Displays friendly error messages when project loading fails

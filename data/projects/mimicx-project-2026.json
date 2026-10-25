@@ -1,12 +1,28 @@
 {
   "id": "mimicx-project-2026",
-  "title": "MimicX: Policy-in-the-Loop Supervision Refinement for Video-Driven Humanoid Motion Tracking",
-  "titleZh": "MimicX：策略在环的监督优化，用于视频驱动的人形机器人运动跟踪",
+  "title": "MimicX: Policy-in-the-Loop Supervision Refinement for Humanoid Motion Tracking",
+  "titleZh": "MimicX：面向人形机器人运动跟踪的策略在环监督优化",
   "year": 2026,
   "thumbnail": "image/projects/mimicx/tennis-motion.png",
   "thumbnailFit": "contain",
-  "short_description": "MimicX learns humanoid motion-tracking policies from human video and uses execution feedback to refine training supervision. It diagnoses difficult motion segments and body regions, adapts objectives and curricula, and verifies improvements through repeated policy rollouts.",
-  "shortDescriptionZh": "MimicX 从人类视频中学习人形机器人运动跟踪策略，并利用执行反馈改进训练监督。方法诊断困难动作片段与身体部位，调整训练目标和课程，再通过重复策略执行验证改进效果。",
-  "tags": ["Humanoid Robotics", "Video Imitation", "Policy Learning"],
-  "detail_link": "https://nebulis-lab.com/MimicX/"
+  "short_description": "MimicX turns human videos into humanoid motion skills and uses policy execution feedback to refine training supervision. It locates difficult motion intervals and body regions, adapts tracking objectives and practice curricula, and keeps improvements verified through repeated rollouts. MimicX-HLoop accelerates feedback by overlapping GPU execution and CPU diagnosis.",
+  "shortDescriptionZh": "MimicX 从人类视频中学习人形机器人运动，并利用策略执行反馈持续优化训练监督。方法定位困难动作片段与身体部位，联合调整跟踪目标和训练课程，通过重复执行验证筛选改进；MimicX-HLoop 则通过 GPU 执行与 CPU 诊断的重叠调度加快反馈。",
+  "tags": [
+    "Humanoid Robotics",
+    "Video Imitation",
+    "Policy-in-the-Loop"
+  ],
+  "detail_link": "https://nebulis-lab.com/MimicX/#hloop",
+  "venue": "arXiv · 2026-10-06",
+  "venueZh": "arXiv 预印本 · 2026-10-06",
+  "tagsZh": [
+    "人形机器人",
+    "视频模仿学习",
+    "策略在环优化"
+  ],
+  "thumbnailAlt": "A sequence of humanoid robot poses tracking a tennis swing",
+  "thumbnailAltZh": "人形机器人跟踪网球挥拍动作的连续姿态",
+  "pdf": "https://arxiv.org/abs/2610.09055",
+  "code": "https://github.com/NEBULIS-Lab/MimicX",
+  "project_page": "https://nebulis-lab.com/MimicX/"
 }

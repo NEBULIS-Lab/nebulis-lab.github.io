@@ -1,0 +1,28 @@
+{
+  "id": "bas-vla-project-2026",
+  "title": "BAS-VLA: Task-Semantic Action Calibration for VLA Models",
+  "titleZh": "BAS-VLA：面向视觉语言动作模型的任务语义动作校准",
+  "year": 2026,
+  "thumbnail": "image/projects/beyond-appearance-shifts/overview.png",
+  "thumbnailFit": "contain",
+  "short_description": "BAS-VLA calibrates a frozen vision-language-action policy to stay stable when appearance changes and adapt when task semantics change. Paired clean, task-preserving, and semantic-breaking examples train a lightweight residual calibrator, while a selective visual auxiliary helps correct appearance-induced action drift in simulated and real robot manipulation.",
+  "shortDescriptionZh": "BAS-VLA 为冻结的视觉语言动作策略加入轻量动作校准：外观变化时保持行为稳定，任务语义变化时及时调整动作。方法利用原始、语义保持与语义改变的配对样本训练残差校准器，并按需引入视觉辅助，提升仿真与真实机器人操作的可靠性。",
+  "tags": [
+    "Vision-Language-Action",
+    "Semantic Adaptation",
+    "Robotic Manipulation"
+  ],
+  "detail_link": "https://nebulis-lab.com/BAS-VLA/#figures",
+  "venue": "NeurIPS 2026",
+  "venueZh": "NeurIPS 2026",
+  "tagsZh": [
+    "视觉语言动作模型",
+    "语义适应",
+    "机器人操作"
+  ],
+  "thumbnailAlt": "BAS-VLA framework for task-preserving and semantic-breaking action calibration",
+  "thumbnailAltZh": "BAS-VLA 针对语义保持与语义改变的动作校准框架",
+  "pdf": "https://arxiv.org/abs/2609.23650",
+  "code": "https://github.com/NEBULIS-Lab/BAS-VLA",
+  "project_page": "https://nebulis-lab.com/BAS-VLA/"
+}

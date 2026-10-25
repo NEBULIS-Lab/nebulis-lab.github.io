@@ -1,0 +1,29 @@
+{
+  "id": "vla-fabric-project-2026",
+  "title": "VLA-Fabric: Learning Interaction for Composable Multi-Arm VLA Agents",
+  "titleZh": "VLA-Fabric：面向可组合多机械臂 VLA 智能体的交互学习",
+  "authors": "Chenglong Zhang, Shuaijun Liu, Feiyang You, Shuyang Hao, Chengyu Wu, Ningxin Su",
+  "venue": "arXiv · 2026-10-16",
+  "venueZh": "arXiv 预印本 · 2026-10-16",
+  "year": 2026,
+  "thumbnail": "image/projects/vla-fabric/scene-poster.webp",
+  "thumbnailFit": "contain",
+  "thumbnailAlt": "Four robot arms coordinating to hold a shared frame around a central post",
+  "thumbnailAltZh": "四个机械臂协同支撑中央立柱周围的共享框架",
+  "short_description": "VLA-Fabric gives each robot arm a complete local vision-language-action policy and learns how these policies interact during action generation. Shared context, peer-specific information, and action-stage interaction support coordination across different backbones and teams of two, three, or four arms, with simulation and physical robot evaluations.",
+  "shortDescriptionZh": "VLA-Fabric 为每个机械臂保留完整的局部视觉语言动作策略，并学习策略在动作生成过程中的交互方式。共享上下文、面向伙伴的信息与动作阶段交互共同支持协作，方法在不同模型架构及双臂、三臂、四臂团队中开展仿真和真实机器人验证。",
+  "tags": [
+    "Vision-Language-Action",
+    "Multi-Arm Coordination",
+    "Embodied Intelligence"
+  ],
+  "tagsZh": [
+    "视觉语言动作模型",
+    "多机械臂协作",
+    "具身智能"
+  ],
+  "pdf": "https://arxiv.org/abs/2610.23018",
+  "code": "https://github.com/NEBULIS-Lab/VLA-Fabric",
+  "detail_link": "https://nebulis-lab.com/VLA-Fabric/",
+  "project_page": "https://nebulis-lab.com/VLA-Fabric/"
+}

@@ -84,6 +84,8 @@ Refer to the template file `data/projects/template-project-2025.json`. The JSON 
 - `thumbnail`: Thumbnail image path (for project card)
 - `short_description`: Short description (for project card, automatically justified)
 - `tags`: Array of tags (optional)
+- `titleZh`, `shortDescriptionZh`, `tagsZh`, `venueZh`, `thumbnailAltZh`: Chinese card content; paired English fields are `title`, `short_description`, `tags`, `venue`, and `thumbnailAlt`
+- `venue`: Card publication label, such as `NeurIPS 2026` or `arXiv · 2026-10-16` (the arXiv first-submission date)
 - `pdf`, `code`, `slides`, `project_page`: Links (optional, buttons will not display if field is empty string `""`)
 - `sections`: Array of sections, each containing `title` and `text`
 - `figures`: Array of figures, each containing `src` and `caption`
@@ -113,7 +115,7 @@ Refer to the template file `data/projects/template-project-2025.json`. The JSON 
 }
 ```
 
-**Note**: Projects will be displayed in the order specified in manifest.json, but will ultimately be sorted by year in descending order.
+**Note**: Projects are sorted by year descending; projects from the same year keep their order in `manifest.json`. Within a year, list conference papers first, newest conference first, followed by preprints in descending arXiv first-submission order. Keep the English and Chinese cards in the same order.
 
 ---
 

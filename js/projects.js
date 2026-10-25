@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!projects) return;
 
       loadedProjects = projects.filter(project => project !== null);
+      // Stable sorting preserves the manifest's publication order within each year.
       loadedProjects.sort((a, b) => b._fileYear - a._fileYear);
       renderProjects(loadedProjects, gridEl, getProjectsPageLanguage());
     })
@@ -109,13 +110,26 @@ function createProjectCard(project, lang) {
   }
   const img = document.createElement('img');
   img.src = project.thumbnail || 'image/project/example1.png';
-  img.alt = project.title || 'Project image';
+  img.alt = getProjectField(
+    project,
+    lang,
+    ['thumbnailAltZh'],
+    project.thumbnailAlt || project.title || 'Project image'
+  );
   img.loading = 'lazy';
   imageDiv.appendChild(img);
 
   // Content
   const contentDiv = document.createElement('div');
   contentDiv.className = 'initiative-content';
+
+  // Publication venue or arXiv first-submission date
+  if (project.venue) {
+    const venue = document.createElement('p');
+    venue.className = 'initiative-venue';
+    venue.textContent = getProjectField(project, lang, ['venueZh'], project.venue);
+    contentDiv.appendChild(venue);
+  }
 
   // Title
   const title = document.createElement('h2');
@@ -133,10 +147,11 @@ function createProjectCard(project, lang) {
   contentDiv.appendChild(description);
 
   // Tags
-  if (project.tags && project.tags.length > 0) {
+  const tags = getProjectField(project, lang, ['tagsZh'], project.tags || []);
+  if (tags.length > 0) {
     const tagsDiv = document.createElement('div');
     tagsDiv.className = 'initiative-tags';
-    project.tags.forEach(tag => {
+    tags.forEach(tag => {
       const tagSpan = document.createElement('span');
       tagSpan.className = 'tag';
       tagSpan.textContent = tag;
